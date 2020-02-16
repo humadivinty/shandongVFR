@@ -1,0 +1,1494 @@
+Archive member included to satisfy reference by file (symbol)
+
+G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll)
+                              release/cMp4Encode.o (_imp__MP4Close)
+G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll)
+                              release/cMp4Encode.o (_imp__MP4Create)
+G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll)
+                              release/cMp4Encode.o (_imp__MP4SetTimeScale)
+G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll)
+                              release/cMp4Encode.o (_imp__MP4SetVideoProfileLevel)
+G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll)
+                              release/cMp4Encode.o (_imp__MP4AddH264VideoTrack)
+G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll)
+                              release/cMp4Encode.o (_imp__MP4AddH264SequenceParameterSet)
+G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll)
+                              release/cMp4Encode.o (_imp__MP4AddH264PictureParameterSet)
+G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll)
+                              release/cMp4Encode.o (_imp__MP4WriteSample)
+G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll)
+                              G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll) (_IMPORT_DESCRIPTOR_libmp4v2)
+G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll)
+                              G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll) (_NULL_IMPORT_DESCRIPTOR)
+G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll)
+                              G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll) (libmp4v2_NULL_THUNK_DATA)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005771.o)
+                              release/libvideosaver.o (__gxx_personality_v0)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005727.o)
+                              release/libvideosaver.o (operator new(unsigned int))
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005725.o)
+                              release/cMp4Encode.o (operator new[](unsigned int))
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005722.o)
+                              release/libvideosaver.o (operator delete(void*))
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005719.o)
+                              release/cMp4Encode.o (operator delete[](void*))
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d000000.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005771.o) (_head_libstdc___6_dll)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005778.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d000000.o) (libstdc___6_dll_iname)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-atonexit.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtbegin.o (atexit)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gccmain.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/dllcrt2.o (__main)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-natstart.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/dllcrt2.o (__native_startup_lock)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gs_support.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/dllcrt2.o (__security_init_cookie)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlssup.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/dllcrt2.o (__dyn_tls_init_callback)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-cinitexe.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/dllcrt2.o (__xc_z)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-mingw_helpers.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/dllcrt2.o (_decode_pointer)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pseudo-reloc.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/dllcrt2.o (_pei386_runtime_relocator)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlsthrd.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlssup.o) (__mingw_TLScallback)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlsmcrt.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlssup.o) (_CRT_MT)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pseudo-reloc-list.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pseudo-reloc.o) (__RUNTIME_PSEUDO_RELOC_LIST__)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pesect.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pseudo-reloc.o) (__mingw_GetSectionForAddress)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000106.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtbegin.o (__register_frame_info)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000037.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtbegin.o (__deregister_frame_info)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000015.o)
+                              release/libvideosaver.o (_Unwind_Resume)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000000.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000106.o) (_head_libgcc_s_dw2_1_dll)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000122.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000000.o) (libgcc_s_dw2_1_dll_iname)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libgcc.a(_chkstk_ms.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pseudo-reloc.o) (__chkstk_ms)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libgcc.a(_ctors.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gccmain.o) (__DTOR_LIST__)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingwex.a(lib32_libmingwex_a-dllentry.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/dllcrt2.o (DllEntryPoint@12)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingwex.a(lib32_libmingwex_a-dllmain.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/dllcrt2.o (DllMain@12)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01249.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pseudo-reloc.o) (vfprintf)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01222.o)
+                              release/videosaver.o (strstr)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01216.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pesect.o) (strncmp)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01213.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pesect.o) (strlen)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01211.o)
+                              release/avilib.o (strerror)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01198.o)
+                              release/avilib.o (sprintf)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01186.o)
+                              release/avilib.o (realloc)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01179.o)
+                              release/cMp4Encode.o (puts)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01175.o)
+                              release/libvideosaver.o (printf)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01173.o)
+                              release/avilib.o (perror)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01170.o)
+                              release/avilib.o (memcpy)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01159.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/dllcrt2.o (malloc)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01112.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pseudo-reloc.o) (fwrite)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01101.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/dllcrt2.o (free)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01094.o)
+                              release/avilib.o (fprintf)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01078.o)
+                              release/avilib.o (exit)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01067.o)
+                              release/avilib.o (calloc)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01055.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gs_support.o) (abort)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01013.o)
+                              release/avilib.o (write)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00840.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-atonexit.o) (_unlock)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00838.o)
+                              release/avilib.o (umask)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00768.o)
+                              release/avilib.o (_imp___strnicmp)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00658.o)
+                              release/avilib.o (read)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00628.o)
+                              release/avilib.o (open)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00627.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-atonexit.o) (_imp___onexit)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00468.o)
+                              release/avilib.o (lseek)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00460.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-atonexit.o) (_lock)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00354.o)
+                              release/avilib.o (_imp___iob)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00350.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/dllcrt2.o (_initterm)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00224.o)
+                              release/avilib.o (_imp___errno)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00177.o)
+                              release/avilib.o (close)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00175.o)
+                              release/avilib.o (_imp___chsize)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00145.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/dllcrt2.o (_amsg_exit)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00055.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-atonexit.o) (__dllonexit)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsdh.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01249.o) (_head_lib32_libmsvcrt_a)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsdt.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsdh.o) (_lib32_libmsvcrt_a_iname)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01214.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pseudo-reloc.o) (_imp__VirtualQuery@12)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01211.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pseudo-reloc.o) (_imp__VirtualProtect@16)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01179.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gs_support.o) (_imp__UnhandledExceptionFilter@4)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01166.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlsthrd.o) (_imp__TlsGetValue@4)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01159.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gs_support.o) (_imp__TerminateProcess@8)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01145.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/dllcrt2.o (_imp__Sleep@4)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01132.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gs_support.o) (_imp__SetUnhandledExceptionFilter@4)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00919.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gs_support.o) (_imp__QueryPerformanceCounter@4)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00810.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtbegin.o (_imp__LoadLibraryA@4)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00807.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlsthrd.o) (_imp__LeaveCriticalSection@4)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00748.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlsthrd.o) (_imp__InitializeCriticalSection@4)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00664.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gs_support.o) (_imp__GetTickCount@0)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00636.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gs_support.o) (_imp__GetSystemTimeAsFileTime@4)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00582.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtbegin.o (_imp__GetProcAddress@8)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00534.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtbegin.o (_imp__GetModuleHandleA@4)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00516.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pseudo-reloc.o) (_imp__GetLastError@0)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00458.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gs_support.o) (_imp__GetCurrentThreadId@0)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00454.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gs_support.o) (_imp__GetCurrentProcessId@0)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00453.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gs_support.o) (_imp__GetCurrentProcess@0)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00357.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtbegin.o (_imp__FreeLibrary@4)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00240.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlsthrd.o) (_imp__EnterCriticalSection@4)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00212.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlsthrd.o) (_imp__DeleteCriticalSection@4)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfh.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01214.o) (_head_lib32_libkernel32_a)
+F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspft.o)
+                              F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfh.o) (_lib32_libkernel32_a_iname)
+
+Allocating common symbols
+Common symbol       size              file
+
+__DTOR_LIST__       0x8               F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libgcc.a(_ctors.o)
+__native_startup_lock
+                    0x4               F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-natstart.o)
+hmod_libgcc         0x4               F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtbegin.o
+__onexitend         0x4               F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-atonexit.o)
+__native_startup_state
+                    0x4               F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-natstart.o)
+__onexitbegin       0x4               F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-atonexit.o)
+__CTOR_LIST__       0x8               F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libgcc.a(_ctors.o)
+
+Discarded input sections
+
+ .drectve       0x00000000       0x1c F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtbegin.o
+ .drectve       0x00000000       0xa8 release/libvideosaver.o
+ .debug$S       0x00000000       0x42 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.a)
+ .debug$S       0x00000000       0x42 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.c)
+ .debug$S       0x00000000       0x42 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.c)
+ .drectve       0x00000000       0x3c F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-atonexit.o)
+ .drectve       0x00000000       0x50 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-natstart.o)
+ .debug_line    0x00000000       0x77 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libgcc.a(_chkstk_ms.o)
+ .debug_info    0x00000000       0xb3 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libgcc.a(_chkstk_ms.o)
+ .debug_abbrev  0x00000000       0x14 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libgcc.a(_chkstk_ms.o)
+ .debug_aranges
+                0x00000000       0x20 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libgcc.a(_chkstk_ms.o)
+ .debug_frame   0x00000000       0x38 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libgcc.a(_chkstk_ms.o)
+ .drectve       0x00000000       0x3c F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libgcc.a(_ctors.o)
+ .debug_info    0x00000000      0xd34 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libgcc.a(_ctors.o)
+ .debug_abbrev  0x00000000       0x75 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libgcc.a(_ctors.o)
+ .debug_aranges
+                0x00000000       0x18 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libgcc.a(_ctors.o)
+ .debug_line    0x00000000       0xb2 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libgcc.a(_ctors.o)
+ .debug_str     0x00000000        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libgcc.a(_ctors.o)
+ .text          0x00000000        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00768.o)
+ .text          0x00000000        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00224.o)
+ .text          0x00000000        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00175.o)
+ .text          0x00000000        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01214.o)
+ .text          0x00000000        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01211.o)
+ .text          0x00000000        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01179.o)
+ .text          0x00000000        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01166.o)
+ .text          0x00000000        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01159.o)
+ .text          0x00000000        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01145.o)
+ .text          0x00000000        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01132.o)
+ .text          0x00000000        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00919.o)
+ .text          0x00000000        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00810.o)
+ .text          0x00000000        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00807.o)
+ .text          0x00000000        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00748.o)
+ .text          0x00000000        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00664.o)
+ .text          0x00000000        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00636.o)
+ .text          0x00000000        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00582.o)
+ .text          0x00000000        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00534.o)
+ .text          0x00000000        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00516.o)
+ .text          0x00000000        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00458.o)
+ .text          0x00000000        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00454.o)
+ .text          0x00000000        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00453.o)
+ .text          0x00000000        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00357.o)
+ .text          0x00000000        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00240.o)
+ .text          0x00000000        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00212.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x61680000                __image_base__ = 0x61680000
+                0x00000000                __dll__ = 0x0
+                0x61680000                ___ImageBase = 0x61680000
+                0x00001000                __section_alignment__ = 0x1000
+                0x00000200                __file_alignment__ = 0x200
+                0x00000004                __major_os_version__ = 0x4
+                0x00000000                __minor_os_version__ = 0x0
+                0x00000001                __major_image_version__ = 0x1
+                0x00000000                __minor_image_version__ = 0x0
+                0x00000004                __major_subsystem_version__ = 0x4
+                0x00000000                __minor_subsystem_version__ = 0x0
+                0x00000002                __subsystem__ = 0x2
+                0x00200000                __size_of_stack_reserve__ = 0x200000
+                0x00001000                __size_of_stack_commit__ = 0x1000
+                0x00100000                __size_of_heap_reserve__ = 0x100000
+                0x00001000                __size_of_heap_commit__ = 0x1000
+                0x00000000                __loader_flags__ = 0x0
+                0x00000000                __dll_characteristics__ = 0x0
+LOAD F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/dllcrt2.o
+LOAD F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtbegin.o
+LOAD release/libvideosaver.o
+LOAD release/cAviLib.o
+LOAD release/avilib.o
+LOAD release/cMp4Encode.o
+LOAD release/videosaver.o
+LOAD G:\QT\libVideoSaver\lib\libmp4v2.lib
+LOAD release\rc_res.o
+LOAD F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a
+LOAD F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingwthrd.a
+LOAD F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a
+LOAD F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a
+LOAD F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libgcc.a
+LOAD F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmoldname.a
+LOAD F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingwex.a
+LOAD F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a
+LOAD F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libpthread.dll.a
+LOAD F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libadvapi32.a
+LOAD F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libshell32.a
+LOAD F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libuser32.a
+LOAD F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a
+LOAD F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libiconv.a
+LOAD F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingwthrd.a
+LOAD F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a
+LOAD F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a
+LOAD F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libgcc.a
+LOAD F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmoldname.a
+LOAD F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingwex.a
+LOAD F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a
+LOAD F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtend.o
+                0x00000330                . = SIZEOF_HEADERS
+                0x00001000                . = ALIGN (__section_alignment__)
+
+.text           0x61681000     0x6400
+ *(.init)
+ *(.text)
+ .text          0x61681000      0x450 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/dllcrt2.o
+                0x61681040                _CRT_INIT@12
+                0x61681410                DllMainCRTStartup@12
+ .text          0x61681450      0x130 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtbegin.o
+                0x61681450                __gcc_register_frame
+                0x61681550                __gcc_deregister_frame
+ .text          0x61681580      0x300 release/libvideosaver.o
+                0x61681580                Video_CreateProcessHandle
+                0x61681620                Video_CreateVideoFile
+                0x616816e0                Video_WriteH264Frame
+                0x61681790                Video_CloseVideoFile
+                0x61681800                Video_CloseProcessHandle
+ .text          0x61681880      0x120 release/cAviLib.o
+                0x61681880                CAviLib::CAviLib()
+                0x61681880                CAviLib::CAviLib()
+                0x61681890                CAviLib::~CAviLib()
+                0x61681890                CAviLib::~CAviLib()
+                0x616818a0                CAviLib::close()
+                0x616818c0                CAviLib::IsNULL()
+                0x616818d0                CAviLib::setAviInfo(char*, int, int, int, char*)
+                0x61681940                CAviLib::writeFrame(char*, int, int)
+ .text          0x616819a0     0x4160 release/avilib.o
+                0x61682a40                AVI_open_output_file
+                0x61682b90                avi_update_header
+                0x616837c0                AVI_set_video
+                0x61683840                AVI_set_audio
+                0x616838f0                AVI_write_frame
+                0x616839f0                AVI_dup_frame
+                0x61683a70                AVI_write_audio
+                0x61683b60                AVI_append_audio
+                0x61683c90                AVI_bytes_remain
+                0x61683cc0                AVI_bytes_written
+                0x61683cf0                AVI_set_audio_track
+                0x61683d20                AVI_get_audio_track
+                0x61683d30                AVI_close
+                0x61683e00                avi_parse_input_file
+                0x61684fc0                AVI_open_input_file
+                0x61685050                AVI_open_fd
+                0x616850b0                AVI_video_frames
+                0x616850c0                AVI_video_width
+                0x616850d0                AVI_video_height
+                0x616850e0                AVI_frame_rate
+                0x616850f0                AVI_video_compressor
+                0x61685100                AVI_max_video_chunk
+                0x61685110                AVI_audio_tracks
+                0x61685120                AVI_audio_channels
+                0x61685130                AVI_audio_mp3rate
+                0x61685140                AVI_audio_bits
+                0x61685150                AVI_audio_format
+                0x61685160                AVI_audio_rate
+                0x61685170                AVI_audio_bytes
+                0x61685180                AVI_audio_chunks
+                0x61685190                AVI_audio_codech_offset
+                0x616851a0                AVI_audio_codecf_offset
+                0x616851b0                AVI_video_codech_offset
+                0x616851c0                AVI_video_codecf_offset
+                0x616851d0                AVI_frame_size
+                0x61685230                AVI_audio_size
+                0x61685290                AVI_get_video_position
+                0x616852f0                AVI_seek_start
+                0x61685350                AVI_set_video_position
+                0x616853a0                AVI_set_audio_bitrate
+                0x616853d0                AVI_read_frame
+                0x616854e0                AVI_set_audio_position
+                0x61685590                AVI_read_audio
+                0x616856e0                AVI_read_audio_chunk
+                0x61685800                AVI_read_data
+                0x61685a20                AVI_print_error
+                0x61685a80                AVI_strerror
+                0x61685af0                AVI_max_size
+ .text          0x61685b00      0x4a0 release/cMp4Encode.o
+                0x61685b00                CMp4Encode::CMp4Encode()
+                0x61685b00                CMp4Encode::CMp4Encode()
+                0x61685b20                CMp4Encode::~CMp4Encode()
+                0x61685b20                CMp4Encode::~CMp4Encode()
+                0x61685b40                CMp4Encode::FileCreate(char const*, int, int, int)
+                0x61685bb0                CMp4Encode::FileClose()
+                0x61685c00                CMp4Encode::WriteAudioTrack(unsigned char*, int)
+                0x61685c10                CMp4Encode::ReadOneNaluFromBuf(unsigned char const*, unsigned int, unsigned int, _MP4ENC_NaluUnit&)
+                0x61685ce0                CMp4Encode::WriteVideoTrack(unsigned char*, int)
+                0x61685f50                CMp4Encode::FileWrite(int, unsigned char*, int)
+ .text          0x61685fa0      0x430 release/videosaver.o
+                0x61685fa0                CVideoSaver::CVideoSaver(int)
+                0x61685fa0                CVideoSaver::CVideoSaver(int)
+                0x61686010                CVideoSaver::CreateVideoFile(char const*, int, int, int)
+                0x616861b0                CVideoSaver::WriteH264Frame(int, unsigned char*, int)
+                0x61686320                CVideoSaver::CloseVideoFile()
+                0x61686380                CVideoSaver::~CVideoSaver()
+                0x61686380                CVideoSaver::~CVideoSaver()
+ .text          0x616863d0        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005771.o)
+                0x616863d0                __gxx_personality_v0
+ .text          0x616863d8        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005727.o)
+                0x616863d8                operator new(unsigned int)
+ .text          0x616863e0        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005725.o)
+                0x616863e0                operator new[](unsigned int)
+ .text          0x616863e8        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005722.o)
+                0x616863e8                operator delete(void*)
+ .text          0x616863f0        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005719.o)
+                0x616863f0                operator delete[](void*)
+ *fill*         0x616863f8        0x8 
+ .text          0x61686400       0xe0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-atonexit.o)
+                0x61686400                mingw_onexit
+                0x616864c0                atexit
+ .text          0x616864e0       0xa0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gccmain.o)
+                0x616864e0                __do_global_dtors
+                0x61686510                __do_global_ctors
+                0x61686560                __main
+ .text          0x61686580        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-natstart.o)
+ .text          0x61686580      0x140 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gs_support.o)
+                0x61686580                __security_init_cookie
+                0x61686630                __report_gsfailure
+ .text          0x616866c0       0xe0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlssup.o)
+                0x61686710                __dyn_tls_init@12
+                0x61686790                __tlregdtor
+ .text          0x616867a0        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-cinitexe.o)
+ .text          0x616867a0       0x20 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-mingw_helpers.o)
+                0x616867a0                _decode_pointer
+                0x616867b0                _encode_pointer
+ .text          0x616867c0      0x460 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pseudo-reloc.o)
+                0x61686960                _pei386_runtime_relocator
+ .text          0x61686c20      0x270 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlsthrd.o)
+                0x61686c90                ___w64_mingwthr_add_key_dtor
+                0x61686d10                ___w64_mingwthr_remove_key_dtor
+                0x61686db0                __mingw_TLScallback
+ .text          0x61686e90        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlsmcrt.o)
+ .text          0x61686e90        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pseudo-reloc-list.o)
+ .text          0x61686e90      0x350 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pesect.o)
+                0x61686eb0                _ValidateImageBase
+                0x61686ed0                _FindPESection
+                0x61686f10                _FindPESectionByName
+                0x61686fb0                __mingw_GetSectionForAddress
+                0x61687000                __mingw_GetSectionCount
+                0x61687030                _FindPESectionExec
+                0x616870b0                _GetPEImageBase
+                0x616870e0                _IsNonwritableInCurrentImage
+                0x61687140                __mingw_enum_import_library_names
+ .text          0x616871e0        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000106.o)
+                0x616871e0                __register_frame_info
+ .text          0x616871e8        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000037.o)
+                0x616871e8                __deregister_frame_info
+ .text          0x616871f0        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000015.o)
+                0x616871f0                _Unwind_Resume
+ .text          0x616871f8       0x2c F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libgcc.a(_chkstk_ms.o)
+                0x616871f8                __chkstk_ms
+ .text          0x61687224        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libgcc.a(_ctors.o)
+ *fill*         0x61687224        0xc 
+ .text          0x61687230       0x10 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingwex.a(lib32_libmingwex_a-dllentry.o)
+                0x61687230                DllEntryPoint@12
+ .text          0x61687240       0x10 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingwex.a(lib32_libmingwex_a-dllmain.o)
+                0x61687240                DllMain@12
+ .text          0x61687250        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01249.o)
+                0x61687250                vfprintf
+ .text          0x61687258        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01222.o)
+                0x61687258                strstr
+ .text          0x61687260        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01216.o)
+                0x61687260                strncmp
+ .text          0x61687268        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01213.o)
+                0x61687268                strlen
+ .text          0x61687270        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01211.o)
+                0x61687270                strerror
+ .text          0x61687278        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01198.o)
+                0x61687278                sprintf
+ .text          0x61687280        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01186.o)
+                0x61687280                realloc
+ .text          0x61687288        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01179.o)
+                0x61687288                puts
+ .text          0x61687290        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01175.o)
+                0x61687290                printf
+ .text          0x61687298        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01173.o)
+                0x61687298                perror
+ .text          0x616872a0        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01170.o)
+                0x616872a0                memcpy
+ .text          0x616872a8        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01159.o)
+                0x616872a8                malloc
+ .text          0x616872b0        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01112.o)
+                0x616872b0                fwrite
+ .text          0x616872b8        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01101.o)
+                0x616872b8                free
+ .text          0x616872c0        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01094.o)
+                0x616872c0                fprintf
+ .text          0x616872c8        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01078.o)
+                0x616872c8                exit
+ .text          0x616872d0        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01067.o)
+                0x616872d0                calloc
+ .text          0x616872d8        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01055.o)
+                0x616872d8                abort
+ .text          0x616872e0        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01013.o)
+                0x616872e0                write
+ .text          0x616872e8        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00840.o)
+                0x616872e8                _unlock
+ .text          0x616872f0        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00838.o)
+                0x616872f0                umask
+ .text          0x616872f8        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00658.o)
+                0x616872f8                read
+ .text          0x61687300        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00628.o)
+                0x61687300                open
+ .text          0x61687308        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00627.o)
+ .text          0x61687308        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00468.o)
+                0x61687308                lseek
+ .text          0x61687310        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00460.o)
+                0x61687310                _lock
+ .text          0x61687318        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00354.o)
+ .text          0x61687318        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00350.o)
+                0x61687318                _initterm
+ .text          0x61687320        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00177.o)
+                0x61687320                close
+ .text          0x61687328        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00145.o)
+                0x61687328                _amsg_exit
+ .text          0x61687330        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00055.o)
+                0x61687330                __dllonexit
+ .text          0x61687338        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsdh.o)
+ .text          0x61687338        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsdt.o)
+ .text          0x61687338        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfh.o)
+ .text          0x61687338        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspft.o)
+ .text          0x61687338        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtend.o
+ *(SORT(.text$*))
+ *(.text.*)
+ .text.unlikely
+                0x61687338        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/dllcrt2.o
+ .text.unlikely
+                0x61687338        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtbegin.o
+ .text.unlikely
+                0x61687338        0x0 release/libvideosaver.o
+ .text.unlikely
+                0x61687338        0x0 release/cAviLib.o
+ .text.unlikely
+                0x61687338        0x0 release/avilib.o
+ .text.unlikely
+                0x61687338        0x0 release/cMp4Encode.o
+ .text.unlikely
+                0x61687338        0x0 release/videosaver.o
+ .text.unlikely
+                0x61687338        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-atonexit.o)
+ .text.unlikely
+                0x61687338        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gccmain.o)
+ .text.unlikely
+                0x61687338        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gs_support.o)
+ .text.unlikely
+                0x61687338        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlssup.o)
+ .text.unlikely
+                0x61687338        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-mingw_helpers.o)
+ .text.unlikely
+                0x61687338        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pseudo-reloc.o)
+ .text.unlikely
+                0x61687338        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlsthrd.o)
+ .text.unlikely
+                0x61687338        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pesect.o)
+ .text.unlikely
+                0x61687338        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingwex.a(lib32_libmingwex_a-dllentry.o)
+ .text.unlikely
+                0x61687338        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingwex.a(lib32_libmingwex_a-dllmain.o)
+ .text.unlikely
+                0x61687338        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtend.o
+ *fill*         0x61687338        0x8 
+ .text.startup  0x61687340       0x10 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtend.o
+ *(.gnu.linkonce.t.*)
+ *(.glue_7t)
+ *(.glue_7)
+                0x61687350                ___CTOR_LIST__ = .
+                0x61687350                __CTOR_LIST__ = .
+                0x61687350        0x4 LONG 0xffffffff
+ *(.ctors)
+ *(.ctor)
+ *(SORT(.ctors.*))
+ .ctors.65535   0x61687354        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtend.o
+                0x61687358        0x4 LONG 0x0
+                0x6168735c                ___DTOR_LIST__ = .
+                0x6168735c                __DTOR_LIST__ = .
+                0x6168735c        0x4 LONG 0xffffffff
+ *(.dtors)
+ *(.dtor)
+ *(SORT(.dtors.*))
+                0x61687360        0x4 LONG 0x0
+ *(.fini)
+ *(.gcc_exc)
+                0x61687364                PROVIDE (etext, .)
+                0x61687364                PROVIDE (_etext, .)
+ *(.gcc_except_table)
+ .gcc_except_table
+                0x61687364       0x10 release/libvideosaver.o
+ .gcc_except_table
+                0x61687374        0x4 release/cMp4Encode.o
+ .gcc_except_table
+                0x61687378       0x18 release/videosaver.o
+
+.data           0x61688000      0x200
+                0x61688000                __data_start__ = .
+ *(.data)
+ .data          0x61688000        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/dllcrt2.o
+ .data          0x61688000        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtbegin.o
+ .data          0x61688004        0x0 release/libvideosaver.o
+ .data          0x61688004        0x0 release/cAviLib.o
+ *fill*         0x61688004       0x1c 
+ .data          0x61688020       0x40 release/avilib.o
+                0x61688020                avi_errors
+ .data          0x61688060        0x0 release/cMp4Encode.o
+ .data          0x61688060        0x0 release/videosaver.o
+ .data          0x61688060        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-atonexit.o)
+ .data          0x61688060        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gccmain.o)
+ .data          0x61688064        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-natstart.o)
+                0x61688064                __native_vcclrit_reason
+                0x61688068                __native_dllmain_reason
+ .data          0x6168806c        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gs_support.o)
+ .data          0x6168806c        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlssup.o)
+ .data          0x6168806c        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-cinitexe.o)
+ .data          0x6168806c        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-mingw_helpers.o)
+ .data          0x6168806c        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pseudo-reloc.o)
+ .data          0x6168806c        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlsthrd.o)
+ .data          0x6168806c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlsmcrt.o)
+                0x6168806c                _CRT_MT
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pseudo-reloc-list.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pesect.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libgcc.a(_chkstk_ms.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libgcc.a(_ctors.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingwex.a(lib32_libmingwex_a-dllentry.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingwex.a(lib32_libmingwex_a-dllmain.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01249.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01222.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01216.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01213.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01211.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01198.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01186.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01179.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01175.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01173.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01170.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01159.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01112.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01101.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01094.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01078.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01067.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01055.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01013.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00840.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00838.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00768.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00658.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00628.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00627.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00468.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00460.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00354.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00350.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00224.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00177.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00175.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00145.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00055.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsdh.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsdt.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01214.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01211.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01179.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01166.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01159.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01145.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01132.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00919.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00810.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00807.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00748.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00664.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00636.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00582.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00534.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00516.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00458.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00454.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00453.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00357.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00240.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00212.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfh.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspft.o)
+ .data          0x61688070        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtend.o
+ *(.data2)
+ *(SORT(.data$*))
+ .data$__security_cookie
+                0x61688070        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gs_support.o)
+                0x61688070                __security_cookie
+ .data$__security_cookie_complement
+                0x61688074        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gs_support.o)
+                0x61688074                __security_cookie_complement
+ *(.jcr)
+ .jcr           0x61688078        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtbegin.o
+ .jcr           0x61688078        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtend.o
+                0x6168807c                __data_end__ = .
+ *(.data_cygwin_nocopy)
+
+.rdata          0x61689000     0x1000
+ *(.rdata)
+ .rdata         0x61689000       0x64 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtbegin.o
+ .rdata         0x61689064      0x1ac release/libvideosaver.o
+ .rdata         0x61689210       0x10 release/cAviLib.o
+ .rdata         0x61689220      0x2c8 release/avilib.o
+ .rdata         0x616894e8       0x74 release/cMp4Encode.o
+ .rdata         0x6168955c      0x1fc release/videosaver.o
+ .rdata         0x61689758        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gs_support.o)
+ .rdata         0x61689760        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlssup.o)
+                0x61689760                __dyn_tls_init_callback
+ .rdata         0x61689764       0xf8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pseudo-reloc.o)
+ *(SORT(.rdata$*))
+ .rdata$zzz     0x6168985c       0x40 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/dllcrt2.o
+ .rdata$zzz     0x6168989c       0x40 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtbegin.o
+ .rdata$zzz     0x616898dc       0x40 release/libvideosaver.o
+ .rdata$zzz     0x6168991c       0x40 release/cAviLib.o
+ .rdata$zzz     0x6168995c       0x40 release/avilib.o
+ .rdata$zzz     0x6168999c       0x40 release/cMp4Encode.o
+ .rdata$zzz     0x616899dc       0x40 release/videosaver.o
+ .rdata$zzz     0x61689a1c       0x40 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-atonexit.o)
+ .rdata$zzz     0x61689a5c       0x40 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gccmain.o)
+ .rdata$zzz     0x61689a9c       0x40 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-natstart.o)
+ .rdata$zzz     0x61689adc       0x40 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gs_support.o)
+ .rdata$zzz     0x61689b1c       0x40 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlssup.o)
+ .rdata$zzz     0x61689b5c       0x40 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-cinitexe.o)
+ .rdata$zzz     0x61689b9c       0x40 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-mingw_helpers.o)
+ .rdata$zzz     0x61689bdc       0x40 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pseudo-reloc.o)
+ .rdata$zzz     0x61689c1c       0x40 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlsthrd.o)
+ .rdata$zzz     0x61689c5c       0x40 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlsmcrt.o)
+ .rdata$zzz     0x61689c9c       0x40 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pseudo-reloc-list.o)
+ .rdata$zzz     0x61689cdc       0x40 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pesect.o)
+ .rdata$zzz     0x61689d1c       0x40 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libgcc.a(_ctors.o)
+ .rdata$zzz     0x61689d5c       0x40 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingwex.a(lib32_libmingwex_a-dllentry.o)
+ .rdata$zzz     0x61689d9c       0x40 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingwex.a(lib32_libmingwex_a-dllmain.o)
+ .rdata$zzz     0x61689ddc       0x40 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtend.o
+                0x61689e1c                __rt_psrelocs_start = .
+ *(.rdata_runtime_pseudo_reloc)
+                0x61689e1c                __rt_psrelocs_end = .
+                0x00000000                __rt_psrelocs_size = (__rt_psrelocs_end - __rt_psrelocs_start)
+                0x61689e1c                ___RUNTIME_PSEUDO_RELOC_LIST_END__ = .
+                0x61689e1c                __RUNTIME_PSEUDO_RELOC_LIST_END__ = .
+                0x61689e1c                ___RUNTIME_PSEUDO_RELOC_LIST__ = (. - __rt_psrelocs_size)
+                0x61689e1c                __RUNTIME_PSEUDO_RELOC_LIST__ = (. - __rt_psrelocs_size)
+
+.eh_frame       0x6168a000     0x1800
+ *(.eh_frame*)
+ .eh_frame      0x6168a000      0x150 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/dllcrt2.o
+ .eh_frame      0x6168a150       0x68 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtbegin.o
+ .eh_frame      0x6168a1b8      0x15c release/libvideosaver.o
+ .eh_frame      0x6168a314       0xc0 release/cAviLib.o
+ .eh_frame      0x6168a3d4      0x8f0 release/avilib.o
+ .eh_frame      0x6168acc4      0x178 release/cMp4Encode.o
+ .eh_frame      0x6168ae3c      0x1a8 release/videosaver.o
+ .eh_frame      0x6168afe4       0x5c F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-atonexit.o)
+ .eh_frame      0x6168b040       0x68 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gccmain.o)
+ .eh_frame      0x6168b0a8       0x94 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gs_support.o)
+ .eh_frame      0x6168b13c       0x7c F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlssup.o)
+ .eh_frame      0x6168b1b8       0x40 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-mingw_helpers.o)
+ .eh_frame      0x6168b1f8       0xa8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pseudo-reloc.o)
+ .eh_frame      0x6168b2a0      0x114 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlsthrd.o)
+ .eh_frame      0x6168b3b4      0x1e0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pesect.o)
+ .eh_frame      0x6168b594       0x2c F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingwex.a(lib32_libmingwex_a-dllentry.o)
+ .eh_frame      0x6168b5c0       0x2c F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingwex.a(lib32_libmingwex_a-dllmain.o)
+ .eh_frame      0x6168b5ec       0x3c F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtend.o
+
+.pdata
+ *(.pdata)
+
+.bss            0x6168c000     0x1468
+                0x6168c000                __bss_start__ = .
+ *(.bss)
+ .bss           0x6168c000        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/dllcrt2.o
+ .bss           0x6168c004       0x18 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtbegin.o
+ .bss           0x6168c01c        0x0 release/libvideosaver.o
+ .bss           0x6168c01c        0x0 release/cAviLib.o
+ *fill*         0x6168c01c        0x4 
+ .bss           0x6168c020     0x1020 release/avilib.o
+                0x6168c020                AVI_errno
+ .bss           0x6168d040        0x0 release/cMp4Encode.o
+ .bss           0x6168d040        0x0 release/videosaver.o
+ .bss           0x6168d040        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-atonexit.o)
+ .bss           0x6168d040        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gccmain.o)
+ .bss           0x6168d044        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-natstart.o)
+ *fill*         0x6168d044       0x3c 
+ .bss           0x6168d080      0x380 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-gs_support.o)
+ .bss           0x6168d400       0x10 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlssup.o)
+                0x6168d400                mingw_initltssuo_force
+                0x6168d404                mingw_initltsdyn_force
+                0x6168d408                mingw_initltsdrot_force
+                0x6168d40c                _tls_index
+ .bss           0x6168d410        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-cinitexe.o)
+ .bss           0x6168d410        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-mingw_helpers.o)
+                0x6168d410                mingw_app_type
+ .bss           0x6168d414        0xc F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pseudo-reloc.o)
+ .bss           0x6168d420       0x20 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlsthrd.o)
+ .bss           0x6168d440        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlsmcrt.o)
+ .bss           0x6168d440        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pseudo-reloc-list.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-pesect.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libgcc.a(_chkstk_ms.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libgcc.a(_ctors.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingwex.a(lib32_libmingwex_a-dllentry.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingwex.a(lib32_libmingwex_a-dllmain.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01249.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01222.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01216.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01213.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01211.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01198.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01186.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01179.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01175.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01173.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01170.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01159.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01112.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01101.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01094.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01078.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01067.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01055.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01013.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00840.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00838.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00768.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00658.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00628.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00627.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00468.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00460.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00354.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00350.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00224.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00177.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00175.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00145.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00055.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsdh.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsdt.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01214.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01211.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01179.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01166.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01159.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01145.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01132.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00919.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00810.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00807.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00748.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00664.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00636.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00582.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00534.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00516.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00458.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00454.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00453.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00357.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00240.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00212.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfh.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspft.o)
+ .bss           0x6168d444        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtend.o
+ *(COMMON)
+ COMMON         0x6168d444        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/crtbegin.o
+                0x6168d444                hmod_libgcc
+ COMMON         0x6168d448        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-atonexit.o)
+                0x6168d448                __onexitend
+                0x6168d44c                __onexitbegin
+ COMMON         0x6168d450        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-natstart.o)
+                0x6168d450                __native_startup_lock
+                0x6168d454                __native_startup_state
+ COMMON         0x6168d458       0x10 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libgcc.a(_ctors.o)
+                0x6168d468                __bss_end__ = .
+
+.edata          0x6168e000      0xa00
+ *(.edata)
+ .edata         0x6168e000      0x9d3 dll stuff
+
+/DISCARD/
+ *(.debug$S)
+ *(.debug$T)
+ *(.debug$F)
+ *(.drectve)
+ *(.note.GNU-stack)
+ *(.gnu.lto_*)
+
+.idata          0x6168f000      0xa00
+ SORT(*)(.idata$2)
+ .idata$2       0x6168f000       0x14 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000000.o)
+                0x6168f000                _head_libgcc_s_dw2_1_dll
+ .idata$2       0x6168f014       0x14 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfh.o)
+                0x6168f014                _head_lib32_libkernel32_a
+ .idata$2       0x6168f028       0x14 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsdh.o)
+                0x6168f028                _head_lib32_libmsvcrt_a
+ .idata$2       0x6168f03c       0x14 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d000000.o)
+                0x6168f03c                _head_libstdc___6_dll
+ .idata$2       0x6168f050       0x14 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.a)
+                0x6168f050                _IMPORT_DESCRIPTOR_libmp4v2
+ SORT(*)(.idata$3)
+ .idata$3       0x6168f064       0x14 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.c)
+                0x6168f064                _NULL_IMPORT_DESCRIPTOR
+                0x6168f078        0x4 LONG 0x0
+                0x6168f07c        0x4 LONG 0x0
+                0x6168f080        0x4 LONG 0x0
+                0x6168f084        0x4 LONG 0x0
+                0x6168f088        0x4 LONG 0x0
+ SORT(*)(.idata$4)
+ .idata$4       0x6168f08c        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000000.o)
+ .idata$4       0x6168f08c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000015.o)
+ .idata$4       0x6168f090        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000037.o)
+ .idata$4       0x6168f094        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000106.o)
+ .idata$4       0x6168f098        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000122.o)
+ .idata$4       0x6168f09c        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfh.o)
+ .idata$4       0x6168f09c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00212.o)
+ .idata$4       0x6168f0a0        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00240.o)
+ .idata$4       0x6168f0a4        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00357.o)
+ .idata$4       0x6168f0a8        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00453.o)
+ .idata$4       0x6168f0ac        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00454.o)
+ .idata$4       0x6168f0b0        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00458.o)
+ .idata$4       0x6168f0b4        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00516.o)
+ .idata$4       0x6168f0b8        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00534.o)
+ .idata$4       0x6168f0bc        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00582.o)
+ .idata$4       0x6168f0c0        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00636.o)
+ .idata$4       0x6168f0c4        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00664.o)
+ .idata$4       0x6168f0c8        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00748.o)
+ .idata$4       0x6168f0cc        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00807.o)
+ .idata$4       0x6168f0d0        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00810.o)
+ .idata$4       0x6168f0d4        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00919.o)
+ .idata$4       0x6168f0d8        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01132.o)
+ .idata$4       0x6168f0dc        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01145.o)
+ .idata$4       0x6168f0e0        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01159.o)
+ .idata$4       0x6168f0e4        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01166.o)
+ .idata$4       0x6168f0e8        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01179.o)
+ .idata$4       0x6168f0ec        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01211.o)
+ .idata$4       0x6168f0f0        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01214.o)
+ .idata$4       0x6168f0f4        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspft.o)
+ .idata$4       0x6168f0f8        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsdh.o)
+ .idata$4       0x6168f0f8        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00055.o)
+ .idata$4       0x6168f0fc        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00145.o)
+ .idata$4       0x6168f100        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00175.o)
+ .idata$4       0x6168f104        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00177.o)
+ .idata$4       0x6168f108        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00224.o)
+ .idata$4       0x6168f10c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00350.o)
+ .idata$4       0x6168f110        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00354.o)
+ .idata$4       0x6168f114        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00460.o)
+ .idata$4       0x6168f118        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00468.o)
+ .idata$4       0x6168f11c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00627.o)
+ .idata$4       0x6168f120        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00628.o)
+ .idata$4       0x6168f124        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00658.o)
+ .idata$4       0x6168f128        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00768.o)
+ .idata$4       0x6168f12c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00838.o)
+ .idata$4       0x6168f130        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00840.o)
+ .idata$4       0x6168f134        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01013.o)
+ .idata$4       0x6168f138        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01055.o)
+ .idata$4       0x6168f13c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01067.o)
+ .idata$4       0x6168f140        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01078.o)
+ .idata$4       0x6168f144        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01094.o)
+ .idata$4       0x6168f148        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01101.o)
+ .idata$4       0x6168f14c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01112.o)
+ .idata$4       0x6168f150        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01159.o)
+ .idata$4       0x6168f154        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01170.o)
+ .idata$4       0x6168f158        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01173.o)
+ .idata$4       0x6168f15c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01175.o)
+ .idata$4       0x6168f160        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01179.o)
+ .idata$4       0x6168f164        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01186.o)
+ .idata$4       0x6168f168        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01198.o)
+ .idata$4       0x6168f16c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01211.o)
+ .idata$4       0x6168f170        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01213.o)
+ .idata$4       0x6168f174        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01216.o)
+ .idata$4       0x6168f178        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01222.o)
+ .idata$4       0x6168f17c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01249.o)
+ .idata$4       0x6168f180        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsdt.o)
+ .idata$4       0x6168f184        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d000000.o)
+ .idata$4       0x6168f184        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005719.o)
+ .idata$4       0x6168f188        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005722.o)
+ .idata$4       0x6168f18c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005725.o)
+ .idata$4       0x6168f190        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005727.o)
+ .idata$4       0x6168f194        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005771.o)
+ .idata$4       0x6168f198        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005778.o)
+ .idata$4       0x6168f19c        0x0 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.a)
+ .idata$4       0x6168f19c        0x4 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.b)
+ .idata$4       0x6168f1a0        0x4 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.b)
+ .idata$4       0x6168f1a4        0x4 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.b)
+ .idata$4       0x6168f1a8        0x4 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.b)
+ .idata$4       0x6168f1ac        0x4 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.b)
+ .idata$4       0x6168f1b0        0x4 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.b)
+ .idata$4       0x6168f1b4        0x4 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.b)
+ .idata$4       0x6168f1b8        0x4 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.b)
+ .idata$4       0x6168f1bc        0x4 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.c)
+                0x6168f1c0                __IAT_start__ = .
+ SORT(*)(.idata$5)
+ .idata$5       0x6168f1c0        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000000.o)
+ .idata$5       0x6168f1c0        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000015.o)
+                0x6168f1c0                _imp___Unwind_Resume
+ .idata$5       0x6168f1c4        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000037.o)
+                0x6168f1c4                _imp____deregister_frame_info
+ .idata$5       0x6168f1c8        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000106.o)
+                0x6168f1c8                _imp____register_frame_info
+ .idata$5       0x6168f1cc        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000122.o)
+ .idata$5       0x6168f1d0        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfh.o)
+ .idata$5       0x6168f1d0        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00212.o)
+                0x6168f1d0                _imp__DeleteCriticalSection@4
+ .idata$5       0x6168f1d4        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00240.o)
+                0x6168f1d4                _imp__EnterCriticalSection@4
+ .idata$5       0x6168f1d8        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00357.o)
+                0x6168f1d8                _imp__FreeLibrary@4
+ .idata$5       0x6168f1dc        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00453.o)
+                0x6168f1dc                _imp__GetCurrentProcess@0
+ .idata$5       0x6168f1e0        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00454.o)
+                0x6168f1e0                _imp__GetCurrentProcessId@0
+ .idata$5       0x6168f1e4        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00458.o)
+                0x6168f1e4                _imp__GetCurrentThreadId@0
+ .idata$5       0x6168f1e8        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00516.o)
+                0x6168f1e8                _imp__GetLastError@0
+ .idata$5       0x6168f1ec        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00534.o)
+                0x6168f1ec                _imp__GetModuleHandleA@4
+ .idata$5       0x6168f1f0        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00582.o)
+                0x6168f1f0                _imp__GetProcAddress@8
+ .idata$5       0x6168f1f4        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00636.o)
+                0x6168f1f4                _imp__GetSystemTimeAsFileTime@4
+ .idata$5       0x6168f1f8        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00664.o)
+                0x6168f1f8                _imp__GetTickCount@0
+ .idata$5       0x6168f1fc        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00748.o)
+                0x6168f1fc                _imp__InitializeCriticalSection@4
+ .idata$5       0x6168f200        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00807.o)
+                0x6168f200                _imp__LeaveCriticalSection@4
+ .idata$5       0x6168f204        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00810.o)
+                0x6168f204                _imp__LoadLibraryA@4
+ .idata$5       0x6168f208        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00919.o)
+                0x6168f208                _imp__QueryPerformanceCounter@4
+ .idata$5       0x6168f20c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01132.o)
+                0x6168f20c                _imp__SetUnhandledExceptionFilter@4
+ .idata$5       0x6168f210        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01145.o)
+                0x6168f210                _imp__Sleep@4
+ .idata$5       0x6168f214        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01159.o)
+                0x6168f214                _imp__TerminateProcess@8
+ .idata$5       0x6168f218        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01166.o)
+                0x6168f218                _imp__TlsGetValue@4
+ .idata$5       0x6168f21c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01179.o)
+                0x6168f21c                _imp__UnhandledExceptionFilter@4
+ .idata$5       0x6168f220        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01211.o)
+                0x6168f220                _imp__VirtualProtect@16
+ .idata$5       0x6168f224        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01214.o)
+                0x6168f224                _imp__VirtualQuery@12
+ .idata$5       0x6168f228        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspft.o)
+ .idata$5       0x6168f22c        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsdh.o)
+ .idata$5       0x6168f22c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00055.o)
+                0x6168f22c                _imp____dllonexit
+ .idata$5       0x6168f230        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00145.o)
+                0x6168f230                _imp___amsg_exit
+ .idata$5       0x6168f234        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00175.o)
+                0x6168f234                _imp___chsize
+ .idata$5       0x6168f238        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00177.o)
+                0x6168f238                _imp__close
+ .idata$5       0x6168f23c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00224.o)
+                0x6168f23c                _imp___errno
+ .idata$5       0x6168f240        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00350.o)
+                0x6168f240                _imp___initterm
+ .idata$5       0x6168f244        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00354.o)
+                0x6168f244                _imp___iob
+ .idata$5       0x6168f248        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00460.o)
+                0x6168f248                _imp___lock
+ .idata$5       0x6168f24c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00468.o)
+                0x6168f24c                _imp__lseek
+ .idata$5       0x6168f250        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00627.o)
+                0x6168f250                _imp___onexit
+ .idata$5       0x6168f254        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00628.o)
+                0x6168f254                _imp__open
+ .idata$5       0x6168f258        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00658.o)
+                0x6168f258                _imp__read
+ .idata$5       0x6168f25c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00768.o)
+                0x6168f25c                _imp___strnicmp
+ .idata$5       0x6168f260        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00838.o)
+                0x6168f260                _imp__umask
+ .idata$5       0x6168f264        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00840.o)
+                0x6168f264                _imp___unlock
+ .idata$5       0x6168f268        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01013.o)
+                0x6168f268                _imp__write
+ .idata$5       0x6168f26c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01055.o)
+                0x6168f26c                _imp__abort
+ .idata$5       0x6168f270        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01067.o)
+                0x6168f270                _imp__calloc
+ .idata$5       0x6168f274        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01078.o)
+                0x6168f274                _imp__exit
+ .idata$5       0x6168f278        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01094.o)
+                0x6168f278                _imp__fprintf
+ .idata$5       0x6168f27c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01101.o)
+                0x6168f27c                _imp__free
+ .idata$5       0x6168f280        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01112.o)
+                0x6168f280                _imp__fwrite
+ .idata$5       0x6168f284        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01159.o)
+                0x6168f284                _imp__malloc
+ .idata$5       0x6168f288        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01170.o)
+                0x6168f288                _imp__memcpy
+ .idata$5       0x6168f28c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01173.o)
+                0x6168f28c                _imp__perror
+ .idata$5       0x6168f290        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01175.o)
+                0x6168f290                _imp__printf
+ .idata$5       0x6168f294        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01179.o)
+                0x6168f294                _imp__puts
+ .idata$5       0x6168f298        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01186.o)
+                0x6168f298                _imp__realloc
+ .idata$5       0x6168f29c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01198.o)
+                0x6168f29c                _imp__sprintf
+ .idata$5       0x6168f2a0        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01211.o)
+                0x6168f2a0                _imp__strerror
+ .idata$5       0x6168f2a4        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01213.o)
+                0x6168f2a4                _imp__strlen
+ .idata$5       0x6168f2a8        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01216.o)
+                0x6168f2a8                _imp__strncmp
+ .idata$5       0x6168f2ac        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01222.o)
+                0x6168f2ac                _imp__strstr
+ .idata$5       0x6168f2b0        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01249.o)
+                0x6168f2b0                _imp__vfprintf
+ .idata$5       0x6168f2b4        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsdt.o)
+ .idata$5       0x6168f2b8        0x0 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d000000.o)
+ .idata$5       0x6168f2b8        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005719.o)
+                0x6168f2b8                _imp___ZdaPv
+ .idata$5       0x6168f2bc        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005722.o)
+                0x6168f2bc                _imp___ZdlPv
+ .idata$5       0x6168f2c0        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005725.o)
+                0x6168f2c0                _imp___Znaj
+ .idata$5       0x6168f2c4        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005727.o)
+                0x6168f2c4                _imp___Znwj
+ .idata$5       0x6168f2c8        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005771.o)
+                0x6168f2c8                _imp____gxx_personality_v0
+ .idata$5       0x6168f2cc        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005778.o)
+ .idata$5       0x6168f2d0        0x0 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.a)
+ .idata$5       0x6168f2d0        0x4 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.b)
+                0x6168f2d0                _imp__MP4Close
+ .idata$5       0x6168f2d4        0x4 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.b)
+                0x6168f2d4                _imp__MP4Create
+ .idata$5       0x6168f2d8        0x4 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.b)
+                0x6168f2d8                _imp__MP4SetTimeScale
+ .idata$5       0x6168f2dc        0x4 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.b)
+                0x6168f2dc                _imp__MP4SetVideoProfileLevel
+ .idata$5       0x6168f2e0        0x4 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.b)
+                0x6168f2e0                _imp__MP4AddH264VideoTrack
+ .idata$5       0x6168f2e4        0x4 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.b)
+                0x6168f2e4                _imp__MP4AddH264SequenceParameterSet
+ .idata$5       0x6168f2e8        0x4 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.b)
+                0x6168f2e8                _imp__MP4AddH264PictureParameterSet
+ .idata$5       0x6168f2ec        0x4 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.b)
+                0x6168f2ec                _imp__MP4WriteSample
+ .idata$5       0x6168f2f0        0x4 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.c)
+                0x6168f2f0                libmp4v2_NULL_THUNK_DATA
+                0x6168f2f4                __IAT_end__ = .
+ SORT(*)(.idata$6)
+ .idata$6       0x6168f2f4       0x14 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000015.o)
+ .idata$6       0x6168f308       0x1c F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000037.o)
+ .idata$6       0x6168f324       0x18 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000106.o)
+ .idata$6       0x6168f33c       0x18 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00212.o)
+ .idata$6       0x6168f354       0x18 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00240.o)
+ .idata$6       0x6168f36c        0xe F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00357.o)
+ .idata$6       0x6168f37a       0x14 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00453.o)
+ .idata$6       0x6168f38e       0x16 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00454.o)
+ .idata$6       0x6168f3a4       0x16 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00458.o)
+ .idata$6       0x6168f3ba       0x10 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00516.o)
+ .idata$6       0x6168f3ca       0x14 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00534.o)
+ .idata$6       0x6168f3de       0x12 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00582.o)
+ .idata$6       0x6168f3f0       0x1a F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00636.o)
+ .idata$6       0x6168f40a       0x10 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00664.o)
+ .idata$6       0x6168f41a       0x1c F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00748.o)
+ .idata$6       0x6168f436       0x18 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00807.o)
+ .idata$6       0x6168f44e       0x10 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00810.o)
+ .idata$6       0x6168f45e       0x1a F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00919.o)
+ .idata$6       0x6168f478       0x1e F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01132.o)
+ .idata$6       0x6168f496        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01145.o)
+ .idata$6       0x6168f49e       0x14 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01159.o)
+ .idata$6       0x6168f4b2        0xe F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01166.o)
+ .idata$6       0x6168f4c0       0x1c F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01179.o)
+ .idata$6       0x6168f4dc       0x12 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01211.o)
+ .idata$6       0x6168f4ee       0x10 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01214.o)
+ .idata$6       0x6168f4fe        0xe F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00055.o)
+ .idata$6       0x6168f50c        0xe F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00145.o)
+ .idata$6       0x6168f51a        0xa F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00175.o)
+ .idata$6       0x6168f524        0xa F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00177.o)
+ .idata$6       0x6168f52e        0xa F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00224.o)
+ .idata$6       0x6168f538        0xc F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00350.o)
+ .idata$6       0x6168f544        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00354.o)
+ .idata$6       0x6168f54c        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00460.o)
+ .idata$6       0x6168f554        0xa F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00468.o)
+ .idata$6       0x6168f55e        0xa F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00627.o)
+ .idata$6       0x6168f568        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00628.o)
+ .idata$6       0x6168f570        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00658.o)
+ .idata$6       0x6168f578        0xc F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00768.o)
+ .idata$6       0x6168f584        0xa F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00838.o)
+ .idata$6       0x6168f58e        0xa F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00840.o)
+ .idata$6       0x6168f598        0xa F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01013.o)
+ .idata$6       0x6168f5a2        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01055.o)
+ .idata$6       0x6168f5aa        0xa F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01067.o)
+ .idata$6       0x6168f5b4        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01078.o)
+ .idata$6       0x6168f5bc        0xa F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01094.o)
+ .idata$6       0x6168f5c6        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01101.o)
+ .idata$6       0x6168f5ce        0xa F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01112.o)
+ .idata$6       0x6168f5d8        0xa F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01159.o)
+ .idata$6       0x6168f5e2        0xa F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01170.o)
+ .idata$6       0x6168f5ec        0xa F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01173.o)
+ .idata$6       0x6168f5f6        0xa F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01175.o)
+ .idata$6       0x6168f600        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01179.o)
+ .idata$6       0x6168f608        0xa F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01186.o)
+ .idata$6       0x6168f612        0xa F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01198.o)
+ .idata$6       0x6168f61c        0xc F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01211.o)
+ .idata$6       0x6168f628        0xa F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01213.o)
+ .idata$6       0x6168f632        0xa F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01216.o)
+ .idata$6       0x6168f63c        0xa F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01222.o)
+ .idata$6       0x6168f646        0xc F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01249.o)
+ *fill*         0x6168f652        0x2 
+ .idata$6       0x6168f654        0xc F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005719.o)
+ .idata$6       0x6168f660        0xc F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005722.o)
+ .idata$6       0x6168f66c        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005725.o)
+ .idata$6       0x6168f674        0x8 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005727.o)
+ .idata$6       0x6168f67c       0x18 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005771.o)
+ .idata$6       0x6168f694        0xe G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.a)
+ *fill*         0x6168f6a2        0x2 
+ .idata$6       0x6168f6a4        0xd G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.b)
+ *fill*         0x6168f6b1        0x3 
+ .idata$6       0x6168f6b4        0xe G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.b)
+ *fill*         0x6168f6c2        0x2 
+ .idata$6       0x6168f6c4       0x14 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.b)
+ .idata$6       0x6168f6d8       0x1c G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.b)
+ .idata$6       0x6168f6f4       0x19 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.b)
+ *fill*         0x6168f70d        0x3 
+ .idata$6       0x6168f710       0x23 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.b)
+ *fill*         0x6168f733        0x1 
+ .idata$6       0x6168f734       0x22 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.b)
+ *fill*         0x6168f756        0x2 
+ .idata$6       0x6168f758       0x13 G:\QT\libVideoSaver\lib\libmp4v2.lib(libmp4v2.dll.b)
+ SORT(*)(.idata$7)
+ *fill*         0x6168f76b        0x1 
+ .idata$7       0x6168f76c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000015.o)
+ .idata$7       0x6168f770        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000037.o)
+ .idata$7       0x6168f774        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000106.o)
+ .idata$7       0x6168f778       0x14 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libgcc_s.a(d000122.o)
+                0x6168f778                libgcc_s_dw2_1_dll_iname
+ .idata$7       0x6168f78c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00212.o)
+ .idata$7       0x6168f790        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00240.o)
+ .idata$7       0x6168f794        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00357.o)
+ .idata$7       0x6168f798        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00453.o)
+ .idata$7       0x6168f79c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00454.o)
+ .idata$7       0x6168f7a0        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00458.o)
+ .idata$7       0x6168f7a4        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00516.o)
+ .idata$7       0x6168f7a8        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00534.o)
+ .idata$7       0x6168f7ac        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00582.o)
+ .idata$7       0x6168f7b0        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00636.o)
+ .idata$7       0x6168f7b4        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00664.o)
+ .idata$7       0x6168f7b8        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00748.o)
+ .idata$7       0x6168f7bc        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00807.o)
+ .idata$7       0x6168f7c0        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00810.o)
+ .idata$7       0x6168f7c4        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs00919.o)
+ .idata$7       0x6168f7c8        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01132.o)
+ .idata$7       0x6168f7cc        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01145.o)
+ .idata$7       0x6168f7d0        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01159.o)
+ .idata$7       0x6168f7d4        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01166.o)
+ .idata$7       0x6168f7d8        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01179.o)
+ .idata$7       0x6168f7dc        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01211.o)
+ .idata$7       0x6168f7e0        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspfs01214.o)
+ .idata$7       0x6168f7e4       0x10 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libkernel32.a(dspft.o)
+                0x6168f7e4                _lib32_libkernel32_a_iname
+ .idata$7       0x6168f7f4        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00055.o)
+ .idata$7       0x6168f7f8        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00145.o)
+ .idata$7       0x6168f7fc        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00175.o)
+ .idata$7       0x6168f800        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00177.o)
+ .idata$7       0x6168f804        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00224.o)
+ .idata$7       0x6168f808        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00350.o)
+ .idata$7       0x6168f80c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00354.o)
+ .idata$7       0x6168f810        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00460.o)
+ .idata$7       0x6168f814        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00468.o)
+ .idata$7       0x6168f818        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00627.o)
+ .idata$7       0x6168f81c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00628.o)
+ .idata$7       0x6168f820        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00658.o)
+ .idata$7       0x6168f824        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00768.o)
+ .idata$7       0x6168f828        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00838.o)
+ .idata$7       0x6168f82c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds00840.o)
+ .idata$7       0x6168f830        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01013.o)
+ .idata$7       0x6168f834        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01055.o)
+ .idata$7       0x6168f838        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01067.o)
+ .idata$7       0x6168f83c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01078.o)
+ .idata$7       0x6168f840        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01094.o)
+ .idata$7       0x6168f844        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01101.o)
+ .idata$7       0x6168f848        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01112.o)
+ .idata$7       0x6168f84c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01159.o)
+ .idata$7       0x6168f850        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01170.o)
+ .idata$7       0x6168f854        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01173.o)
+ .idata$7       0x6168f858        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01175.o)
+ .idata$7       0x6168f85c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01179.o)
+ .idata$7       0x6168f860        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01186.o)
+ .idata$7       0x6168f864        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01198.o)
+ .idata$7       0x6168f868        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01211.o)
+ .idata$7       0x6168f86c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01213.o)
+ .idata$7       0x6168f870        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01216.o)
+ .idata$7       0x6168f874        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01222.o)
+ .idata$7       0x6168f878        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsds01249.o)
+ .idata$7       0x6168f87c        0xc F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmsvcrt.a(dmsdt.o)
+                0x6168f87c                _lib32_libmsvcrt_a_iname
+ .idata$7       0x6168f888        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005719.o)
+ .idata$7       0x6168f88c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005722.o)
+ .idata$7       0x6168f890        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005725.o)
+ .idata$7       0x6168f894        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005727.o)
+ .idata$7       0x6168f898        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005771.o)
+ .idata$7       0x6168f89c       0x10 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/libstdc++.dll.a(d005778.o)
+                0x6168f89c                libstdc___6_dll_iname
+
+.CRT            0x61690000      0x200
+                0x61690000                ___crt_xc_start__ = .
+ *(SORT(.CRT$XC*))
+ .CRT$XCA       0x61690000        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-cinitexe.o)
+                0x61690000                __xc_a
+ .CRT$XCZ       0x61690004        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-cinitexe.o)
+                0x61690004                __xc_z
+                0x61690008                ___crt_xc_end__ = .
+                0x61690008                ___crt_xi_start__ = .
+ *(SORT(.CRT$XI*))
+ .CRT$XIA       0x61690008        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-cinitexe.o)
+                0x61690008                __xi_a
+ .CRT$XIAA      0x6169000c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/dllcrt2.o
+                0x6169000c                pcinit
+ .CRT$XIZ       0x61690010        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-cinitexe.o)
+                0x61690010                __xi_z
+                0x61690014                ___crt_xi_end__ = .
+                0x61690014                ___crt_xl_start__ = .
+ *(SORT(.CRT$XL*))
+ .CRT$XLA       0x61690014        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlssup.o)
+                0x61690014                __xl_a
+ .CRT$XLC       0x61690018        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlssup.o)
+                0x61690018                __xl_c
+ .CRT$XLD       0x6169001c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlssup.o)
+                0x6169001c                __xl_d
+ .CRT$XLZ       0x61690020        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlssup.o)
+                0x61690020                __xl_z
+                0x61690024                ___crt_xp_start__ = .
+ *(SORT(.CRT$XP*))
+                0x61690024                ___crt_xp_end__ = .
+                0x61690024                ___crt_xt_start__ = .
+ *(SORT(.CRT$XT*))
+                0x61690024                ___crt_xt_end__ = .
+ .CRT$XDA       0x61690024        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlssup.o)
+ .CRT$XDZ       0x61690028        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlssup.o)
+
+.tls            0x61691000      0x200
+                0x61691000                ___tls_start__ = .
+ *(.tls$AAA)
+ .tls$AAA       0x61691000        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlssup.o)
+                0x61691000                _tls_start
+ *(.tls)
+ .tls           0x61691004       0x18 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlssup.o)
+                0x61691004                _tls_used
+ *(.tls$)
+ *(SORT(.tls$*))
+ .tls$ZZZ       0x6169101c        0x4 F:/Qt/Qt5.9.1/Tools/mingw530_32/bin/../lib/gcc/i686-w64-mingw32/5.3.0/../../../../i686-w64-mingw32/lib/../lib/libmingw32.a(lib32_libmingw32_a-tlssup.o)
+                0x6169101c                _tls_end
+ *(.tls$ZZZ)
+                0x61691020                ___tls_end__ = .
+
+.endjunk        0x61692000        0x0
+                0x61692000                PROVIDE (end, .)
+                0x61692000                PROVIDE (_end, .)
+                0x61692000                __end__ = .
+
+.rsrc           0x61692000      0x400
+ *(.rsrc)
+ .rsrc          0x61692000      0x340 release\rc_res.o
+ *(.rsrc$*)
+
+.reloc          0x61693000      0x400
+ *(.reloc)
+ .reloc         0x61693000      0x3e4 dll stuff
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.debug_aranges
+ *(.debug_aranges)
+
+.zdebug_aranges
+ *(.zdebug_aranges)
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.zdebug_pubnames
+ *(.zdebug_pubnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.zdebug_pubtypes
+ *(.zdebug_pubtypes)
+
+.debug_info
+ *(.debug_info .gnu.linkonce.wi.*)
+
+.zdebug_info
+ *(.zdebug_info .zdebug.gnu.linkonce.wi.*)
+
+.debug_abbrev
+ *(.debug_abbrev)
+
+.zdebug_abbrev
+ *(.zdebug_abbrev)
+
+.debug_line
+ *(.debug_line)
+
+.zdebug_line
+ *(.zdebug_line)
+
+.debug_frame
+ *(.debug_frame*)
+
+.zdebug_frame
+ *(.zdebug_frame*)
+
+.debug_str
+ *(.debug_str)
+
+.zdebug_str
+ *(.zdebug_str)
+
+.debug_loc
+ *(.debug_loc)
+
+.zdebug_loc
+ *(.zdebug_loc)
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.zdebug_macinfo
+ *(.zdebug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.zdebug_weaknames
+ *(.zdebug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.zdebug_funcnames
+ *(.zdebug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.zdebug_typenames
+ *(.zdebug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.zdebug_varnames
+ *(.zdebug_varnames)
+
+.debug_macro
+ *(.debug_macro)
+
+.zdebug_macro
+ *(.zdebug_macro)
+
+.debug_ranges
+ *(.debug_ranges)
+
+.zdebug_ranges
+ *(.zdebug_ranges)
+
+.debug_types
+ *(.debug_types .gnu.linkonce.wt.*)
+
+.zdebug_types
+ *(.zdebug_types .gnu.linkonce.wt.*)
+OUTPUT(release\libVideoSaver.dll pei-i386)
+LOAD dll stuff

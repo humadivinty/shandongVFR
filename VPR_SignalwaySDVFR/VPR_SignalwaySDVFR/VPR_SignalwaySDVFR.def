@@ -1,0 +1,14 @@
+LIBRARY
+EXPORTS
+
+VLPR_Init
+VLPR_Deinit
+VLPR_Login
+VLPR_Logout
+VLPR_SetResultCallBack
+VLPR_SetStatusCallBack
+VLPR_GetStatus
+VLPR_GetStatusMsg
+VLPR_GetDevInfo
+VLPR_GetVersion
+VLPR_SyncTime
