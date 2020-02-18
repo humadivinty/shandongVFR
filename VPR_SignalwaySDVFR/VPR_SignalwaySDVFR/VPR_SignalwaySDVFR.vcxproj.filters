@@ -81,9 +81,6 @@
     <ClInclude Include="libVideoSaver\MyH264Vector.h">
       <Filter>libVideoSaver</Filter>
     </ClInclude>
-    <ClInclude Include="utilityTool\log4z.h">
-      <Filter>utilityTool</Filter>
-    </ClInclude>
     <ClInclude Include="utilityTool\ToolFunction.h">
       <Filter>utilityTool</Filter>
     </ClInclude>
@@ -136,9 +133,6 @@
     </ClCompile>
     <ClCompile Include="libVideoSaver\MyH264Vector.cpp">
       <Filter>libVideoSaver</Filter>
-    </ClCompile>
-    <ClCompile Include="utilityTool\log4z.cpp">
-      <Filter>utilityTool</Filter>
     </ClCompile>
     <ClCompile Include="utilityTool\ToolFunction.cpp">
       <Filter>utilityTool</Filter>

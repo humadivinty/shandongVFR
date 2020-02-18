@@ -124,16 +124,19 @@ VPR_SIGNALWAYSDVFR_API int D_CALLTYPE VLPR_Logout(int nHandle)
 	return 0;
 }
 
-VPR_SIGNALWAYSDVFR_API int D_CALLTYPE VLPR_SetResultCallBack(int nHandle,
-	CBFun_GetRegResult pFunc,
+VPR_SIGNALWAYSDVFR_API int D_CALLTYPE  VLPR_SetResultCallBack(
+	int nHandle,
+	CBFun_GetFrontResult pFunc1,
+	CBFun_GetBackResult pFunc2,
 	void *pUser)
 {
-	WRITE_LOG("begin, handle = %d, CBFun_GetRegResult = %p,pUser = %p ", nHandle, pFunc, pUser);
+	WRITE_LOG("begin, handle = %d, CBFun_GetFrontResult = %p, CBFun_GetBackResult = %p,  pUser = %p ", nHandle, pFunc1, pFunc2, pUser);
 	BaseCamera* pCamera = DeviceListManager::GetInstance()->GetDeviceById(nHandle);
 	if (NULL != pCamera)
 	{
 		WRITE_LOG("find the camera %d, ip = %s. ", nHandle, pCamera->GetCameraIP());
-		((Camera6467_VFR*)pCamera)->SetResultCallback(pFunc, pUser);
+		((Camera6467_VFR*)pCamera)->SetFrontResultCallback(pFunc1, pUser);
+		((Camera6467_VFR*)pCamera)->SetTailResultCallback(pFunc2, pUser);
 		WRITE_LOG("set result call back finish.");
 	}
 	else

@@ -53,6 +53,10 @@ public:
 
     void SetResultCallback(void* func, void* pUser);
     bool CheckIfSetResultCallback();
+	void SetFrontResultCallback(void* func, void* pUser);
+	bool CheckFrontResultCallback();
+	void SetTailResultCallback(void* pfunc, void* pUser);
+	bool CheckTailResultcallback();
     void SendResultByCallback(std::shared_ptr<CameraResult> pResult);
 
     void SetMsgHandleAngMsg(void* handle, int msg);
@@ -200,6 +204,12 @@ private:
 
     void* g_pFuncResultCallback;
     void* g_pResultUserData;
+
+	void* g_pFuncFrontResultCallback;
+	void* g_pFrontResultUserData;
+
+	void* g_pFuncTailResultCallback;
+	void* g_pTailResultUserData;
 
     void* m_hMsgHanldle;
     

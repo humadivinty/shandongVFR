@@ -6,13 +6,26 @@
 #include "TestTool_VPRSignalway.h"
 #include "TestTool_VPRSignalwayDlg.h"
 #include "afxdialogex.h"
+#include <string>
+#include <direct.h>
+#include <Dbghelp.h>
+#pragma comment(lib, "Dbghelp.lib")
+
+#include "../VPR_SignalwaySDVFR/VPR_SignalwaySDVFR.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
 
+#ifdef DEBUG
+#pragma comment(lib, "../Debug/VPR_SignalwaySDVFR.lib")
+#else
+#pragma comment(lib, "../release/VPR_SignalwaySDVFR.lib")
+#endif
+
 
 // 用于应用程序“关于”菜单项的 CAboutDlg 对话框
+char g_chCurrentPath[256];
 
 class CAboutDlg : public CDialogEx
 {
@@ -64,6 +77,17 @@ BEGIN_MESSAGE_MAP(CTestTool_VPRSignalwayDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_BUTTON_VLPR_Init, &CTestTool_VPRSignalwayDlg::OnBnClickedButtonVlprInit)
+	ON_BN_CLICKED(IDC_BUTTON_VLPR_Deinit, &CTestTool_VPRSignalwayDlg::OnBnClickedButtonVlprDeinit)
+	ON_BN_CLICKED(IDC_BUTTON_VLPR_Login, &CTestTool_VPRSignalwayDlg::OnBnClickedButtonVlprLogin)
+	ON_BN_CLICKED(IDC_BUTTON_VLPR_Logout, &CTestTool_VPRSignalwayDlg::OnBnClickedButtonVlprLogout)
+	ON_BN_CLICKED(IDC_BUTTON_VLPR_SetResultCallBack, &CTestTool_VPRSignalwayDlg::OnBnClickedButtonVlprSetresultcallback)
+	ON_BN_CLICKED(IDC_BUTTON_VLPR_SetStatusCallBack, &CTestTool_VPRSignalwayDlg::OnBnClickedButtonVlprSetstatuscallback)
+	ON_BN_CLICKED(IDC_BUTTON_VLPR_GetStatus, &CTestTool_VPRSignalwayDlg::OnBnClickedButtonVlprGetstatus)
+	ON_BN_CLICKED(IDC_BUTTON_VLPR_GetStatusMsg, &CTestTool_VPRSignalwayDlg::OnBnClickedButtonVlprGetstatusmsg)
+	ON_BN_CLICKED(IDC_BUTTON_VLPR_GetDevInfo, &CTestTool_VPRSignalwayDlg::OnBnClickedButtonVlprGetdevinfo)
+	ON_BN_CLICKED(IDC_BUTTON_VLPR_GetVersion, &CTestTool_VPRSignalwayDlg::OnBnClickedButtonVlprGetversion)
+	ON_BN_CLICKED(IDC_BUTTON_VLPR_SyncTime, &CTestTool_VPRSignalwayDlg::OnBnClickedButtonVlprSynctime)
 END_MESSAGE_MAP()
 
 
@@ -99,6 +123,12 @@ BOOL CTestTool_VPRSignalwayDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// 设置小图标
 
 	// TODO: 在此添加额外的初始化代码
+	m_iHandle = 0;
+	memset(g_chCurrentPath, '\0', sizeof(g_chCurrentPath));
+	_getcwd(g_chCurrentPath, sizeof(g_chCurrentPath));
+	strcat(g_chCurrentPath, "\\resultBuffer");
+
+	MakeSureDirectoryPathExists(g_chCurrentPath);
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
@@ -201,3 +231,264 @@ void CTestTool_VPRSignalwayDlg::ShowMessage(CString strMsg)
 	ShowMsg(pEdit, strMsg);
 }
 
+
+
+void CTestTool_VPRSignalwayDlg::OnBnClickedButtonVlprInit()
+{
+	// TODO:  在此添加控件通知处理程序代码
+	char chLog[256] = {0};
+	int iRet = VLPR_Init();
+	sprintf(chLog, "VLPR_Init = %d", iRet);
+	ShowMessage(chLog);
+}
+
+
+void CTestTool_VPRSignalwayDlg::OnBnClickedButtonVlprDeinit()
+{
+	// TODO:  在此添加控件通知处理程序代码
+	char chLog[256] = { 0 };
+	int iRet = VLPR_Deinit();
+	sprintf(chLog, "VLPR_Deinit = %d", iRet);
+	ShowMessage(chLog);
+}
+
+
+void CTestTool_VPRSignalwayDlg::OnBnClickedButtonVlprLogin()
+{
+	// TODO:  在此添加控件通知处理程序代码
+	char chBuffer[256] = {0};
+	GetItemText(IDC_IPADDRESS1, chBuffer, sizeof(chBuffer));
+
+	char chSparas[256] = {0};
+	sprintf(chSparas, "%s, 8000, admin, password", chSparas);
+
+	char chLog[256] = { 0 };
+	m_iHandle = VLPR_Login(1, chSparas);
+	sprintf(chLog, "VLPR_Login(1, %s) = %d", m_iHandle, chSparas);
+	ShowMessage(chLog);
+}
+
+
+void CTestTool_VPRSignalwayDlg::OnBnClickedButtonVlprLogout()
+{
+	// TODO:  在此添加控件通知处理程序代码
+	char chLog[256] = { 0 };
+	int iRet = VLPR_Logout(m_iHandle);
+	sprintf(chLog, "VLPR_Logout(%d) = %d", m_iHandle, iRet);
+	ShowMessage(chLog);
+}
+
+
+void CTestTool_VPRSignalwayDlg::OnBnClickedButtonVlprSetresultcallback()
+{
+	// TODO:  在此添加控件通知处理程序代码
+	char chLog[256] = { 0 };
+	int iRet = VLPR_SetResultCallBack(m_iHandle, s_CBFun_GetFrontResult, s_CBFun_GetBackResult, this);
+	sprintf(chLog, "VLPR_SetResultCallBack(%d) = %d", m_iHandle, iRet);
+	ShowMessage(chLog);
+}
+
+
+void CTestTool_VPRSignalwayDlg::OnBnClickedButtonVlprSetstatuscallback()
+{
+	// TODO:  在此添加控件通知处理程序代码
+	char chLog[256] = { 0 };
+	int nTimeInvl = 10;
+	int iRet = VLPR_SetStatusCallBack(m_iHandle, nTimeInvl, s_CBFun_GetDevStatus, this);
+	sprintf(chLog, "VLPR_SetStatusCallBack(%d, %d) = %d", m_iHandle, nTimeInvl, iRet);
+	ShowMessage(chLog);
+}
+
+
+void CTestTool_VPRSignalwayDlg::OnBnClickedButtonVlprGetstatus()
+{
+	// TODO:  在此添加控件通知处理程序代码
+	char chLog[256] = { 0 };
+	int iStatus = 0;
+	int iRet = VLPR_GetStatus(m_iHandle, &iStatus);
+	sprintf(chLog, "VLPR_GetStatus(%d) = %d, iStatus = %d", m_iHandle, iRet, iStatus);
+	ShowMessage(chLog);
+}
+
+
+void CTestTool_VPRSignalwayDlg::OnBnClickedButtonVlprGetstatusmsg()
+{
+	// TODO:  在此添加控件通知处理程序代码
+	char chBuf[256] = {0};
+	GetItemText(IDC_EDIT_StaCode, chBuf, sizeof(chBuf));
+	int nStatusCode = atoi(chBuf);
+
+	char chStatusMsg[256] = {0};
+	int nStatusMsgLen = sizeof(chStatusMsg);
+	int iRet = VLPR_GetStatusMsg(nStatusCode, chStatusMsg, nStatusMsgLen);
+	char chLog[256] = { 0 };
+	sprintf(chLog, "VLPR_GetStatusMsg(%d) = %d, msg = %s", nStatusCode, iRet, chStatusMsg);
+	ShowMessage(chLog);
+
+}
+
+
+void CTestTool_VPRSignalwayDlg::OnBnClickedButtonVlprGetdevinfo()
+{
+	// TODO:  在此添加控件通知处理程序代码
+
+	char chCompany[256] = {0};
+	int iCompanyLength = sizeof(chCompany);
+
+	char chDevInfo[256] = {0};
+	int iDevLength = sizeof(chDevInfo);
+
+	int iRet = VLPR_GetDevInfo(
+		chCompany,
+		iCompanyLength,
+		chDevInfo,
+		iDevLength
+		);
+
+	char chLog[256] = { 0 };
+	sprintf(chLog, "VLPR_GetDevInfo() = %d, chCompany = %s, devInfo = %s", iRet, chCompany, chDevInfo);
+	ShowMessage(chLog);
+}
+
+
+void CTestTool_VPRSignalwayDlg::OnBnClickedButtonVlprGetversion()
+{
+	// TODO:  在此添加控件通知处理程序代码
+	char chDevVersio[256] = { 0 };
+	int iDevVersioLength = sizeof(chDevVersio);
+
+	char chAPIVersion[256] = { 0 };
+	int iAPIVersionLength = sizeof(chAPIVersion);
+
+	int iRet = VLPR_GetVersion(
+		chDevVersio,
+		iDevVersioLength,
+		chAPIVersion,
+		iAPIVersionLength
+		);
+
+	char chLog[256] = { 0 };
+	sprintf(chLog, "VLPR_GetVersion() = %d, DevVersio = %s, APIVersion = %s", iRet, chDevVersio, chAPIVersion);
+	ShowMessage(chLog);
+}
+
+
+void CTestTool_VPRSignalwayDlg::OnBnClickedButtonVlprSynctime()
+{
+	// TODO:  在此添加控件通知处理程序代码
+	char chTime[256] = {0};
+	GetItemText(IDC_EDIT_TIME, chTime, sizeof(chTime));
+	std::string strTime(chTime);
+	if (strTime.length() != 14)
+	{
+		MessageBox("time format is invalid.");
+		return;
+	}
+
+	int iRet = VLPR_SyncTime(m_iHandle, chTime);
+	char chLog[256] = { 0 };
+	sprintf(chLog, "VLPR_SyncTime(%d, %s) = %d ", m_iHandle, chTime, iRet);
+	ShowMessage(chLog);
+}
+
+void CTestTool_VPRSignalwayDlg::s_CBFun_GetFrontResult(
+	int nHandle,
+	T_VLPFRONTINFO* pVlpResult,
+	void *pUser)
+{
+	if (pVlpResult == NULL)
+	{
+		return;
+	}
+	CTestTool_VPRSignalwayDlg* pDlg = (CTestTool_VPRSignalwayDlg*)pUser;
+
+	char chFileName[MAX_PATH] = { 0 };
+	sprintf(chFileName, "%s\\%s_front.txt", g_chCurrentPath, pVlpResult->vlpTime);
+
+	FILE* pFile = NULL;
+	pFile = fopen(chFileName, "wb");
+	if (pFile)
+	{
+		fprintf(pFile, "vlpInfoSize = %d\n", pVlpResult->vlpInfoSize);
+		fprintf(pFile, "vlpColor = %d%d\n", pVlpResult->vlpColor[0], pVlpResult->vlpColor[1]);
+		fprintf(pFile, "vlpText = %d\n", pVlpResult->vlpText);
+		fprintf(pFile, "vlpTime = %d\n", pVlpResult->vlpTime);
+		fprintf(pFile, "vlpReliability = %u\n", pVlpResult->vlpReliability);
+		fprintf(pFile, "imageFile[0] = %s\n", pVlpResult->imageFile[0]);
+		fprintf(pFile, "imageFile[1] = %s\n", pVlpResult->imageFile[1]);
+		fprintf(pFile, "imageFile[2] = %s\n", pVlpResult->imageFile[2]);
+
+		fclose(pFile);
+		pFile = NULL;
+	}
+
+	char chLog[256] = { 0 };
+	sprintf(chLog, "GetFrontResult(%d), NO= %s, time= %s ", 
+		nHandle, 
+		pVlpResult->vlpText,
+		pVlpResult->vlpTime);
+	if (pDlg)
+	{
+		pDlg->ShowMessage(chLog);
+	}	
+}
+
+void CTestTool_VPRSignalwayDlg::s_CBFun_GetBackResult(int nHandle, 
+	T_VLPBACKINFO* pVlpResult, 
+	void *pUser)
+{
+	if (pVlpResult == NULL)
+	{
+		return;
+	}
+	CTestTool_VPRSignalwayDlg* pDlg = (CTestTool_VPRSignalwayDlg*)pUser;
+
+	char chFileName[MAX_PATH] = {0};
+	sprintf(chFileName, "%s\\%s_back.txt",g_chCurrentPath, pVlpResult->vlpBackTime);
+
+	FILE* pFile = NULL;
+	pFile = fopen(chFileName, "wb");
+	if (pFile)
+	{
+		fprintf(pFile, "vlpInfoSize = %d\n", pVlpResult->vlpInfoSize);
+		fprintf(pFile, "vlpBackColor = %d%d\n", pVlpResult->vlpBackColor[0], pVlpResult->vlpBackColor[1]);
+		fprintf(pFile, "vlpBackText = %d\n", pVlpResult->vlpBackText);
+		fprintf(pFile, "vlpBackTime = %d\n", pVlpResult->vlpBackTime);
+		fprintf(pFile, "vlpCarClass = %d\n", pVlpResult->vlpCarClass);
+		fprintf(pFile, "vehLength = %d\n", pVlpResult->vehLength);
+		fprintf(pFile, "vehWidth = %d\n", pVlpResult->vehWidth);
+		fprintf(pFile, "vehHigh = %d\n", pVlpResult->vehHigh);
+		fprintf(pFile, "vehAxis = %d\n", pVlpResult->vehAxis);
+		fprintf(pFile, "vlpReliability = %u\n", pVlpResult->vlpReliability);
+		fprintf(pFile, "imageFile[0] = %s\n", pVlpResult->imageFile[0]);
+		fprintf(pFile, "imageFile[1] = %s\n", pVlpResult->imageFile[1]);
+		fprintf(pFile, "imageFile[2] = %s\n", pVlpResult->imageFile[2]);
+		fprintf(pFile, "imageFile[3] = %s\n", pVlpResult->imageFile[3]);
+		fprintf(pFile, "imageFile[4] = %s\n", pVlpResult->imageFile[4]);
+
+		fclose(pFile);
+		pFile = NULL;
+	}
+
+	char chLog[256] = { 0 };
+	sprintf(chLog, "GetBackResult(%d), NO= %s, time= %s ",
+		nHandle,
+		pVlpResult->vlpBackText,
+		pVlpResult->vlpBackTime);
+	if (pDlg)
+	{
+		pDlg->ShowMessage(chLog);
+	}
+}
+
+void CTestTool_VPRSignalwayDlg::s_CBFun_GetDevStatus(int nHandle, int nStatus, void* pUser)
+{
+	CTestTool_VPRSignalwayDlg* pDlg = (CTestTool_VPRSignalwayDlg*)pUser;
+
+	char chLog[256] = { 0 };
+	sprintf(chLog, "GetDevStatus(%d), status = %d ", nHandle, nStatus);
+	if (pDlg)
+	{
+		pDlg->ShowMessage(chLog);
+	}
+}

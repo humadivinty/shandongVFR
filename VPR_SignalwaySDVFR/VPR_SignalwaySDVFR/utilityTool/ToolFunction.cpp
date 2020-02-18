@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "ToolFunction.h"
-#include "log4z.h"
+//#include "log4z.h"
 #include <string>
 #include<shellapi.h>
 #include <stdio.h>
@@ -53,6 +53,15 @@ using namespace Gdiplus;
 #pragma warning(disable : 4995)
 char g_chDllPath[256] = {0};
 char g_chLogPath[256] = { 0 };
+
+#ifndef LOGFMTE
+#define LOGFMTE printf
+#endif
+
+#ifndef LOGFMTD
+#define LOGFMTD printf
+#endif
+
 
 TiXmlElement Tool_SelectElementByName(const char* InputInfo, const char* pName, int iXMLType)
 {
@@ -1620,7 +1629,7 @@ void Tool_WriteLog_Ex(const char* chlog)
 
 void Tool_WriteFormatLog(const char* szfmt, ...)
 {
-    static char g_szPbString[10240] = { 0 };
+    char g_szPbString[1024] = { 0 };
     memset(g_szPbString, '\0', sizeof(g_szPbString));
 
     va_list arg_ptr;

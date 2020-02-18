@@ -1,11 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VPR_SignalwaySDVFR", "VPR_SignalwaySDVFR\VPR_SignalwaySDVFR.vcxproj", "{8778A208-6D91-4023-9F33-4B293145F73C}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestTool_VPRSignalway", "TestTool_VPRSignalway\TestTool_VPRSignalway.vcxproj", "{3713CDE1-7947-488A-8B00-B81F4F55E06C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8778A208-6D91-4023-9F33-4B293145F73C} = {8778A208-6D91-4023-9F33-4B293145F73C}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -97,10 +97,15 @@ VPR_SIGNALWAYSDVFR_API int D_CALLTYPE  VLPR_Logout(int nHandle);
 //?		- 2000	其它错误
 // Qualifier: 设置识别结果触发回调函数
 // Parameter: int nHandle				;设备句柄
-// Parameter: CBFun_GetRegResult pFunc	;识别结果回调函数,NULL时，取消回调
+// Parameter: CBFun_GetFrontResult pFunc	;车头识别结果回调函数 ,NULL时，取消回调
+// Parameter: CBFun_GetBackResult pFunc	;车尾识别结果回调函数,NULL时，取消回调
 // Parameter: void * pUser				;用户自定义数据
 //************************************
-VPR_SIGNALWAYSDVFR_API int D_CALLTYPE  VLPR_SetResultCallBack(int nHandle,CBFun_GetRegResult pFunc,	void *pUser);
+VPR_SIGNALWAYSDVFR_API int D_CALLTYPE  VLPR_SetResultCallBack(
+	int nHandle,
+	CBFun_GetFrontResult pFunc1,
+	CBFun_GetBackResult pFunc2,
+	void *pUser);
 
 //************************************
 // Method:    VLPR_SetStatusCallBack

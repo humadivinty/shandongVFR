@@ -1,7 +1,15 @@
 #include "stdafx.h"
 #include "CameraResult.h"
-#include "utilityTool/log4z.h"
+//#include "utilityTool/log4z.h"
 #include "utilityTool/ToolFunction.h"
+
+#ifndef LOGFMTE
+#define LOGFMTE printf
+#endif
+
+#ifndef LOGFMTD
+#define LOGFMTD printf
+#endif
 
 typedef struct {
     INT64 iObjecSize;

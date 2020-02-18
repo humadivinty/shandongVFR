@@ -5,7 +5,7 @@
 #include "HvDevice/HvDeviceNew.h"
 #include "HvDevice/HvCamera.h"
 #include "utilityTool/ToolFunction.h"
-#include "utilityTool/log4z.h"
+//#include "utilityTool/log4z.h"
 //#include"vpr_commondef_yn.h"
 #include <process.h>
 #include<shellapi.h>
@@ -21,6 +21,14 @@ if (arg == NULL) \
     WriteFormatLog("%s is NULL", #arg); \
     return 0; \
 }
+
+#ifndef LOGFMTE
+#define LOGFMTE printf
+#endif
+
+#ifndef LOGFMTD
+#define LOGFMTD printf
+#endif
 
 unsigned int __stdcall Camera_SaveResultThread(LPVOID lpParam);
 

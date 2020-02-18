@@ -5,7 +5,7 @@
 #include "HvDevice/HvDeviceNew.h"
 #include "HvDevice/HvCamera.h"
 #include "utilityTool/ToolFunction.h"
-#include "utilityTool/log4z.h"
+//#include "utilityTool/log4z.h"
 #include <process.h>
 #include <exception>
 #include <new>
@@ -25,6 +25,14 @@
         return 0;\
     }
 
+#ifndef LOGFMTE
+#define LOGFMTE printf
+#endif
+
+#ifndef LOGFMTD
+#define LOGFMTD printf
+#endif
+
 Camera6467_VFR::Camera6467_VFR() :
 BaseCamera(),
 m_dwLastCarID(-1),
@@ -39,6 +47,10 @@ g_ConnectStatusCallback(NULL),
 g_func_DisconnectCallback(NULL),
 g_pFuncResultCallback(NULL),
 g_pResultUserData(NULL),
+g_pFuncFrontResultCallback(NULL),
+g_pFrontResultUserData(NULL),
+g_pFuncTailResultCallback(NULL),
+g_pTailResultUserData(NULL),
 m_hMsgHanldle(NULL),
 m_pResult(NULL),
 m_bStatusCheckThreadExit(false),
@@ -74,6 +86,10 @@ g_ConnectStatusCallback(NULL),
 g_func_DisconnectCallback(NULL),
 g_pFuncResultCallback(NULL),
 g_pResultUserData(NULL),
+g_pFuncFrontResultCallback(NULL),
+g_pFrontResultUserData(NULL),
+g_pFuncTailResultCallback(NULL),
+g_pTailResultUserData(NULL),
 m_hMsgHanldle(hWnd),
 m_pResult(NULL),
 m_bStatusCheckThreadExit(false),
@@ -695,13 +711,52 @@ bool Camera6467_VFR::CheckIfSetResultCallback()
     return bRet;
 }
 
+void Camera6467_VFR::SetFrontResultCallback(void* func, void* pUser)
+{
+	EnterCriticalSection(&m_csFuncCallback);
+	g_pFuncFrontResultCallback = func;
+	g_pFrontResultUserData = pUser;
+	LeaveCriticalSection(&m_csFuncCallback);
+}
+
+bool Camera6467_VFR::CheckFrontResultCallback()
+{
+	bool bRet = false;
+	EnterCriticalSection(&m_csFuncCallback);
+	if (g_pFuncFrontResultCallback != NULL)
+	{
+		bRet = true;
+	}
+	LeaveCriticalSection(&m_csFuncCallback);
+	return bRet;
+}
+
+void Camera6467_VFR::SetTailResultCallback(void* pfunc, void* pUser)
+{
+	EnterCriticalSection(&m_csFuncCallback);
+	g_pFuncTailResultCallback = pfunc;
+	g_pTailResultUserData = pUser;
+	LeaveCriticalSection(&m_csFuncCallback);
+}
+
+bool Camera6467_VFR::CheckTailResultcallback()
+{
+	bool bRet = false;
+	EnterCriticalSection(&m_csFuncCallback);
+	if (g_pFuncTailResultCallback != NULL)
+	{
+		bRet = true;
+	}
+	LeaveCriticalSection(&m_csFuncCallback);
+	return bRet;
+}
+
 void Camera6467_VFR::SendResultByCallback(std::shared_ptr<CameraResult> pResult)
 {
 	VFR_WRITE_LOG("SendResultByCallback begin.");
-    EnterCriticalSection(&m_csFuncCallback);
-    if (g_pFuncResultCallback)
+    
+    if (CheckFrontResultCallback())
     {
-        LeaveCriticalSection(&m_csFuncCallback);
 		VFR_WRITE_LOG("SendResultByCallback process begin.");
 
 		//获取文件名索引，并更新
@@ -763,92 +818,104 @@ void Camera6467_VFR::SendResultByCallback(std::shared_ptr<CameraResult> pResult)
 			}
 			return false;
 		};
-
-
-		T_VLPINFO vlpInfo;
-		memset(&vlpInfo, '\0', sizeof(T_VLPINFO));
-		vlpInfo.vlpInfoSize = sizeof(T_VLPINFO);
+		
+		T_VLPFRONTINFO vlpFrontInfo;
+		memset(&vlpFrontInfo, '\0', sizeof(vlpFrontInfo));
+		vlpFrontInfo.vlpInfoSize = sizeof(vlpFrontInfo);
 
 		//车头车牌信息
-		vlpInfo.vlpColor[0] = 0;	//颜色
-		vlpInfo.vlpColor[1] = pResult->iPlateColor;
+		vlpFrontInfo.vlpColor[0] = 0;	//颜色
+		vlpFrontInfo.vlpColor[1] = pResult->iPlateColor;
 		char chPlateNO[64] = { 0 };//车牌号码
 		Tool_ProcessPlateNo(pResult->chPlateNO, chPlateNO, sizeof(chPlateNO));
-		memcpy(vlpInfo.vlpText, chPlateNO, sizeof(vlpInfo.vlpText));
-		memcpy(vlpInfo.vlpTime, pResult->chPlateTime, strlen(pResult->chPlateTime));//车头识别时间
+		memcpy(vlpFrontInfo.vlpText, chPlateNO, sizeof(vlpFrontInfo.vlpText));
+		memcpy(vlpFrontInfo.vlpTime, pResult->chPlateTime, strlen(pResult->chPlateTime));//车头识别时间
+		vlpFrontInfo.vlpReliability = (int(pResult->fConfidenceLevel * 10000)) % 10000;
 		VFR_WRITE_LOG("process front plate info finish.");
-
-		//车尾车牌信息
-		vlpInfo.vlpBackColor[0] = 0;	//颜色
-		vlpInfo.vlpBackColor[1] = pResult->iTailPlateColor;
-		memset(chPlateNO, '\0', sizeof(chPlateNO));
-		Tool_ProcessPlateNo(pResult->chTailPlateNO, chPlateNO, sizeof(chPlateNO));
-		memcpy(vlpInfo.vlpBackText, chPlateNO, sizeof(vlpInfo.vlpBackText));
-		VFR_WRITE_LOG("process tail plate info finish.");
-
-		//车型信息
-		vlpInfo.vlpCarClass = pResult->iVehTypeNo;
-		vlpInfo.vehLength = (int)(pResult->fVehLenth);
-		vlpInfo.vehWidth = (int)(pResult->fVehWidth);
-		vlpInfo.vehHigh = (int)(pResult->fVehHeight);
-		vlpInfo.vehAxis = pResult->iAxletreeCount;
-		vlpInfo.vlpReliability = (int(pResult->fConfidenceLevel * 10000)) % 10000;
 
 		const char* pchImgRootPath = "idevlp";
 		//图片信息
-		char* pImgPath = (char*)vlpInfo.imageFile[0];
+		char* pImgPath = (char*)vlpFrontInfo.imageFile[0];
 		char* pSrcImgPath = NULL;
 		int iPathLen = 128;
 		//车头图
 		SaveImgFunc(&pResult->CIMG_BeginCapture, type_frontImg, iIndex, pchImgRootPath);
 		pSrcImgPath = pResult->CIMG_BeginCapture.chSavePath;
-		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);		
+		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);
 		VFR_WRITE_LOG("process type_frontImg info finish.");
 
 		//车头车牌图
 		SaveImgFunc(&pResult->CIMG_PlateImage, type_frontPlate, iIndex, pchImgRootPath);
-		pImgPath = (char*)vlpInfo.imageFile[1];
+		pImgPath = (char*)vlpFrontInfo.imageFile[1];
 		pSrcImgPath = pResult->CIMG_PlateImage.chSavePath;
 		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);
 		VFR_WRITE_LOG("process type_frontPlate info finish.");
 
 		//车头二值化图
 		SaveImgFunc(&pResult->CIMG_BinImage, type_frontBin, iIndex, pchImgRootPath);
-		pImgPath = (char*)vlpInfo.imageFile[2];
+		pImgPath = (char*)vlpFrontInfo.imageFile[2];
 		pSrcImgPath = pResult->CIMG_BinImage.chSavePath;
 		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);
 		VFR_WRITE_LOG("process type_frontBin info finish.");
 
+		VFR_WRITE_LOG("send front callback data begin.");
+		int iLoginID = GetLoginID();
+		EnterCriticalSection(&m_csFuncCallback);
+		((CBFun_GetFrontResult)g_pFuncFrontResultCallback)(iLoginID, &vlpFrontInfo, g_pFrontResultUserData);
+		LeaveCriticalSection(&m_csFuncCallback);
+		VFR_WRITE_LOG("send front callback data finish.");
+
+		T_VLPBACKINFO vlpTailInfo;
+		memset(&vlpTailInfo, '\0', sizeof(vlpTailInfo));
+		vlpTailInfo.vlpInfoSize = sizeof(vlpTailInfo);
+
+		//车尾车牌信息
+		vlpTailInfo.vlpBackColor[0] = 0;	//颜色
+		vlpTailInfo.vlpBackColor[1] = pResult->iTailPlateColor;
+		memset(chPlateNO, '\0', sizeof(chPlateNO));
+		Tool_ProcessPlateNo(pResult->chTailPlateNO, chPlateNO, sizeof(chPlateNO));
+		memcpy(vlpTailInfo.vlpBackText, chPlateNO, sizeof(vlpTailInfo.vlpBackText));
+		VFR_WRITE_LOG("process tail plate info finish.");
+
+		//车型信息
+		vlpTailInfo.vlpCarClass = pResult->iVehTypeNo;
+		vlpTailInfo.vehLength = (int)(pResult->fVehLenth);
+		vlpTailInfo.vehWidth = (int)(pResult->fVehWidth);
+		vlpTailInfo.vehHigh = (int)(pResult->fVehHeight);
+		vlpTailInfo.vehAxis = pResult->iAxletreeCount;
+		vlpTailInfo.vlpReliability = (int(pResult->fConfidenceLevel * 10000)) % 10000;
+
+
 		//车身图
 		SaveImgFunc(&pResult->CIMG_BestCapture, type_SideImg, iIndex, pchImgRootPath);
-		pImgPath = (char*)vlpInfo.imageFile[3];
+		pImgPath = (char*)vlpTailInfo.imageFile[0];
 		pSrcImgPath = pResult->CIMG_BestCapture.chSavePath;
 		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);
 		VFR_WRITE_LOG("process type_SideImg info finish.");
 
 		//车尾图
 		SaveImgFunc(&pResult->CIMG_LastCapture, type_tailImg, iIndex, pchImgRootPath);
-		pImgPath = (char*)vlpInfo.imageFile[4];
+		pImgPath = (char*)vlpTailInfo.imageFile[1];
 		pSrcImgPath = pResult->CIMG_LastCapture.chSavePath;
 		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);
 		VFR_WRITE_LOG("process type_tailImg info finish.");
 
 		//车尾车牌图
 		SaveImgFunc(&pResult->CIMG_BestSnapshot, type_tailPlate, iIndex, pchImgRootPath);
-		pImgPath = (char*)vlpInfo.imageFile[5];
+		pImgPath = (char*)vlpTailInfo.imageFile[2];
 		pSrcImgPath = pResult->CIMG_BestSnapshot.chSavePath;
 		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);
 		VFR_WRITE_LOG("process type_tailPlate info finish.");
 
 		//车尾车牌二值化图
 		//SaveImgFunc(&pResult->CIMG_LastCapture, type_taileBin, iIndex, imgPath);
-		pImgPath = (char*)vlpInfo.imageFile[6];
-		vlpInfo.imageFile[6][0] = NULL;
+		pImgPath = (char*)vlpTailInfo.imageFile[3];
+		vlpTailInfo.imageFile[3][0] = NULL;
 
 
 		//五秒视频
-		vlpInfo.imageFile[7][0] = NULL;
-		pImgPath = (char*)vlpInfo.imageFile[7];
+		vlpTailInfo.imageFile[4][0] = NULL;
+		pImgPath = (char*)vlpTailInfo.imageFile[4];
 		if (FindIfFileNameInReciveList(pResult->chSaveFileName))
 		{
 			char chVideoName[256] = {0};
@@ -867,17 +934,22 @@ void Camera6467_VFR::SendResultByCallback(std::shared_ptr<CameraResult> pResult)
 		{
 			VFR_WRITE_LOG("video file %s is not ready.", pResult->chSaveFileName);
 		}
-
-		VFR_WRITE_LOG("send  callback data begin.");
-		int iLoginID = GetLoginID();
-		EnterCriticalSection(&m_csFuncCallback);
-		((CBFun_GetRegResult)g_pFuncResultCallback)(iLoginID, &vlpInfo, g_pResultUserData);
-		LeaveCriticalSection(&m_csFuncCallback);
-		VFR_WRITE_LOG("send  callback data finish.");
+		
+		if (CheckTailResultcallback())
+		{
+			VFR_WRITE_LOG("send tail callback data begin.");
+			EnterCriticalSection(&m_csFuncCallback);
+			((CBFun_GetBackResult)g_pFuncTailResultCallback)(iLoginID, &vlpTailInfo, g_pTailResultUserData);
+			LeaveCriticalSection(&m_csFuncCallback);
+			VFR_WRITE_LOG("send tail callback data finish.");
+		}
+		else
+		{
+			VFR_WRITE_LOG("tail callback func == NULL.");
+		}		
     }
     else
     {
-        LeaveCriticalSection(&m_csFuncCallback);
         WriteFormatLog("g_pFuncResultCallback == NULL.");
     }
 }

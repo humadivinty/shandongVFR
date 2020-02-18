@@ -1,14 +1,14 @@
-LIBRARY
+LIBRARY VPR_SignalwaySDVFR
 EXPORTS
 
-VLPR_Init
-VLPR_Deinit
-VLPR_Login
-VLPR_Logout
-VLPR_SetResultCallBack
-VLPR_SetStatusCallBack
-VLPR_GetStatus
-VLPR_GetStatusMsg
-VLPR_GetDevInfo
-VLPR_GetVersion
-VLPR_SyncTime
+VLPR_Init @1
+VLPR_Deinit @2
+VLPR_Login @3
+VLPR_Logout @4
+VLPR_SetResultCallBack @5
+VLPR_SetStatusCallBack @6
+VLPR_GetStatus @7
+VLPR_GetStatusMsg @8
+VLPR_GetDevInfo @9
+VLPR_GetVersion @10
+VLPR_SyncTime @11

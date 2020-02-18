@@ -1,10 +1,18 @@
 #include "stdafx.h"
 #include "ResultListManager.h"
 #include "utilityTool/ToolFunction.h"
-#include "utilityTool/log4z.h"
+//#include "utilityTool/log4z.h"
 #include <new>
 #include <exception>
 
+
+#ifndef LOGFMTE
+#define LOGFMTE printf
+#endif
+
+#ifndef LOGFMTD
+#define LOGFMTD printf
+#endif
 
 ResultListManager::ResultListManager()
 {

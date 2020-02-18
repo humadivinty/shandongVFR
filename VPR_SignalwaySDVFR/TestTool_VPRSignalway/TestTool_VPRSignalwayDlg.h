@@ -3,6 +3,7 @@
 //
 
 #pragma once
+#include "../VPR_SignalwaySDVFR/VPR_SignalwaySDVFR_Commendef.h"
 
 
 // CTestTool_VPRSignalwayDlg ¶Ô»°¿ò
@@ -36,4 +37,34 @@ public:
 	bool GetItemText(int ItemID, char* buffer, size_t bufSize);
 	void ShowMsg(CEdit *pEdit, CString strMsg);
 	void ShowMessage(CString strMsg);
+	afx_msg void OnBnClickedButtonVlprInit();
+	afx_msg void OnBnClickedButtonVlprDeinit();
+	afx_msg void OnBnClickedButtonVlprLogin();
+	afx_msg void OnBnClickedButtonVlprLogout();
+	afx_msg void OnBnClickedButtonVlprSetresultcallback();
+	afx_msg void OnBnClickedButtonVlprSetstatuscallback();
+	afx_msg void OnBnClickedButtonVlprGetstatus();
+	afx_msg void OnBnClickedButtonVlprGetstatusmsg();
+	afx_msg void OnBnClickedButtonVlprGetdevinfo();
+	afx_msg void OnBnClickedButtonVlprGetversion();
+	afx_msg void OnBnClickedButtonVlprSynctime();
+
+
+	static  void s_CBFun_GetFrontResult(
+		int nHandle,
+		T_VLPFRONTINFO* pVlpResult,
+		void *pUser
+		);
+
+
+	static void s_CBFun_GetBackResult(
+		int nHandle,
+		T_VLPBACKINFO* pVlpResult,
+		void *pUser
+		);
+
+	static void s_CBFun_GetDevStatus(int nHandle, int nStatus, void* pUser);
+
+private:
+	int m_iHandle;
 };

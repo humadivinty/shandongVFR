@@ -40,13 +40,42 @@
 */
 
 
-typedef struct _vlp_info
+//typedef struct _vlp_info
+//{
+//	int vlpInfoSize;					//识别结构体大小
+//	unsigned char vlpColor[2];			//车头车牌颜色(编码详见5.14);
+//	unsigned char vlpText[16];			//车头车牌文字，GBK编码
+//	char vlpTime[20];          		//车头识别时间，格式“yyyyMMddHHmmsszzz”
+//	unsigned char vlpBackColor[2];		//车尾车牌颜色(编码详见5.14);
+//	unsigned char vlpBackText[16];		//车尾车牌文字，GBK编码
+//	char vlpBackTime[20];          	//车尾识别时间，格式“yyyyMMddHHmmsszzz”
+//	int vlpCarClass;					//车型
+//	int vehLength;					//识别车长
+//	int vehWidth;						//识别车宽
+//	int vehHigh;						//识别车高
+//	int vehAxis;						//识别轴数
+//	unsigned int vlpReliability;			//可信度(采用四位表示9999表示为99.99%);
+//	unsigned char imageFile[8][128];		//识别图片长度:[0]=车头场景图文件名，[1]=车头车牌图文件名，[2]=车头二值化图文件名，[3]=车身图文件名，[4]=车尾场景图文件名，[5]=车尾车牌图文件名，[6]=车尾二值化图文件名，[7]=五秒视频文件名
+//} T_VLPINFO;
+
+//typedef void (*CBFun_GetRegResult)(int nHandle,T_VLPINFO* pVlpResult, void *pUser);
+
+
+typedef struct _vlp_front_info
 {
 	int vlpInfoSize;					//识别结构体大小
-	unsigned char vlpColor[2];			//车头车牌颜色(编码详见5.14);
+	unsigned char vlpColor[2];			//车头车牌颜色(编码详见5.14)
 	unsigned char vlpText[16];			//车头车牌文字，GBK编码
 	char vlpTime[20];          		//车头识别时间，格式“yyyyMMddHHmmsszzz”
-	unsigned char vlpBackColor[2];		//车尾车牌颜色(编码详见5.14);
+	unsigned int vlpReliability;			//可信度(采用四位表示9999表示为99.99%)
+	unsigned char imageFile[3][128];		//识别图片长度:[0]=车头场景图文件名，[1]=车头车牌图文件名，[2]=车头二值化图文件名
+} T_VLPFRONTINFO;
+
+
+typedef struct _vlp_back_info
+{
+	int vlpInfoSize;					//识别结构体大小
+	unsigned char vlpBackColor[2];		//车尾车牌颜色(编码详见5.14)
 	unsigned char vlpBackText[16];		//车尾车牌文字，GBK编码
 	char vlpBackTime[20];          	//车尾识别时间，格式“yyyyMMddHHmmsszzz”
 	int vlpCarClass;					//车型
@@ -54,11 +83,24 @@ typedef struct _vlp_info
 	int vehWidth;						//识别车宽
 	int vehHigh;						//识别车高
 	int vehAxis;						//识别轴数
-	unsigned int vlpReliability;			//可信度(采用四位表示9999表示为99.99%);
-	unsigned char imageFile[8][128];		//识别图片长度:[0]=车头场景图文件名，[1]=车头车牌图文件名，[2]=车头二值化图文件名，[3]=车身图文件名，[4]=车尾场景图文件名，[5]=车尾车牌图文件名，[6]=车尾二值化图文件名，[7]=五秒视频文件名
-} T_VLPINFO;
+	unsigned int vlpReliability;			//可信度(采用四位表示9999表示为99.99%)
+	unsigned char imageFile[5][128];		//识别图片长度: [0]=车身图文件名，[1]=车尾场景图文件名，[2]=车尾车牌图文件名，[3]=车尾二值化图文件名，[4]=五秒视频文件名
+} T_VLPBACKINFO;
 
-typedef void (*CBFun_GetRegResult)(int nHandle,T_VLPINFO* pVlpResult, void *pUser);
+
+typedef void(*CBFun_GetFrontResult)(
+	int nHandle,
+	T_VLPFRONTINFO* pVlpResult,
+	void *pUser
+	);
+
+
+typedef void(*CBFun_GetBackResult)(
+	int nHandle,
+	T_VLPBACKINFO* pVlpResult,
+	void *pUser
+	);
+
 
 typedef void(*CBFun_GetDevStatus)(	int nHandle,	int nStatus,	void* pUser	);
 #endif
