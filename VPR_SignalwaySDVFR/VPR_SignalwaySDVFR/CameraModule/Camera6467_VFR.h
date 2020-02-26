@@ -129,7 +129,7 @@ public:
     int getResultWaitTime();
     void SetResultWaitTime(int iValue);
 
-    unsigned int SendResultThreadFunc();
+    unsigned int SendResultThreadFunc();	
     static unsigned int WINAPI s_SendResultThreadFunc(void* parameter)
     {
         Camera6467_VFR* pThis = (Camera6467_VFR*)parameter;
@@ -138,17 +138,24 @@ public:
 //#ifdef USE_LAST_RESULT
 //            return pThis->SendResultThreadFunc_lastResult();
 //#else
-            return pThis->SendResultThreadFunc();
+            //return pThis->SendResultThreadFunc();
 //#endif
             //return pThis->SendResultThreadFunc_WithNoSignal();
+
+			return pThis->SendResultThreadFunc_Separate();
         }
         return 0;
     }
     void copyStringToBuffer(char* bufer,size_t bufLen, const char * srcStr);
+	bool SaveImgStructFunc(CameraIMG* pImg, int imgType, int iIndex, const char* imgPath);
 
     unsigned int SendResultThreadFunc_lastResult();
 
     unsigned int SendResultThreadFunc_WithNoSignal();
+
+	unsigned int SendResultThreadFunc_Separate();
+	void SendFrontResultByCallback(std::shared_ptr<CameraResult> pResult, int index);
+	void SendTailResultByCallback(std::shared_ptr<CameraResult> pResult, int index);
 
     /************************************************************************/
     /* 循环删除日志线程                                                                     */
@@ -239,5 +246,7 @@ private:
     //CCusSemaphore m_MySemaphore;
 
     ResultSentStatusManager m_lsStatusList;
+
+	enum imgType{ type_frontImg, type_SideImg, type_tailImg, type_frontPlate, type_frontBin, type_tailPlate, type_taileBin };
 };
 

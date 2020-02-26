@@ -39,6 +39,7 @@ using namespace Gdiplus;
 #pragma  comment(lib, "gdiplus.lib")
 #endif
 
+#pragma comment(lib, "Version.lib")
 
 //#define INI_FILE_NAME "Config.ini"
 //#define DLL_LOG_NAME "SLW.log"
@@ -1998,67 +1999,118 @@ bool Tool_IsDirExist(const char *Dir)
     return false;
 }
 
+//std::string Tool_GetSoftVersion(const char *exepath)
+//{
+//    std::string strVersionInfo;
+//    if (!exepath)
+//        return strVersionInfo;
+//    if (_access(exepath, 0) != 0)
+//        return strVersionInfo;
+//
+//    HMODULE hDll = NULL;
+//    char szDbgHelpPath[MAX_PATH];
+//    //sprintf_s( szDbgHelpPath,sizeof(szDbgHelpPath),  "Api-ms-win-core-version-l1-1-0.dll");
+//	sprintf_s(szDbgHelpPath, sizeof(szDbgHelpPath), "version.dll");
+//    hDll = ::LoadLibraryA( szDbgHelpPath );
+//	if (hDll == NULL)
+//	{
+//		Tool_WriteFormatLog("load version.dll failed :: %s", Tool_GetLastErrorAsString().c_str());
+//		return strVersionInfo;
+//	}
+//
+//    typedef DWORD (WINAPI *func_GetFileVersionInfoSizeA)(LPCSTR ,LPDWORD );
+//    func_GetFileVersionInfoSizeA p_GetFileVersionInfoSizeA =
+//        (func_GetFileVersionInfoSizeA)::GetProcAddress( hDll, "GetFileVersionInfoSizeA" );
+//	if (p_GetFileVersionInfoSizeA == NULL)
+//	{
+//		Tool_WriteFormatLog("load GetFileVersionInfoSizeA failed :: %s", Tool_GetLastErrorAsString().c_str());
+//	}
+//
+//    typedef DWORD (WINAPI *func_GetFileVersionInfoA)(LPCSTR , DWORD  ,  DWORD , LPVOID );
+//    func_GetFileVersionInfoA p_GetFileVersionInfoA =
+//        (func_GetFileVersionInfoA)::GetProcAddress( hDll, "GetFileVersionInfoA" );
+//	if (p_GetFileVersionInfoA == NULL)
+//	{
+//		Tool_WriteFormatLog("load GetFileVersionInfoA failed :: %s", Tool_GetLastErrorAsString().c_str());
+//	}
+//
+//    typedef DWORD (WINAPI *func_VerQueryValueA)(LPCVOID ,  LPCSTR  , LPVOID  *,  PUINT );
+//    func_VerQueryValueA p_VerQueryValueA =
+//        (func_VerQueryValueA)::GetProcAddress( hDll, "VerQueryValueA" );
+//	if (p_VerQueryValueA == NULL)
+//	{
+//		Tool_WriteFormatLog("load VerQueryValueA failed :: %s", Tool_GetLastErrorAsString().c_str());
+//	}
+//
+//    if(p_GetFileVersionInfoSizeA == NULL
+//            || p_GetFileVersionInfoA == NULL
+//            || p_VerQueryValueA == NULL)
+//    {
+//		Tool_WriteLog("get dll api failed.");
+//        if(hDll)
+//        {
+//            FreeLibrary(hDll);
+//            hDll = NULL;
+//        }
+//        LOGFMTE("Tool_GetSoftVersion , GetProcAddress failed.");
+//        return strVersionInfo;
+//    }
+//
+//    UINT infoSize = p_GetFileVersionInfoSizeA(exepath, 0);
+//    if (infoSize != 0) {
+//        strVersionInfo.resize(infoSize, 0);
+//        char *pBuf = NULL;
+//        pBuf = new char[infoSize];
+//        VS_FIXEDFILEINFO *pVsInfo;
+//        if (p_GetFileVersionInfoA(exepath, 0, infoSize, pBuf)) {
+//            if (p_VerQueryValueA(pBuf, "\\", (void **)&pVsInfo, &infoSize))
+//            {
+//                //sprintf(pBuf, "%d.%d.%d.%d", HIWORD(pVsInfo->dwFileVersionMS), LOWORD(pVsInfo->dwFileVersionMS), HIWORD(pVsInfo->dwFileVersionLS), LOWORD(pVsInfo->dwFileVersionLS));
+//                sprintf_s(pBuf, infoSize,"%d.%d.%d.%d", HIWORD(pVsInfo->dwFileVersionMS), LOWORD(pVsInfo->dwFileVersionMS), HIWORD(pVsInfo->dwFileVersionLS), LOWORD(pVsInfo->dwFileVersionLS));
+//                strVersionInfo = pBuf;
+//            }
+//        }
+//        delete[] pBuf;
+//    }
+//
+//    if(hDll)
+//    {
+//        FreeLibrary(hDll);
+//    }
+//    return strVersionInfo;
+//}
+
 std::string Tool_GetSoftVersion(const char *exepath)
 {
-    std::string strVersionInfo;
-    if (!exepath)
-        return strVersionInfo;
-    if (_access(exepath, 0) != 0)
-        return strVersionInfo;
+	std::string strVersionInfo;
+	if (!exepath)
+		return strVersionInfo;
+	if (_access(exepath, 0) != 0)
+		return strVersionInfo;
 
-    HMODULE hDll = NULL;
-    char szDbgHelpPath[MAX_PATH];
-    sprintf_s( szDbgHelpPath,sizeof(szDbgHelpPath),  "Api-ms-win-core-version-l1-1-0.dll");
-    hDll = ::LoadLibraryA( szDbgHelpPath );
-    if(hDll == NULL)
-        return strVersionInfo;
-    typedef DWORD (WINAPI *func_GetFileVersionInfoSizeA)(LPCSTR ,LPDWORD );
-    func_GetFileVersionInfoSizeA p_GetFileVersionInfoSizeA =
-        (func_GetFileVersionInfoSizeA)::GetProcAddress( hDll, "GetFileVersionInfoSizeA" );
 
-    typedef DWORD (WINAPI *func_GetFileVersionInfoA)(LPCSTR , DWORD  ,  DWORD , LPVOID );
-    func_GetFileVersionInfoA p_GetFileVersionInfoA =
-        (func_GetFileVersionInfoA)::GetProcAddress( hDll, "GetFileVersionInfoA" );
+	UINT infoSize = GetFileVersionInfoSizeA(exepath, 0);
+	if (infoSize != 0) {
+		strVersionInfo.resize(infoSize, 0);
+		char *pBuf = NULL;
+		pBuf = new char[infoSize];
+		VS_FIXEDFILEINFO *pVsInfo;
+		if (GetFileVersionInfoA(exepath, 0, infoSize, pBuf)) {
+			if (VerQueryValueA(pBuf, "\\", (void **)&pVsInfo, &infoSize))
+			{
+				//sprintf(pBuf, "%d.%d.%d.%d", HIWORD(pVsInfo->dwFileVersionMS), LOWORD(pVsInfo->dwFileVersionMS), HIWORD(pVsInfo->dwFileVersionLS), LOWORD(pVsInfo->dwFileVersionLS));
+				sprintf_s(pBuf, infoSize, "%d.%d.%d.%d", 
+					HIWORD(pVsInfo->dwFileVersionMS),
+					LOWORD(pVsInfo->dwFileVersionMS), 
+					HIWORD(pVsInfo->dwFileVersionLS),
+					LOWORD(pVsInfo->dwFileVersionLS));
+				strVersionInfo = pBuf;
+			}
+		}
+		delete[] pBuf;
+	}
 
-    typedef DWORD (WINAPI *func_VerQueryValueA)(LPCVOID ,  LPCSTR  , LPVOID  *,  PUINT );
-    func_VerQueryValueA p_VerQueryValueA =
-        (func_VerQueryValueA)::GetProcAddress( hDll, "VerQueryValueA" );
-
-    if(p_GetFileVersionInfoSizeA == NULL
-            || p_GetFileVersionInfoA == NULL
-            || p_VerQueryValueA == NULL)
-    {
-        if(hDll)
-        {
-            FreeLibrary(hDll);
-            hDll = NULL;
-        }
-        LOGFMTE("Tool_GetSoftVersion , GetProcAddress failed.");
-        return strVersionInfo;
-    }
-
-    UINT infoSize = p_GetFileVersionInfoSizeA(exepath, 0);
-    if (infoSize != 0) {
-        strVersionInfo.resize(infoSize, 0);
-        char *pBuf = NULL;
-        pBuf = new char[infoSize];
-        VS_FIXEDFILEINFO *pVsInfo;
-        if (p_GetFileVersionInfoA(exepath, 0, infoSize, pBuf)) {
-            if (p_VerQueryValueA(pBuf, "\\", (void **)&pVsInfo, &infoSize))
-            {
-                //sprintf(pBuf, "%d.%d.%d.%d", HIWORD(pVsInfo->dwFileVersionMS), LOWORD(pVsInfo->dwFileVersionMS), HIWORD(pVsInfo->dwFileVersionLS), LOWORD(pVsInfo->dwFileVersionLS));
-                sprintf_s(pBuf, infoSize,"%d.%d.%d.%d", HIWORD(pVsInfo->dwFileVersionMS), LOWORD(pVsInfo->dwFileVersionMS), HIWORD(pVsInfo->dwFileVersionLS), LOWORD(pVsInfo->dwFileVersionLS));
-                strVersionInfo = pBuf;
-            }
-        }
-        delete[] pBuf;
-    }
-
-    if(hDll)
-    {
-        FreeLibrary(hDll);
-    }
-    return strVersionInfo;
+	return strVersionInfo;
 }
 
 int Tool_AnalysisPlateColorNo(const char *szPlateNo)

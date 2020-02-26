@@ -81,7 +81,7 @@ VPR_SIGNALWAYSDVFR_API int D_CALLTYPE VLPR_Login(int nType, char* sParas)
 	{
 		iLoginID = DeviceListManager::GetInstance()->GetDeviceIdByIpAddress(strIP.c_str());
 		WRITE_LOG("Camera %s is already exist,login id = %d,  do nothing", strIP.c_str(), iLoginID);
-		return ERROR_OK;
+		return iLoginID;
 	}
 	else
 	{
@@ -93,9 +93,9 @@ VPR_SIGNALWAYSDVFR_API int D_CALLTYPE VLPR_Login(int nType, char* sParas)
 			g_lsLoginIDList.push_back(iLoginID);
 			pTemp->SetCameraIP(strIP.c_str());
 			pTemp->SetLoginID(iLoginID);
-			pTemp->SetH264Callback(0, 0, 0, 0xffff0700);
-			DeviceListManager::GetInstance()->AddOneDevice(iLoginID, pTemp);
 			int iConnect = pTemp->ConnectToCamera();
+			pTemp->SetH264Callback(0, 0, 0, 0xffff0700);
+			DeviceListManager::GetInstance()->AddOneDevice(iLoginID, pTemp);			
 
 			WRITE_LOG("Camera %s  create finish, login id = %d, connect code = %d",
 				strIP.c_str(),
@@ -300,7 +300,7 @@ VPR_SIGNALWAYSDVFR_API int D_CALLTYPE VLPR_GetVersion(char* sDevVersion,
 
 VPR_SIGNALWAYSDVFR_API int D_CALLTYPE VLPR_SyncTime(int nHandle, char* sSysTime)
 {
-	WRITE_LOG("begin, nHandle = %n,sSysTime = %s ", nHandle, sSysTime);
+	WRITE_LOG("begin, nHandle = %d,sSysTime = %s ", nHandle, sSysTime);
 	std::string strTime(sSysTime);
 	if (strTime.length() != 14 )
 	{

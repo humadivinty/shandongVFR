@@ -282,7 +282,8 @@ void Camera6467_VFR::AnalysisAppendXML(CameraResult* CamResult)
     {
         CamResult->bBackUpVeh = true;
     }
-    iLenth = BUFFERLENTH;
+	memset(chTemp, 0, sizeof(chTemp));
+	iLenth = BUFFERLENTH;
     if (Tool_GetDataFromAppenedInfo(CamResult->pcAppendInfo, "Confidence", chTemp, &iLenth))
     {
         float fConfidence = 0;
@@ -291,7 +292,14 @@ void Camera6467_VFR::AnalysisAppendXML(CameraResult* CamResult)
         CamResult->fConfidenceLevel = fConfidence;
         //printf("the CarHeight  is %f.\n", fCarHeight);
     }
-
+	memset(chTemp, 0, sizeof(chTemp));
+	iLenth = BUFFERLENTH;
+	if (Tool_GetDataFromAppenedInfo(CamResult->pcAppendInfo, "TailPlateName", chTemp, &iLenth))
+	{
+		memset(CamResult->chTailPlateNO, '\0', sizeof(CamResult->chTailPlateNO));
+		memcpy(CamResult->chTailPlateNO, chTemp, strlen(chTemp));
+		WriteFormatLog("tail plate no = %s", chTemp);
+	}
 	
 	CamResult->iPlateColor = Tool_AnalysisPlateColorNo(CamResult->chPlateNO);
 	CamResult->iTailPlateColor = Tool_AnalysisPlateColorNo(CamResult->chTailPlateNO);
@@ -593,17 +601,17 @@ void Camera6467_VFR::ReadConfig()
     iTempValue = iTempValue > 0 ? iTempValue : 2000;
     SetResultWaitTime(iTempValue);
 
-    iTempValue = 0;
-    Tool_ReadIntValueFromConfigFile(INI_FILE_NAME, "Result", "HoldDays", iTempValue);
-    iTempValue = iTempValue > 0 ? iTempValue : 0;
-    SetReulstHoldDay(iTempValue);
+    //iTempValue = 0;
+    //Tool_ReadIntValueFromConfigFile(INI_FILE_NAME, "Result", "HoldDays", iTempValue);
+    //iTempValue = iTempValue > 0 ? iTempValue : 0;
+    //SetReulstHoldDay(iTempValue);
 
     //值为1时，表示使用最早接收到的结果，
-    iTempValue = 1;
-    Tool_ReadIntValueFromConfigFile(INI_FILE_NAME, "Result", "GetMode", iTempValue);
-    m_iResultModule = iTempValue > 0 ? iTempValue : 0;
+    //iTempValue = 1;
+    //Tool_ReadIntValueFromConfigFile(INI_FILE_NAME, "Result", "GetMode", iTempValue);
+    //m_iResultModule = iTempValue > 0 ? iTempValue : 0;
 
-    iTempValue = 0;
+    iTempValue = 1;
     Tool_ReadIntValueFromConfigFile(INI_FILE_NAME, "Video", "mode", iTempValue);
     m_iVideoMode = iTempValue;
 
@@ -638,6 +646,7 @@ void Camera6467_VFR::SetReConnectCallback(void* funcReco, void* pUser)
 void Camera6467_VFR::SetConnectStatus_Callback(void* func, void* pUser, int TimeInterval)
 {
     EnterCriticalSection(&m_csFuncCallback);
+	g_ConnectStatusCallback = func;
     g_pUser = pUser;
     m_iTimeInvl = TimeInterval;
     LeaveCriticalSection(&m_csFuncCallback);
@@ -645,49 +654,50 @@ void Camera6467_VFR::SetConnectStatus_Callback(void* func, void* pUser, int Time
 
 void Camera6467_VFR::SendConnetStateMsg(bool isConnect)
 {
+	int iLoginID = GetLoginID();
     if (isConnect)
     {
-        //EnterCriticalSection(&m_csFuncCallback);
-        //if (g_ConnectStatusCallback)
-        //{
-        //    LeaveCriticalSection(&m_csFuncCallback);
-        //    //char chIP[32] = { 0 };
-        //    //sprintf_s(chIP, "%s", m_strIP.c_str());
-        //    //g_ConnectStatusCallback(m_iIndex, 0, g_pUser);
-        //}
-        //else
-        //{
-        //    LeaveCriticalSection(&m_csFuncCallback);
-        //}
-
         EnterCriticalSection(&m_csFuncCallback);
-        if (m_hWnd != NULL)
+        if (g_ConnectStatusCallback)
         {
-            ::PostMessage(m_hWnd, m_iConnectMsg, NULL, NULL);
-        }        
-        LeaveCriticalSection(&m_csFuncCallback);
+            LeaveCriticalSection(&m_csFuncCallback);
+            //char chIP[32] = { 0 };
+            //sprintf_s(chIP, "%s", m_strIP.c_str());
+			((CBFun_GetDevStatus)g_ConnectStatusCallback)(iLoginID, 0, g_pUser);
+        }
+        else
+        {
+            LeaveCriticalSection(&m_csFuncCallback);
+        }
+
+        //EnterCriticalSection(&m_csFuncCallback);
+        //if (m_hWnd != NULL)
+        //{
+        //    ::PostMessage(m_hWnd, m_iConnectMsg, NULL, NULL);
+        //}        
+        //LeaveCriticalSection(&m_csFuncCallback);
     }
     else
     {
-        //EnterCriticalSection(&m_csFuncCallback);
-        //if (g_ConnectStatusCallback)
-        //{
-        //    LeaveCriticalSection(&m_csFuncCallback);
-        //    char chIP[32] = { 0 };
-        //    sprintf_s(chIP, "%s", m_strIP.c_str());
-        //    //g_ConnectStatusCallback(m_iIndex, -100, g_pUser);
-        //}
-        //else
-        //{
-        //    LeaveCriticalSection(&m_csFuncCallback);
-        //}
-
         EnterCriticalSection(&m_csFuncCallback);
-        if (m_hWnd != NULL)
+        if (g_ConnectStatusCallback)
         {
-            ::PostMessage(m_hWnd, m_iDisConMsg, NULL, NULL);
-        }        
-        LeaveCriticalSection(&m_csFuncCallback);
+            LeaveCriticalSection(&m_csFuncCallback);
+            //char chIP[32] = { 0 };
+            //sprintf_s(chIP, "%s", m_strIP.c_str());
+			((CBFun_GetDevStatus)g_ConnectStatusCallback)(iLoginID, -100, g_pUser);
+        }
+        else
+        {
+            LeaveCriticalSection(&m_csFuncCallback);
+        }
+
+        //EnterCriticalSection(&m_csFuncCallback);
+        //if (m_hWnd != NULL)
+        //{
+        //    ::PostMessage(m_hWnd, m_iDisConMsg, NULL, NULL);
+        //}        
+        //LeaveCriticalSection(&m_csFuncCallback);
     }
 }
 
@@ -772,52 +782,6 @@ void Camera6467_VFR::SendResultByCallback(std::shared_ptr<CameraResult> pResult)
 		memset(chNumBuffer, 0, sizeof(chNumBuffer));
 		sprintf_s(chNumBuffer, sizeof(chNumBuffer), "%d", iIndex);
 		Tool_SaveFileToPath(pIndexFileName, chNumBuffer, sizeof(chNumBuffer));
-
-		enum imgType{type_frontImg, type_SideImg,type_tailImg, type_frontPlate, type_frontBin,type_tailPlate, type_taileBin};
-		auto SaveImgFunc = [](CameraIMG* pImg,int imgType, int iIndex, const char* imgPath)
-		{
-			if (pImg == NULL
-				|| pImg->dwImgSize <= 0
-				|| NULL == pImg->pbImgData )
-			{
-				return false;
-			}
-			char chFileName[128] = {0};
-			switch (imgType)
-			{
-				case type_frontImg:
-					sprintf_s(chFileName, sizeof(chFileName), ".\\%s\\vlp_0_%02d", imgPath, iIndex);
-					break;
-				case type_SideImg:
-					sprintf_s(chFileName, sizeof(chFileName), ".\\%s\\vlp_3_%02d", imgPath, iIndex);
-					break;
-				case type_tailImg:
-					sprintf_s(chFileName, sizeof(chFileName), ".\\%s\\vlp_4_%02d", imgPath, iIndex);
-					break;
-				case type_frontPlate:
-					sprintf_s(chFileName, sizeof(chFileName), ".\\%s\\vlp_1_%02d", imgPath, iIndex);
-					break;
-				case type_frontBin:
-					sprintf_s(chFileName, sizeof(chFileName), ".\\%s\\vlp_2_%02d", imgPath, iIndex);
-					break;
-				case type_tailPlate:
-					sprintf_s(chFileName, sizeof(chFileName), ".\\%s\\vlp_5_%02d", imgPath, iIndex);
-					break;
-				case type_taileBin:
-					sprintf_s(chFileName, sizeof(chFileName), ".\\%s\\vlp_6_%02d", imgPath, iIndex);
-					break;
-			default:
-				break;
-			}
-
-			if (strlen(chFileName) > 0
-				&& Tool_SaveFileToPath(chFileName, pImg->pbImgData, pImg->dwImgSize))
-			{
-				memcpy((void*)pImg->chSavePath, chFileName, strlen(chFileName));
-				return true;
-			}
-			return false;
-		};
 		
 		T_VLPFRONTINFO vlpFrontInfo;
 		memset(&vlpFrontInfo, '\0', sizeof(vlpFrontInfo));
@@ -839,20 +803,20 @@ void Camera6467_VFR::SendResultByCallback(std::shared_ptr<CameraResult> pResult)
 		char* pSrcImgPath = NULL;
 		int iPathLen = 128;
 		//车头图
-		SaveImgFunc(&pResult->CIMG_BeginCapture, type_frontImg, iIndex, pchImgRootPath);
+		SaveImgStructFunc(&pResult->CIMG_BeginCapture, type_frontImg, iIndex, pchImgRootPath);
 		pSrcImgPath = pResult->CIMG_BeginCapture.chSavePath;
 		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);
 		VFR_WRITE_LOG("process type_frontImg info finish.");
 
 		//车头车牌图
-		SaveImgFunc(&pResult->CIMG_PlateImage, type_frontPlate, iIndex, pchImgRootPath);
+		SaveImgStructFunc(&pResult->CIMG_PlateImage, type_frontPlate, iIndex, pchImgRootPath);
 		pImgPath = (char*)vlpFrontInfo.imageFile[1];
 		pSrcImgPath = pResult->CIMG_PlateImage.chSavePath;
 		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);
 		VFR_WRITE_LOG("process type_frontPlate info finish.");
 
 		//车头二值化图
-		SaveImgFunc(&pResult->CIMG_BinImage, type_frontBin, iIndex, pchImgRootPath);
+		SaveImgStructFunc(&pResult->CIMG_BinImage, type_frontBin, iIndex, pchImgRootPath);
 		pImgPath = (char*)vlpFrontInfo.imageFile[2];
 		pSrcImgPath = pResult->CIMG_BinImage.chSavePath;
 		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);
@@ -887,21 +851,21 @@ void Camera6467_VFR::SendResultByCallback(std::shared_ptr<CameraResult> pResult)
 
 
 		//车身图
-		SaveImgFunc(&pResult->CIMG_BestCapture, type_SideImg, iIndex, pchImgRootPath);
+		SaveImgStructFunc(&pResult->CIMG_BestCapture, type_SideImg, iIndex, pchImgRootPath);
 		pImgPath = (char*)vlpTailInfo.imageFile[0];
 		pSrcImgPath = pResult->CIMG_BestCapture.chSavePath;
 		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);
 		VFR_WRITE_LOG("process type_SideImg info finish.");
 
 		//车尾图
-		SaveImgFunc(&pResult->CIMG_LastCapture, type_tailImg, iIndex, pchImgRootPath);
+		SaveImgStructFunc(&pResult->CIMG_LastCapture, type_tailImg, iIndex, pchImgRootPath);
 		pImgPath = (char*)vlpTailInfo.imageFile[1];
 		pSrcImgPath = pResult->CIMG_LastCapture.chSavePath;
 		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);
 		VFR_WRITE_LOG("process type_tailImg info finish.");
 
 		//车尾车牌图
-		SaveImgFunc(&pResult->CIMG_BestSnapshot, type_tailPlate, iIndex, pchImgRootPath);
+		SaveImgStructFunc(&pResult->CIMG_BestSnapshot, type_tailPlate, iIndex, pchImgRootPath);
 		pImgPath = (char*)vlpTailInfo.imageFile[2];
 		pSrcImgPath = pResult->CIMG_BestSnapshot.chSavePath;
 		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);
@@ -1388,11 +1352,11 @@ int Camera6467_VFR::RecordInfoEnd(DWORD dwCarID)
             }
             else
             {
-                if (m_dwLastCarID != dwCarID)
-                {
-                    //StopSaveAviFile(0, GetTickCount() + getVideoDelayTime() * 1000);
-                    StopSaveAviFile(0, m_pResult->dw64TimeMS + getVideoDelayTime() * 1000);
-                }
+                //if (m_dwLastCarID != dwCarID)
+                //{
+                //    //StopSaveAviFile(0, GetTickCount() + getVideoDelayTime() * 1000);
+                //    StopSaveAviFile(0, m_pResult->dw64TimeMS + getVideoDelayTime() * 1000);
+                //}
                 //SaveResult(m_pResult);
 
                 if (CheckIfSuperLength(m_pResult))
@@ -1437,7 +1401,7 @@ int Camera6467_VFR::RecordInfoEnd(DWORD dwCarID)
                 BaseCamera::WriteLog(m_VfrResultList.GetAllPlateString().c_str());   
                 //SendResultByCallback(pResult);
 
-                UpdateSentStatus(m_pResult);
+                //UpdateSentStatus(m_pResult);
 
                 m_pResult = NULL;
             }
@@ -1531,9 +1495,12 @@ int Camera6467_VFR::RecordInfoPlate(DWORD dwCarID,
         //dir.mkpath(chAviPath);
 
         //if(m_dwLastCarID != dwCarID)
-        if (!FindIfCarIDInTheList(dwCarID))
+        /*if (!FindIfCarIDInTheList(dwCarID))*/
         {
-            InsertCarIDToTheList(dwCarID);
+			if (!FindIfCarIDInTheList(dwCarID))
+			{
+				InsertCarIDToTheList(dwCarID);
+			}            
 
             char chImgDir[256] = { 0 };
             GetImageDir(chImgDir, sizeof(chImgDir));
@@ -1573,13 +1540,12 @@ int Camera6467_VFR::RecordInfoPlate(DWORD dwCarID,
             std::string strFinalString = Tool_ReplaceStringInStd(chAviPath, "\\\\", "\\");
             WriteFormatLog("final save path = %s  .", strFinalString.c_str());
             const char* pChVideoPath = strFinalString.c_str();
+			memset(m_pResult->chSaveFileName, '\0', sizeof(m_pResult->chSaveFileName));
+			memcpy(m_pResult->chSaveFileName, pChVideoPath, strlen(pChVideoPath));
 
             if (!Tool_CheckIfFileNameIntheList(m_lsVideoName, pChVideoPath, &m_csFuncCallback))
             {
                 StartToSaveAviFile(0, pChVideoPath, (m_pResult->dw64TimeMS - getVideoAdvanceTime() * 1000));
-                memset(m_pResult->chSaveFileName, '\0', sizeof(m_pResult->chSaveFileName));
-                memcpy(m_pResult->chSaveFileName, pChVideoPath, strlen(pChVideoPath));
-
                 WriteFormatLog("current car ID  %lu , avi fileName = %s.", dwCarID, chAviPath);
 
                 StopSaveAviFile(0, m_pResult->dw64TimeMS + getVideoDelayTime() * 1000);
@@ -1643,16 +1609,6 @@ int Camera6467_VFR::RecordInfoBigImage(DWORD dwCarID,
 
     CHECK_ARG(m_pResult);    
     SetLastResultIfReceiveComplete(false);
-
-
-    char* pSavePath = NULL;
-    std::string strPlateTime(m_pResult->chPlateTime);
-
-    char chImgDir[256] = { 0 };
-    GetImageDir(chImgDir, sizeof(chImgDir));
-    strcat(chImgDir, "\\");
-    strcat(chImgDir, RESULT_DIR_NAME);
-    strcat(chImgDir, "\\");
     
     if (dwCarID == m_pResult->dwCarID)
     {        
@@ -1661,26 +1617,6 @@ int Camera6467_VFR::RecordInfoBigImage(DWORD dwCarID,
             WriteFormatLog("RecordInfoBigImage BEST_SNAPSHO  ");
 
             CopyDataToIMG(m_pResult->CIMG_BestSnapshot, pbPicData, wWidth, wHeight, dwImgDataLen, wImgType);
-
-            pSavePath = m_pResult->CIMG_BestSnapshot.chSavePath;
-            //sprintf_s(pSavePath, 256, "%s\\%s\\%I64u-%s-front.jpg",
-            //    m_chImageDir,
-            //    m_pResult->chPlateTime,
-            //    m_pResult->dw64TimeMS,
-            //    m_pResult->chPlateNO);
-            //sprintf_s(pSavePath, 256, "%s\\%s\\%s\\%s\\%lu-%I64u-front.jpg",
-            //    m_chImageDir,
-            //    strPlateTime.substr(0, 4).c_str(),
-            //    strPlateTime.substr(4, 2).c_str(),
-            //    strPlateTime.substr(6, 2).c_str(),
-            //    dwCarID,
-            //    m_pResult->dw64TimeMS);
-            sprintf_s(pSavePath, 256, "%s\\%s-%s-%s\\%s_bestSnapShot_front.jpg",
-                chImgDir,
-                strPlateTime.substr(0, 4).c_str(),
-                strPlateTime.substr(4, 2).c_str(),
-                strPlateTime.substr(6, 2).c_str(),
-                m_pResult->chPlateTime);
         }
         else if (wImgType == RECORD_BIGIMG_LAST_SNAPSHOT)
         {
@@ -1692,130 +1628,29 @@ int Camera6467_VFR::RecordInfoBigImage(DWORD dwCarID,
             {//当前小黄人有个问题，会出现只有最清晰大图和最后大图的情况，在这种情况下，根据酱油哥说，可以用最后大图代替车头大图
                 CopyDataToIMG(m_pResult->CIMG_BeginCapture, pbPicData, wWidth, wHeight, dwImgDataLen, wImgType);
             }
-
-            pSavePath = m_pResult->CIMG_LastSnapshot.chSavePath;
-            //sprintf_s(pSavePath, 256, "%s\\%s\\%lu-%I64u-front.jpg",
-            //    m_chImageDir,
-            //    m_pResult->chPlateTime,
-            //    dwCarID,
-            //    m_pResult->dw64TimeMS);
-            //sprintf_s(pSavePath, 256, "%s\\%s\\%s\\%s\\%lu-%I64u-front.jpg",
-            //    m_chImageDir,
-            //    strPlateTime.substr(0, 4).c_str(),
-            //    strPlateTime.substr(4, 2).c_str(),
-            //    strPlateTime.substr(6, 2).c_str(),
-            //    dwCarID,
-            //    m_pResult->dw64TimeMS);
-            sprintf_s(pSavePath, 256, "%s\\%s-%s-%s\\%s_LastSnapShot.jpg",
-                chImgDir,
-                strPlateTime.substr(0, 4).c_str(),
-                strPlateTime.substr(4, 2).c_str(),
-                strPlateTime.substr(6, 2).c_str(),
-                m_pResult->chPlateTime);
-
         }
         else if (wImgType == RECORD_BIGIMG_BEGIN_CAPTURE)
         {
             WriteFormatLog("RecordInfoBigImage BEGIN_CAPTURE  ");
 
             CopyDataToIMG(m_pResult->CIMG_BeginCapture, pbPicData, wWidth, wHeight, dwImgDataLen, wImgType);
-
-            pSavePath = m_pResult->CIMG_BeginCapture.chSavePath;
-            //sprintf_s(pSavePath, 256, "%s\\%s\\%lu-%I64u-front.jpg",
-            //    m_chImageDir,
-            //    m_pResult->chPlateTime,
-            //    dwCarID,
-            //    m_pResult->dw64TimeMS);
-            //sprintf_s(pSavePath, 256, "%s\\%s\\%s\\%s\\%lu-%I64u-front.jpg",
-            //    m_chImageDir,
-            //    strPlateTime.substr(0, 4).c_str(),
-            //    strPlateTime.substr(4, 2).c_str(),
-            //    strPlateTime.substr(6, 2).c_str(),
-            //    dwCarID,
-            //    m_pResult->dw64TimeMS);
-            sprintf_s(pSavePath, 256, "%s\\%s-%s-%s\\%s_front.jpg",
-                chImgDir,
-                strPlateTime.substr(0, 4).c_str(),
-                strPlateTime.substr(4, 2).c_str(),
-                strPlateTime.substr(6, 2).c_str(),
-                m_pResult->chPlateTime);
         }
         else if (wImgType == RECORD_BIGIMG_BEST_CAPTURE)
         {
             WriteFormatLog("RecordInfoBigImage BEST_CAPTURE  ");
 
             CopyDataToIMG(m_pResult->CIMG_BestCapture, pbPicData, wWidth, wHeight, dwImgDataLen, wImgType);
-
-            pSavePath = m_pResult->CIMG_BestCapture.chSavePath;
-            //sprintf_s(pSavePath, 256, "%s\\%s\\%lu-%I64u-side.jpg",
-            //    m_chImageDir,
-            //    m_pResult->chPlateTime,
-            //    dwCarID,
-            //    m_pResult->dw64TimeMS);
-            //sprintf_s(pSavePath, 256, "%s\\%s\\%s\\%s\\%lu-%I64u-side.jpg",
-            //    m_chImageDir,
-            //    strPlateTime.substr(0, 4).c_str(),
-            //    strPlateTime.substr(4, 2).c_str(),
-            //    strPlateTime.substr(6, 2).c_str(),
-            //    dwCarID,
-            //    m_pResult->dw64TimeMS);
-            sprintf_s(pSavePath, 256, "%s\\%s-%s-%s\\%s_side.jpg",
-                chImgDir,
-                strPlateTime.substr(0, 4).c_str(),
-                strPlateTime.substr(4, 2).c_str(),
-                strPlateTime.substr(6, 2).c_str(),
-                m_pResult->chPlateTime);
         }
         else if (wImgType == RECORD_BIGIMG_LAST_CAPTURE)
         {
             WriteFormatLog("RecordInfoBigImage LAST_CAPTURE  ");
 
             CopyDataToIMG(m_pResult->CIMG_LastCapture, pbPicData, wWidth, wHeight, dwImgDataLen, wImgType);
-
-            pSavePath = m_pResult->CIMG_LastCapture.chSavePath;
-            //sprintf_s(pSavePath, 256, "%s\\%s\\%lu-%I64u-tail.jpg",
-            //    m_chImageDir,
-            //    m_pResult->chPlateTime,
-            //    dwCarID,
-            //    m_pResult->dw64TimeMS);
-            //sprintf_s(pSavePath, 256, "%s\\%s\\%s\\%s\\%lu-%I64u-tail.jpg",
-            //    m_chImageDir,
-            //    strPlateTime.substr(0, 4).c_str(),
-            //    strPlateTime.substr(4, 2).c_str(),
-            //    strPlateTime.substr(6, 2).c_str(),
-            //    dwCarID,
-            //    m_pResult->dw64TimeMS);
-            sprintf_s(pSavePath, 256, "%s\\%s-%s-%s\\%s_tail.jpg",
-                chImgDir,
-                strPlateTime.substr(0, 4).c_str(),
-                strPlateTime.substr(4, 2).c_str(),
-                strPlateTime.substr(6, 2).c_str(),
-                m_pResult->chPlateTime);
         }
         else
         {
             WriteFormatLog("RecordInfoBigImage other Image, put it to  LAST_CAPTURE .");
             CopyDataToIMG(m_pResult->CIMG_LastCapture, pbPicData, wWidth, wHeight, dwImgDataLen, wImgType);
-
-            pSavePath = m_pResult->CIMG_LastCapture.chSavePath;
-            //sprintf_s(pSavePath, 256, "%s\\%s\\%lu-%I64u-tail.jpg",
-            //    m_chImageDir,
-            //    m_pResult->chPlateTime,
-            //    dwCarID,
-            //    m_pResult->dw64TimeMS);
-            //sprintf_s(pSavePath, 256, "%s\\%s\\%s\\%s\\%lu-%I64u-tail.jpg",
-            //    m_chImageDir,
-            //    strPlateTime.substr(0, 4).c_str(),
-            //    strPlateTime.substr(4, 2).c_str(),
-            //    strPlateTime.substr(6, 2).c_str(),
-            //    dwCarID,
-            //    m_pResult->dw64TimeMS);
-            sprintf_s(pSavePath, 256, "%s\\%s-%s-%s\\%s_tail.jpg",
-                chImgDir,
-                strPlateTime.substr(0, 4).c_str(),
-                strPlateTime.substr(4, 2).c_str(),
-                strPlateTime.substr(6, 2).c_str(),
-                m_pResult->chPlateTime);
         }
         //if (NULL == strstr(pSavePath, "front"))
         //{
@@ -1966,7 +1801,32 @@ int Camera6467_VFR::RecordInfoBinaryImage(DWORD dwCarID,
     SetLastResultIfReceiveComplete(false);
     if (dwCarID == m_pResult->dwCarID)
     {
-        CopyDataToIMG(m_pResult->CIMG_BinImage, pbPicData, wWidth, wHeight, dwImgDataLen, 0);
+		int iBufferlength = 1024 * 1024;
+		if (m_pTempBin == NULL)
+		{
+			m_pTempBin = new BYTE[1024 * 1024];
+			memset(m_pTempBin, 0x00, iBufferlength);
+		}
+		if (m_pTempBin)
+		{
+			memset(m_pTempBin, 0x00, iBufferlength);
+
+			HRESULT hRet = HVAPIUTILS_BinImageToBitmapEx(pbPicData, m_pTempBin, &iBufferlength);
+			if (hRet == S_OK)
+			{
+				CopyDataToIMG(m_pResult->CIMG_BinImage, m_pTempBin, wWidth, wHeight, iBufferlength, 0);
+			}
+			else
+			{
+				WriteLog("HVAPIUTILS_BinImageToBitmapEx, failed, use default.");
+				CopyDataToIMG(m_pResult->CIMG_BinImage, pbPicData, wWidth, wHeight, dwImgDataLen, 0);
+			}
+		}
+		else
+		{
+			WriteFormatLog("m_pTempBin == NULL.");
+		}
+        //CopyDataToIMG(m_pResult->CIMG_BinImage, pbPicData, wWidth, wHeight, dwImgDataLen, 0);
     }
     else
     {
@@ -2029,7 +1889,7 @@ void Camera6467_VFR::CheckStatus()
 			|| -1 == iFirstConnctSuccess)
         {
             int iStatus = GetCamStatus();
-            if (iStatus != iLastStatus)
+            //if (iStatus != iLastStatus)
             {
                 if (iStatus == 0)
                 {
@@ -2075,7 +1935,8 @@ bool Camera6467_VFR::checkIfHasThreePic(std::shared_ptr<CameraResult> result)
 
 	if (result->CIMG_BeginCapture.dwImgSize > 0
 		&& result->CIMG_BestCapture.dwImgSize > 0
-		&& result->CIMG_LastCapture.dwImgSize > 0)
+		&& result->CIMG_LastCapture.dwImgSize > 0
+		&& FindIfFileNameInReciveList(result->chSaveFileName))
 	{
 		return true;
 	}
@@ -2509,6 +2370,376 @@ unsigned int Camera6467_VFR::SendResultThreadFunc_WithNoSignal()
     return 0;
 }
 
+unsigned int Camera6467_VFR::SendResultThreadFunc_Separate()
+{
+	WriteFormatLog("SendResultThreadFunc begin.");
+
+	typedef struct _SendFlag
+	{
+		int index;
+		unsigned long dwCarID;
+		bool bSendFront;
+		bool bSendSide;
+		bool bSendTail;
+		bool bSendAppendInfo;		
+
+		_SendFlag()
+		{
+			index = 0;
+			dwCarID = 0;
+
+			bSendFront = false;
+			bSendSide = false;
+			bSendTail = false;
+			bSendAppendInfo = false;
+		}
+	}SendFlag;
+
+	std::list<SendFlag> sentList;
+	enum itemType{ item_carID, item_front, item_side, item_tail };
+
+	auto findIfIntheList = [](std::list<SendFlag>& staList, unsigned long carID)
+	{
+		for (auto it = std::begin(staList); it != std::end(staList); it++)
+		{
+			if (it->dwCarID == carID)
+			{
+				return true;
+			}
+		}
+		return false;
+	};
+
+	auto updateStaInTheList = [](std::list<SendFlag>& staList, unsigned long carID, int item, int value)
+	{
+		for (auto it = std::begin(staList); it != std::end(staList); it++)
+		{
+			if (it->dwCarID == carID)
+			{
+				switch (item)
+				{
+					case item_carID:
+						it->dwCarID = value;
+						break;
+					case item_front:
+						it->bSendFront = value == 0 ? false : true;
+						break;
+					case item_side:
+						it->bSendSide = value == 0 ? false : true;
+						break;
+					case item_tail:
+						it->bSendTail = value == 0 ? false : true;
+						break;
+					default:
+						break;
+				}
+				break;
+			}
+		}
+	};
+
+	auto addStatusToList = [](std::list<SendFlag>& staList, SendFlag sta)
+	{
+		if (staList.size() > 5)
+		{
+			staList.pop_front();
+		}
+		staList.push_back(sta);
+	};
+
+	auto getStatusInTheList = [](std::list<SendFlag>& staList, unsigned long carID, SendFlag& statues)
+	{
+		for (auto it = std::begin(staList); it != std::end(staList); it++)
+		{
+			if (it->dwCarID == carID)
+			{
+				statues = *it;
+				return true;
+			}			
+		}
+		return false;
+	};
+	
+	int iIndex = 0;
+	SendFlag Currentflag;
+	DWORD dwReceiveTime = 0;
+	DWORD dwCurrentTime = 0;
+	DWORD dwTimeDif = 0;
+	int iResultTimeOut = getResultWaitTime();
+	while (!GetCheckThreadExit())
+	{
+		Sleep(100);
+		if (m_VfrResultList.empty())
+		{
+			continue;
+		}
+
+		std::shared_ptr<CameraResult> pResult = nullptr;
+		m_VfrResultList.front(pResult);
+		if (!pResult)
+		{
+			continue;
+		}
+		memset(&Currentflag, 0, sizeof(Currentflag));
+		Currentflag.index = -1;
+		dwReceiveTime = pResult->dwReceiveTime;
+		dwCurrentTime = GetTickCount();
+		dwTimeDif = dwCurrentTime - dwReceiveTime;
+
+		if (findIfIntheList(sentList, pResult->dwCarID))
+		{
+			VFR_WRITE_LOG("current result is sent befor, carid = %lu, plateNO = %s.", pResult->dwCarID, pResult->chPlateNO);
+			SendFlag flag;
+			if (getStatusInTheList(sentList, pResult->dwCarID, flag))
+			{
+				VFR_WRITE_LOG("getStatusInTheList success, index = %d, carID = %lu, bSendFront = %d, bSendTail = %d",
+					flag.index,
+					flag.dwCarID,
+					flag.bSendFront,
+					flag.bSendTail);
+
+				if (flag.bSendFront == false
+					&& pResult->CIMG_BeginCapture.dwImgSize > 0)
+				{
+					SendFrontResultByCallback(pResult, flag.index);
+					updateStaInTheList(sentList, pResult->dwCarID, item_front, 1);
+					flag.bSendFront = true;
+				}
+
+				if (flag.bSendTail == false
+					&& checkIfHasThreePic(pResult))
+				{
+					SendTailResultByCallback(pResult, flag.index);
+					updateStaInTheList(sentList, pResult->dwCarID, item_tail, 1);
+					flag.bSendTail = true;
+				}
+
+				Currentflag = flag;
+			}
+			else
+			{
+				VFR_WRITE_LOG("can not get status form sentStatus list.");
+			}
+		}
+		else
+		{
+			VFR_WRITE_LOG("current result is new, carid = %lu, plateNO = %s.", pResult->dwCarID, pResult->chPlateNO);
+			SendFlag flag;
+			flag.dwCarID = pResult->dwCarID;
+			flag.index = iIndex;
+			if (pResult->CIMG_BeginCapture.dwImgSize > 0
+				&& pResult->CIMG_BeginCapture.pbImgData != NULL)
+			{
+				SendFrontResultByCallback(pResult, flag.index);
+				flag.bSendFront = true;
+			}
+
+			if (checkIfHasThreePic(pResult))
+			{
+				SendTailResultByCallback(pResult, flag.index);
+				flag.bSendTail = true;
+			}
+			Currentflag = flag;
+			addStatusToList(sentList, flag);
+
+			if (CheckFrontResultCallback())
+			{
+				iIndex = (iIndex >= 99) ? 0 : iIndex + 1;
+			}			
+		}		
+		
+		if (Currentflag.index == -1
+			|| (Currentflag.bSendFront&& Currentflag.bSendTail)
+			|| (dwTimeDif > iResultTimeOut)
+			)
+		{
+			VFR_WRITE_LOG("Currentflag index = %d, carID = %lu, bSendFront = %d, bSendTail = %d",
+				Currentflag.index,
+				Currentflag.dwCarID,
+				Currentflag.bSendFront,
+				Currentflag.bSendTail);
+
+			if (dwTimeDif > iResultTimeOut)
+			{
+				VFR_WRITE_LOG("result timeout , receive time = %lu, current time = %lu.", dwReceiveTime, dwCurrentTime);
+			}
+
+			VFR_WRITE_LOG("Currentflag.index = %d, index = -1 or have send all data, remove first result ,carID = %lu, plateNO = %s ",
+				Currentflag.index, 
+				pResult->dwCarID,
+				pResult->chPlateNO);
+			m_VfrResultList.DeleteToPosition(0);
+			VFR_WRITE_LOG("remove finish.");
+		}
+		pResult = nullptr;
+	}
+	WriteFormatLog("SendResultThreadFunc finish.");
+
+	return 0;
+}
+
+void Camera6467_VFR::SendFrontResultByCallback(std::shared_ptr<CameraResult> pResult, int index)
+{
+	if (CheckFrontResultCallback())
+	{
+		VFR_WRITE_LOG("Send Front ResultByCallback process begin.");
+
+		T_VLPFRONTINFO vlpFrontInfo;
+		memset(&vlpFrontInfo, '\0', sizeof(vlpFrontInfo));
+		vlpFrontInfo.vlpInfoSize = sizeof(vlpFrontInfo);
+
+		//车头车牌信息
+		vlpFrontInfo.vlpColor[0] = 0;	//颜色
+		vlpFrontInfo.vlpColor[1] = pResult->iPlateColor;
+		char chPlateNO[64] = { 0 };//车牌号码
+		Tool_ProcessPlateNo(pResult->chPlateNO, chPlateNO, sizeof(chPlateNO));
+		memcpy(vlpFrontInfo.vlpText, chPlateNO, strlen(chPlateNO));
+		memcpy(vlpFrontInfo.vlpTime, pResult->chPlateTime, strlen(pResult->chPlateTime));//车头识别时间
+		vlpFrontInfo.vlpReliability = (int(pResult->fConfidenceLevel * 10000)) % 10000;
+		VFR_WRITE_LOG("process front plate info finish.");
+
+		const char* pchImgRootPath = "idevlp";
+		//图片信息
+		char* pImgPath = (char*)vlpFrontInfo.imageFile[0];
+		char* pSrcImgPath = NULL;
+		int iPathLen = 128;
+		//车头图
+		SaveImgStructFunc(&pResult->CIMG_BeginCapture, type_frontImg, index, pchImgRootPath);
+		pSrcImgPath = pResult->CIMG_BeginCapture.chSavePath;
+		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);
+		VFR_WRITE_LOG("process type_frontImg info finish.");
+
+		//车头车牌图
+		SaveImgStructFunc(&pResult->CIMG_PlateImage, type_frontPlate, index, pchImgRootPath);
+		pImgPath = (char*)vlpFrontInfo.imageFile[1];
+		pSrcImgPath = pResult->CIMG_PlateImage.chSavePath;
+		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);
+		VFR_WRITE_LOG("process type_frontPlate info finish.");
+
+		//车头二值化图
+		SaveImgStructFunc(&pResult->CIMG_BinImage, type_frontBin, index, pchImgRootPath);
+		pImgPath = (char*)vlpFrontInfo.imageFile[2];
+		pSrcImgPath = pResult->CIMG_BinImage.chSavePath;
+		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);
+		VFR_WRITE_LOG("process type_frontBin info finish.");
+
+		VFR_WRITE_LOG("send front callback data begin,index = %d, carID = %lu, plateNO = %s, plateTime = %s",
+			index, 
+			pResult->dwCarID, 
+			pResult->chPlateNO,
+			pResult->chPlateTime);
+		int iLoginID = GetLoginID();
+		EnterCriticalSection(&m_csFuncCallback);
+		((CBFun_GetFrontResult)g_pFuncFrontResultCallback)(iLoginID, &vlpFrontInfo, g_pFrontResultUserData);
+		LeaveCriticalSection(&m_csFuncCallback);
+		VFR_WRITE_LOG("send front callback data finish.");
+	}
+	else
+	{
+		VFR_WRITE_LOG("front callback == null.");
+	}
+}
+
+void Camera6467_VFR::SendTailResultByCallback(std::shared_ptr<CameraResult> pResult, int index)
+{
+	if (CheckTailResultcallback())
+	{
+		VFR_WRITE_LOG("Send Tail ResultByCallback process begin.");
+
+		T_VLPBACKINFO vlpTailInfo;
+		memset(&vlpTailInfo, '\0', sizeof(vlpTailInfo));
+		vlpTailInfo.vlpInfoSize = sizeof(vlpTailInfo);
+
+		const char* pchImgRootPath = "idevlp";
+		//图片信息
+		char* pImgPath = NULL;
+		char* pSrcImgPath = NULL;
+		int iPathLen = 128;
+
+		//车尾车牌信息
+		char chPlateNO[64] = { 0 };//车牌号码
+		vlpTailInfo.vlpBackColor[0] = 0;	//颜色
+		vlpTailInfo.vlpBackColor[1] = pResult->iTailPlateColor;
+		memset(chPlateNO, '\0', sizeof(chPlateNO));
+		Tool_ProcessPlateNo(pResult->chTailPlateNO, chPlateNO, sizeof(chPlateNO));
+		memcpy(vlpTailInfo.vlpBackText, chPlateNO, strlen(chPlateNO));
+		memcpy(vlpTailInfo.vlpBackTime, pResult->chPlateTime, strlen(pResult->chPlateTime));
+		VFR_WRITE_LOG("process tail plate info finish.");
+
+		//车型信息
+		vlpTailInfo.vlpCarClass = pResult->iVehTypeNo;
+		vlpTailInfo.vehLength = (int)(pResult->fVehLenth);
+		vlpTailInfo.vehWidth = (int)(pResult->fVehWidth);
+		vlpTailInfo.vehHigh = (int)(pResult->fVehHeight);
+		vlpTailInfo.vehAxis = pResult->iAxletreeCount;
+		vlpTailInfo.vlpReliability = (int(pResult->fConfidenceLevel * 10000)) % 10000;
+
+		//车身图
+		SaveImgStructFunc(&pResult->CIMG_BestCapture, type_SideImg, index, pchImgRootPath);
+		pImgPath = (char*)vlpTailInfo.imageFile[0];
+		pSrcImgPath = pResult->CIMG_BestCapture.chSavePath;
+		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);
+		VFR_WRITE_LOG("process type_SideImg info finish.");
+
+		//车尾图
+		SaveImgStructFunc(&pResult->CIMG_LastCapture, type_tailImg, index, pchImgRootPath);
+		pImgPath = (char*)vlpTailInfo.imageFile[1];
+		pSrcImgPath = pResult->CIMG_LastCapture.chSavePath;
+		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);
+		VFR_WRITE_LOG("process type_tailImg info finish.");
+
+		//车尾车牌图
+		SaveImgStructFunc(&pResult->CIMG_BestSnapshot, type_tailPlate, index, pchImgRootPath);
+		pImgPath = (char*)vlpTailInfo.imageFile[2];
+		pSrcImgPath = pResult->CIMG_BestSnapshot.chSavePath;
+		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);
+		VFR_WRITE_LOG("process type_tailPlate info finish.");
+
+		//车尾车牌二值化图
+		//SaveImgFunc(&pResult->CIMG_LastCapture, type_taileBin, iIndex, imgPath);
+		pImgPath = (char*)vlpTailInfo.imageFile[3];
+		vlpTailInfo.imageFile[3][0] = NULL;
+
+		//五秒视频
+		vlpTailInfo.imageFile[4][0] = NULL;
+		pImgPath = (char*)vlpTailInfo.imageFile[4];
+		if (FindIfFileNameInReciveList(pResult->chSaveFileName))
+		{
+			char chVideoName[256] = { 0 };
+			sprintf_s(chVideoName, sizeof(chVideoName), ".\\%s\\vlp_7_%02d.mp4", pchImgRootPath, index);
+			if (CopyFile(pResult->chSaveFileName, chVideoName, FALSE))
+			{
+				remove(pResult->chSaveFileName);
+				sprintf_s(pImgPath, iPathLen, "%s", chVideoName);
+			}
+			else
+			{
+				VFR_WRITE_LOG("video file %s remove failed.", pResult->chSaveFileName);
+			}
+		}
+		else
+		{
+			VFR_WRITE_LOG("video file %s is not ready.", pResult->chSaveFileName);
+		}
+		int iLoginID = GetLoginID();
+
+		VFR_WRITE_LOG("send tail callback data begin,index = %d, carID = %lu, plateNO = %s, plateTime = %s",
+			index,
+			pResult->dwCarID,
+			pResult->chPlateNO,
+			pResult->chPlateTime);
+
+		EnterCriticalSection(&m_csFuncCallback);
+		((CBFun_GetBackResult)g_pFuncTailResultCallback)(iLoginID, &vlpTailInfo, g_pTailResultUserData);
+		LeaveCriticalSection(&m_csFuncCallback);
+		VFR_WRITE_LOG("send tail callback data finish.");
+	}
+	else
+	{
+		VFR_WRITE_LOG("tail callback func == NULL.");
+	}
+}
+
 void Camera6467_VFR::copyStringToBuffer(char* bufer, size_t bufLen, const char * srcStr)
 {
     if (NULL == bufer
@@ -2527,6 +2758,51 @@ void Camera6467_VFR::copyStringToBuffer(char* bufer, size_t bufLen, const char *
         memcpy(bufer, srcStr, bufLen-1);
     }
     return;
+}
+
+bool Camera6467_VFR::SaveImgStructFunc(CameraIMG* pImg, int imgType, int iIndex, const char* imgPath)
+{
+	if (pImg == NULL
+		|| pImg->dwImgSize <= 0
+		|| NULL == pImg->pbImgData)
+	{
+		return false;
+	}
+	char chFileName[128] = { 0 };
+	switch (imgType)
+	{
+		case type_frontImg:
+			sprintf_s(chFileName, sizeof(chFileName), ".\\%s\\vlp_0_%02d", imgPath, iIndex);
+			break;
+		case type_SideImg:
+			sprintf_s(chFileName, sizeof(chFileName), ".\\%s\\vlp_3_%02d", imgPath, iIndex);
+			break;
+		case type_tailImg:
+			sprintf_s(chFileName, sizeof(chFileName), ".\\%s\\vlp_4_%02d", imgPath, iIndex);
+			break;
+		case type_frontPlate:
+			sprintf_s(chFileName, sizeof(chFileName), ".\\%s\\vlp_1_%02d", imgPath, iIndex);
+			break;
+		case type_frontBin:
+			sprintf_s(chFileName, sizeof(chFileName), ".\\%s\\vlp_2_%02d", imgPath, iIndex);
+			break;
+		case type_tailPlate:
+			sprintf_s(chFileName, sizeof(chFileName), ".\\%s\\vlp_5_%02d", imgPath, iIndex);
+			break;
+		case type_taileBin:
+			sprintf_s(chFileName, sizeof(chFileName), ".\\%s\\vlp_6_%02d", imgPath, iIndex);
+			break;
+		default:
+			break;
+	}
+	strcat(chFileName, ".jpg");
+	if (strlen(chFileName) > 0
+		&& Tool_SaveFileToPath(chFileName, pImg->pbImgData, pImg->dwImgSize))
+	{
+		memcpy((void*)pImg->chSavePath, chFileName, strlen(chFileName));
+		return true;
+	}
+	return false;
 }
 
 unsigned int Camera6467_VFR::DeleteLogThreadFunc()

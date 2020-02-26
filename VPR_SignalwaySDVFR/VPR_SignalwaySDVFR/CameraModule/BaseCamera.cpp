@@ -643,8 +643,8 @@ int BaseCamera::ConnectToCamera()
         (HVAPI_SetCallBackEx(m_hHvHandle, (PVOID)RecordInfoEndCallBack, this, 0, CALLBACK_TYPE_RECORD_INFOEND, NULL) != S_OK) ||
         (HVAPI_SetCallBackEx(m_hHvHandle, (PVOID)RecordInfoPlateCallBack, this, 0, CALLBACK_TYPE_RECORD_PLATE, NULL) != S_OK) ||
         (HVAPI_SetCallBackEx(m_hHvHandle, (PVOID)RecordInfoBigImageCallBack, this, 0, CALLBACK_TYPE_RECORD_BIGIMAGE, chCommand) != S_OK) ||
-        (HVAPI_SetCallBackEx(m_hHvHandle, (PVOID)RecordInfoSmallImageCallBack, this, 0, CALLBACK_TYPE_RECORD_SMALLIMAGE, chCommand) != S_OK)/* ||
-        (HVAPI_SetCallBackEx(m_hHvHandle, (PVOID)RecordInfoBinaryImageCallBack, this, 0, CALLBACK_TYPE_RECORD_BINARYIMAGE, chCommand) != S_OK)*/ /*||
+        (HVAPI_SetCallBackEx(m_hHvHandle, (PVOID)RecordInfoSmallImageCallBack, this, 0, CALLBACK_TYPE_RECORD_SMALLIMAGE, chCommand) != S_OK) ||
+        (HVAPI_SetCallBackEx(m_hHvHandle, (PVOID)RecordInfoBinaryImageCallBack, this, 0, CALLBACK_TYPE_RECORD_BINARYIMAGE, chCommand) != S_OK) /*||
         (HVAPI_SetCallBackEx(m_hHvHandle, (PVOID)JPEGStreamCallBack, this, 0, CALLBACK_TYPE_JPEG_FRAME, NULL) != S_OK)*/
         )
     {
@@ -698,6 +698,10 @@ void BaseCamera::ReadConfig()
     int iTemp = 1;
     Tool_ReadIntValueFromConfigFile(INI_FILE_NAME, "Log", "videoLogEnable", iTemp);
     m_bVideoLogEnable = iTemp == 0 ? false: true;
+
+	iTemp = 10;
+	Tool_ReadIntValueFromConfigFile(INI_FILE_NAME, "Log", "HoldDays", iTemp);
+	SetLogHoldDays(iTemp);
     
     memset(chTemp, '\0', sizeof(chTemp));
     Tool_ReadKeyValueFromConfigFile(INI_FILE_NAME, "Result", "SavePath", chTemp, sizeof(chTemp));
@@ -1021,9 +1025,10 @@ bool BaseCamera::SynTime(int Year, int Month, int Day, int Hour, int Minute, int
 
 
     char chTemp[256] = { 0 };
-    sprintf_s(chTemp, sizeof(chTemp), "SetTime,Date[%d.%02d.%02d],Time[%02d:%02d:%02d]",
+    sprintf_s(chTemp, sizeof(chTemp), "SetTime,Date[%d.%02d.%02d],Time[%02d:%02d:%02d 000]",
         abs(Year), abs(Month), abs(Day),
         abs(Hour), abs(Minute), abs(Second));
+
     WriteLog(chTemp);
     char szRetBuf[1024] = { 0 };
     int nRetLen = 1024;
@@ -1878,10 +1883,12 @@ bool BaseCamera::SetH264Callback(int iStreamID, DWORD64 dwBeginTime, DWORD64 dwE
         RecvFlag);
     if (hr == S_OK)
     {
+		WriteFormatLog("SetH264Callback, success.");
         return true;
     }
     else
     {
+		WriteFormatLog("SetH264Callback, failed.");
         return false;
     }
 }

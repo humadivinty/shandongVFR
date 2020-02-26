@@ -126,9 +126,10 @@ BOOL CTestTool_VPRSignalwayDlg::OnInitDialog()
 	m_iHandle = 0;
 	memset(g_chCurrentPath, '\0', sizeof(g_chCurrentPath));
 	_getcwd(g_chCurrentPath, sizeof(g_chCurrentPath));
-	strcat(g_chCurrentPath, "\\resultBuffer");
+	strcat(g_chCurrentPath, "\\resultBuffer\\");
 
 	MakeSureDirectoryPathExists(g_chCurrentPath);
+	GetDlgItem(IDC_IPADDRESS1)->SetWindowTextA("172.18.111.76");
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
@@ -260,11 +261,11 @@ void CTestTool_VPRSignalwayDlg::OnBnClickedButtonVlprLogin()
 	GetItemText(IDC_IPADDRESS1, chBuffer, sizeof(chBuffer));
 
 	char chSparas[256] = {0};
-	sprintf(chSparas, "%s, 8000, admin, password", chSparas);
+	sprintf(chSparas, "%s, 8000, admin, password", chBuffer);
 
 	char chLog[256] = { 0 };
 	m_iHandle = VLPR_Login(1, chSparas);
-	sprintf(chLog, "VLPR_Login(1, %s) = %d", m_iHandle, chSparas);
+	sprintf(chLog, "VLPR_Login(1, %s) = %d", chSparas, m_iHandle );
 	ShowMessage(chLog);
 }
 
@@ -403,7 +404,7 @@ void CTestTool_VPRSignalwayDlg::s_CBFun_GetFrontResult(
 	CTestTool_VPRSignalwayDlg* pDlg = (CTestTool_VPRSignalwayDlg*)pUser;
 
 	char chFileName[MAX_PATH] = { 0 };
-	sprintf(chFileName, "%s\\%s_front.txt", g_chCurrentPath, pVlpResult->vlpTime);
+	sprintf(chFileName, "%s%s_front.txt", g_chCurrentPath, pVlpResult->vlpTime);
 
 	FILE* pFile = NULL;
 	pFile = fopen(chFileName, "wb");
@@ -411,8 +412,8 @@ void CTestTool_VPRSignalwayDlg::s_CBFun_GetFrontResult(
 	{
 		fprintf(pFile, "vlpInfoSize = %d\n", pVlpResult->vlpInfoSize);
 		fprintf(pFile, "vlpColor = %d%d\n", pVlpResult->vlpColor[0], pVlpResult->vlpColor[1]);
-		fprintf(pFile, "vlpText = %d\n", pVlpResult->vlpText);
-		fprintf(pFile, "vlpTime = %d\n", pVlpResult->vlpTime);
+		fprintf(pFile, "vlpText = %s\n", pVlpResult->vlpText);
+		fprintf(pFile, "vlpTime = %s\n", pVlpResult->vlpTime);
 		fprintf(pFile, "vlpReliability = %u\n", pVlpResult->vlpReliability);
 		fprintf(pFile, "imageFile[0] = %s\n", pVlpResult->imageFile[0]);
 		fprintf(pFile, "imageFile[1] = %s\n", pVlpResult->imageFile[1]);
@@ -444,7 +445,7 @@ void CTestTool_VPRSignalwayDlg::s_CBFun_GetBackResult(int nHandle,
 	CTestTool_VPRSignalwayDlg* pDlg = (CTestTool_VPRSignalwayDlg*)pUser;
 
 	char chFileName[MAX_PATH] = {0};
-	sprintf(chFileName, "%s\\%s_back.txt",g_chCurrentPath, pVlpResult->vlpBackTime);
+	sprintf(chFileName, "%s%s_back.txt",g_chCurrentPath, pVlpResult->vlpBackTime);
 
 	FILE* pFile = NULL;
 	pFile = fopen(chFileName, "wb");
@@ -452,8 +453,8 @@ void CTestTool_VPRSignalwayDlg::s_CBFun_GetBackResult(int nHandle,
 	{
 		fprintf(pFile, "vlpInfoSize = %d\n", pVlpResult->vlpInfoSize);
 		fprintf(pFile, "vlpBackColor = %d%d\n", pVlpResult->vlpBackColor[0], pVlpResult->vlpBackColor[1]);
-		fprintf(pFile, "vlpBackText = %d\n", pVlpResult->vlpBackText);
-		fprintf(pFile, "vlpBackTime = %d\n", pVlpResult->vlpBackTime);
+		fprintf(pFile, "vlpBackText = %s\n", pVlpResult->vlpBackText);
+		fprintf(pFile, "vlpBackTime = %s\n", pVlpResult->vlpBackTime);
 		fprintf(pFile, "vlpCarClass = %d\n", pVlpResult->vlpCarClass);
 		fprintf(pFile, "vehLength = %d\n", pVlpResult->vehLength);
 		fprintf(pFile, "vehWidth = %d\n", pVlpResult->vehWidth);
@@ -486,7 +487,7 @@ void CTestTool_VPRSignalwayDlg::s_CBFun_GetDevStatus(int nHandle, int nStatus, v
 	CTestTool_VPRSignalwayDlg* pDlg = (CTestTool_VPRSignalwayDlg*)pUser;
 
 	char chLog[256] = { 0 };
-	sprintf(chLog, "GetDevStatus(%d), status = %d ", nHandle, nStatus);
+	sprintf(chLog, "DevStatusCallback(%d), status = %d ", nHandle, nStatus);
 	if (pDlg)
 	{
 		pDlg->ShowMessage(chLog);

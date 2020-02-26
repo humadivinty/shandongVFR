@@ -25,7 +25,7 @@
 #include<atltime.h>
 
 #define DLL_VERSION "2019121101"
-#define INI_FILE_NAME "\\vehicledetectorconfig.ini"
+#define INI_FILE_NAME "\\VPR_SignalwaySDVFR.ini"
 #define DLL_LOG_NAME "WJSWDLL"
 #define  LOG_DIR_NAME "XLWLog"
 #define  RESULT_DIR_NAME "Result"

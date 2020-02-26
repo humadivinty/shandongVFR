@@ -231,8 +231,10 @@ bool MyH264Saver::StartSaveH264(INT64 beginTimeStamp, const char* pchFilePath)
     SetStartTimeFlag(beginTimeStamp);
     SetIfFirstSave(true);
     SetStopTimeFlag(TIME_FLAG_UNDEFINE);
-    SetSaveFlag(SAVING_FLAG_SAVING);
-
+	if (GetProcessMode() != 1)
+	{
+		SetSaveFlag(SAVING_FLAG_SAVING);
+	}
     m_lastvideoidx = -1;
     return true;
 }
@@ -241,6 +243,10 @@ bool MyH264Saver::StopSaveH264(INT64 TimeFlag)
 {
     //SetSaveFlag(SAVING_FLAG_SHUT_DOWN);
     SetStopTimeFlag(TimeFlag);
+	if (GetProcessMode() == 1)
+	{
+		SetSaveFlag(SAVING_FLAG_SAVING);
+	}
     return true;
 }
 
@@ -583,7 +589,7 @@ DWORD MyH264Saver::processH264Data_mp4_new()
     {
 
         char buf[256] = { 0 };
-        //iVideoStopTimeFlag = GetStopTimeFlag();
+        iVideoStopTimeFlag = GetStopTimeFlag();
         iVideoBeginTimeFlag = GetStartTimeFlag();
         iTimeNowFlag = GetTickCount();
 
@@ -607,7 +613,7 @@ DWORD MyH264Saver::processH264Data_mp4_new()
         size_t iBeginIndex = 0;
         int iFrameCount = 0;
         bool bFirstFrame = false;
-
+		int iListSize = 0;
         switch (iSaveFlag)
         {
         case SAVING_FLAG_NOT_SAVE:
@@ -631,10 +637,18 @@ DWORD MyH264Saver::processH264Data_mp4_new()
                          std::end(m_lDataStructList),
                          [iVideoBeginTimeFlag] (std::shared_ptr<CustH264Struct > h264Data)
             {
-                return (h264Data->m_llFrameTime >= iVideoBeginTimeFlag);
+                return (h264Data->m_llFrameTime >= iVideoBeginTimeFlag	 && h264Data->m_isIFrame);
             }
             );
-          iBeginIndex = m_lDataStructList.size();
+          iListSize = m_lDataStructList.size();
+
+		  iFrameCount = (GetStopTimeFlag() - GetStartTimeFlag()) / 40;
+		  WriteFormatLog("frame count = %d ", iFrameCount);
+		  if (iFrameCount <= 0)
+		  {
+			  WriteFormatLog("frame count<= 0, use 125 instead. ");
+			  iFrameCount = 125;
+		  }
 
           if(iter != std::end(m_lDataStructList))
           {
@@ -643,16 +657,26 @@ DWORD MyH264Saver::processH264Data_mp4_new()
           }
           else
           {
-              WriteFormatLog("can not find the first frame , use list size to replace index = %d ", iBeginIndex);
+			  iBeginIndex = iListSize - iFrameCount;
+			  bool bFind = false;
+			  for (auto iter = std::begin(m_lDataStructList) + iBeginIndex; iter > std::begin(m_lDataStructList) && iBeginIndex >= 0; iter--)
+			  {
+				  if ((*iter)->m_isIFrame)
+				  {
+					  bFind = true;
+					  break;
+				  }
+				  iBeginIndex = iBeginIndex - 1;
+			  }
+			  
+			  WriteFormatLog("can not find the first frame , use list size %d - frame count %d to replace , final index = %d , bfind = %d", iListSize, iFrameCount, iBeginIndex, bFind);
           }
-          iFrameCount = (GetStopTimeFlag() - GetStartTimeFlag() )/40;
-          WriteFormatLog("frame count = %d ", iFrameCount);
 
           iterEnd =  std::end(m_lDataStructList);
 
-          if( iBeginIndex+iFrameCount >= m_lDataStructList.size())
+          if( iBeginIndex+iFrameCount > m_lDataStructList.size())
           {
-              if(m_lDataStructList.size() >= iFrameCount  )
+              if(m_lDataStructList.size() > iFrameCount  )
               {
                    iBeginIndex = m_lDataStructList.size() - iFrameCount;
 
@@ -661,12 +685,19 @@ DWORD MyH264Saver::processH264Data_mp4_new()
                                   m_lDataStructList.size(),
                                   iBeginIndex);
               }
-             else
-              {
-                  iBeginIndex = 0;
+			  else
+			  {
+				  auto it = std::find_if(std::begin(m_lDataStructList),
+					  std::end(m_lDataStructList),
+					  [iVideoBeginTimeFlag](std::shared_ptr<CustH264Struct > h264Data)
+				  {
+					  return (h264Data->m_isIFrame);
+				  }
+				  );
+				  iBeginIndex = std::distance(std::begin(m_lDataStructList), it);
 
-                  WriteFormatLog("iBeginIndex+iFrameSize = %d > data list size %d,and list size is smaller than it, use index 0",iBeginIndex+iFrameCount, m_lDataStructList.size() );
-              }
+				  WriteFormatLog("iBeginIndex+iFrameSize = %d > data list size %d,and list size is smaller than it, use index %d", iBeginIndex + iFrameCount, m_lDataStructList.size(), iBeginIndex);
+			  }
           }
           else
           {
@@ -675,10 +706,32 @@ DWORD MyH264Saver::processH264Data_mp4_new()
               WriteFormatLog("use list index = %d to begin, and %d to end", iBeginIndex,  iBeginIndex + iFrameCount);
           }
 
+		  if (iBeginIndex < 0)
+		  {
+			  WriteFormatLog("iBeginIndex < 0, use 0 instead. ");
+			  if (m_lDataStructList.size() <= 125)
+			  {
+				  iterEnd = std::end(m_lDataStructList);
+				  WriteFormatLog("iBeginIndex < 0, List.size() <= 125, use list size %d to save.", m_lDataStructList.size());
+			  }
+			  else
+			  {
+				  iBeginIndex = m_lDataStructList.size() - 125;
+				  iterEnd = std::end(m_lDataStructList);
+				  WriteFormatLog("iBeginIndex < 0, List.size() %d > 125, use %d  to begin.", m_lDataStructList.size(), iBeginIndex);
+			  }
+		  }
 
           bFirstFrame = true;
           for(auto it = std::begin(m_lDataStructList) + iBeginIndex; it != iterEnd ; it++)
           {
+			  if ( it < std::begin(m_lDataStructList)
+				  || it >= std::end(m_lDataStructList)
+				  )
+			  {
+				  WriteFormatLog("iterator is larger than list size, break.");
+				  break;
+			  }
               pData = *it;
 
               if(bFirstFrame
@@ -699,7 +752,7 @@ DWORD MyH264Saver::processH264Data_mp4_new()
                   }
               }
 
-              WriteFormatLog("SAVING_FLAG_SAVING write frame , frame index = %d, frame time = %I64d  ", pData->index ,pData->m_llFrameTime);
+              WriteFormatLog("SAVING_FLAG_SAVING write frame , frame index = %d, frame time = %I64d, isIframe= %d  ", pData->index ,pData->m_llFrameTime, pData->m_isIFrame);
               iFlag = Video_WriteH264Frame(m_hVideoSaver, FRAMETYPE_MP4_VIDEO, pData->m_pbH264FrameData, pData->m_iDataSize);
               //iFlag = m_264AviLib.writeFrame((char*)pData->m_pbH264FrameData, pData->m_iDataSize, pData->m_isIFrame);
               if (iFlag != 0)
