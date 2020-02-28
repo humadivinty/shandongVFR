@@ -2633,12 +2633,17 @@ void Tool_DeleteDir(const char* dirName)
                 }
                 else
                 {
-                    DeleteFile(std::string(dir_name + std::string(FindFileData.cFileName)).c_str());
+					if (NULL != strstr(FindFileData.cFileName, ".log"))
+					{
+						Tool_WriteFormatLog("%s:: delete file %s", __FUNCTION__, std::string(dir_name + std::string(FindFileData.cFileName)).c_str());
+						DeleteFile(std::string(dir_name + std::string(FindFileData.cFileName)).c_str());
+					}
                 }
             }
         }
         FindClose(hFind);
     }
+	Tool_WriteFormatLog("%s:: RemoveDirectory %s", __FUNCTION__, dir_name.c_str());
     RemoveDirectory(dir_name.c_str());
 }
 
