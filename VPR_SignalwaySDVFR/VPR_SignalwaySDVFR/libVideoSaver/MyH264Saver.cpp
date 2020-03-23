@@ -2,27 +2,18 @@
 #include "MyH264Saver.h"
 #include "utilityTool/ToolFunction.h"
 
-//#include <QDebug>
-
 #include "libVideoSaver/libvideosaver.h"
 #pragma comment(lib, "libVideoSaver/libVideoSaver.lib")
 
 #include <algorithm>
 
-//#include"utilityTool/easylogging++.h"
-//#include"utilityTool/log4z.h"
-//using namespace zsummer::log4z;
-
 #define  WINDOWS
 
 typedef void (*IMAGE_FILE_CALLBACK)(void* , const char*);
 
-//#ifdef WINDOWS
-//#define WRITE_LOG(fmt, ...) WriteFormatLog("%s:: "fmt, __FUNCTION__, ##__VA_ARGS__);
-//#else
-//#define WRITE_LOG(...) Tool_WriteFormatLog("%s:: ", __FUNCTION__, ##__VA_ARGS__);
+
 #define WRITE_LOG(fmt,...) WriteFormatLog("%s:: " fmt, __FUNCTION__,##__VA_ARGS__);
-//#endif
+
 
 MyH264Saver::MyH264Saver() :
 m_bExit(false),

@@ -411,6 +411,7 @@ void CTestTool_VPRSignalwayDlg::s_CBFun_GetFrontResult(
 	if (pFile)
 	{
 		fprintf(pFile, "vlpInfoSize = %d\n", pVlpResult->vlpInfoSize);
+		fprintf(pFile, "vehNo = %d\n", pVlpResult->vehNo);
 		fprintf(pFile, "vlpColor = %d%d\n", pVlpResult->vlpColor[0], pVlpResult->vlpColor[1]);
 		fprintf(pFile, "vlpText = %s\n", pVlpResult->vlpText);
 		fprintf(pFile, "vlpTime = %s\n", pVlpResult->vlpTime);
@@ -452,6 +453,7 @@ void CTestTool_VPRSignalwayDlg::s_CBFun_GetBackResult(int nHandle,
 	if (pFile)
 	{
 		fprintf(pFile, "vlpInfoSize = %d\n", pVlpResult->vlpInfoSize);
+		fprintf(pFile, "vehNo = %d\n", pVlpResult->vehNo);
 		fprintf(pFile, "vlpBackColor = %d%d\n", pVlpResult->vlpBackColor[0], pVlpResult->vlpBackColor[1]);
 		fprintf(pFile, "vlpBackText = %s\n", pVlpResult->vlpBackText);
 		fprintf(pFile, "vlpBackTime = %s\n", pVlpResult->vlpBackTime);

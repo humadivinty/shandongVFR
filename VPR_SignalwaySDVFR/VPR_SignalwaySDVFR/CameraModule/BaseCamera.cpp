@@ -702,6 +702,20 @@ void BaseCamera::ReadConfig()
 	iTemp = 10;
 	Tool_ReadIntValueFromConfigFile(INI_FILE_NAME, "Log", "HoldDays", iTemp);
 	SetLogHoldDays(iTemp);
+
+	Tool_ReadKeyValueFromConfigFile(INI_FILE_NAME, "Log", "Path", chTemp, sizeof(chTemp));
+	if (strlen(chTemp) > 0)
+	{
+		SetLogPath(chTemp);
+	}
+	else
+	{
+		SetLogPath(Tool_GetCurrentPath());
+
+		memset(chTemp, '\0', sizeof(chTemp));
+		memcpy(chTemp, Tool_GetCurrentPath(), strlen(Tool_GetCurrentPath()));
+		Tool_WriteKeyValueFromConfigFile(INI_FILE_NAME, "Log", "Path", chTemp, sizeof(chTemp));
+	}
     
     memset(chTemp, '\0', sizeof(chTemp));
     Tool_ReadKeyValueFromConfigFile(INI_FILE_NAME, "Result", "SavePath", chTemp, sizeof(chTemp));
@@ -791,59 +805,15 @@ bool BaseCamera::WriteLog(const char* chlog)
     GetLocalTime(&systime);//本地时间
 
     char chLogPath[512] = { 0 };
+	char chRootPath[256] = {0};
+	GetLogPath(chRootPath, sizeof(chRootPath));
 
-    if (strlen(m_chLogPath) <= 0)
-    {
-        char chLogRoot[256] = { 0 };
-        Tool_ReadKeyValueFromConfigFile(INI_FILE_NAME, "Log", "Path", chLogRoot, sizeof(chLogRoot));
-        if (strlen(chLogRoot) > 0)
-        {
-            sprintf_s(chLogPath, sizeof(chLogPath), "%s\\%04d-%02d-%02d\\%s\\",
-                chLogRoot,
-                systime.wYear,
-                systime.wMonth,
-                systime.wDay,
-                m_strIP.c_str());
-        }
-        else
-        {
-            sprintf_s(chLogPath, sizeof(chLogPath), "%s\\XLWLog\\%04d-%02d-%02d\\%s\\",
-                Tool_GetCurrentPath(),
-                systime.wYear,
-                systime.wMonth,
-                systime.wDay,
-                m_strIP.c_str());
-        }
-    }
-    else
-    {
-        sprintf_s(chLogPath, sizeof(chLogPath), "%s\\XLWLog\\%04d-%02d-%02d\\%s\\",
-            m_chLogPath,
-            systime.wYear,
-            systime.wMonth,
-            systime.wDay,
-            m_strIP.c_str());
-    }
-    //char chLogRoot[256] = { 0 };
-    //Tool_ReadKeyValueFromConfigFile(INI_FILE_NAME, "Log", "Path", chLogRoot, sizeof(chLogRoot));
-    //if (strlen(chLogRoot) > 0)
-    //{
-    //    sprintf_s(chLogPath, sizeof(chLogPath), "%s\\%04d-%02d-%02d\\%s\\",
-    //        chLogRoot,
-    //        systime.wYear,
-    //        systime.wMonth,
-    //        systime.wDay,
-    //        m_strIP.c_str());
-    //}
-    //else
-    //{
-    //    sprintf_s(chLogPath, sizeof(chLogPath), "%s\\XLWLog\\%04d-%02d-%02d\\%s\\",
-    //        Tool_GetCurrentPath(),
-    //        systime.wYear,
-    //        systime.wMonth,
-    //        systime.wDay,
-    //        m_strIP.c_str());
-    //}
+	sprintf_s(chLogPath, sizeof(chLogPath), "%s\\XLWLog\\%04d-%02d-%02d\\%s\\",
+		chRootPath,
+		systime.wYear,
+		systime.wMonth,
+		systime.wDay,
+		m_strIP.c_str());
 
     MakeSureDirectoryPathExists(chLogPath);
 

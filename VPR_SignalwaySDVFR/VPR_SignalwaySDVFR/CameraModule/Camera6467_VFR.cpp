@@ -67,7 +67,7 @@ m_hDeleteResultThread(NULL)
     //m_h264Saver_ex.initMode(0);
     m_hStatusCheckThread = (HANDLE)_beginthreadex(NULL, 0, Camera_StatusCheckThread, this, 0, NULL);
     m_hSendResultThread = (HANDLE)_beginthreadex(NULL, 0, s_SendResultThreadFunc, this, 0, NULL);
-    m_hDeleteLogThread = (HANDLE)_beginthreadex(NULL, 0, s_DeleteLogThreadFunc, this, 0, NULL);
+    //m_hDeleteLogThread = (HANDLE)_beginthreadex(NULL, 0, s_DeleteLogThreadFunc, this, 0, NULL);
     //m_hDeleteResultThread = (HANDLE)_beginthreadex(NULL, 0, s_DeleteResultThreadFunc, this, 0, NULL);
 }
 
@@ -107,7 +107,7 @@ m_hDeleteResultThread(NULL)
     m_h264Saver_ex.initMode(0);
     m_hStatusCheckThread = (HANDLE)_beginthreadex(NULL, 0, Camera_StatusCheckThread, this, 0, NULL);
     m_hSendResultThread = (HANDLE)_beginthreadex(NULL, 0, s_SendResultThreadFunc, this, 0, NULL);
-    m_hDeleteLogThread = (HANDLE)_beginthreadex(NULL, 0, s_DeleteLogThreadFunc, this, 0, NULL);
+    //m_hDeleteLogThread = (HANDLE)_beginthreadex(NULL, 0, s_DeleteLogThreadFunc, this, 0, NULL);
     //m_hDeleteResultThread = (HANDLE)_beginthreadex(NULL, 0, s_DeleteResultThreadFunc, this, 0, NULL);
 }
 
@@ -2589,6 +2589,7 @@ void Camera6467_VFR::SendFrontResultByCallback(std::shared_ptr<CameraResult> pRe
 		vlpFrontInfo.vlpInfoSize = sizeof(vlpFrontInfo);
 
 		//车头车牌信息
+		vlpFrontInfo.vehNo = index;
 		vlpFrontInfo.vlpColor[0] = 0;	//颜色
 		vlpFrontInfo.vlpColor[1] = pResult->iPlateColor;
 		char chPlateNO[64] = { 0 };//车牌号码
@@ -2657,6 +2658,7 @@ void Camera6467_VFR::SendTailResultByCallback(std::shared_ptr<CameraResult> pRes
 		int iPathLen = 128;
 
 		//车尾车牌信息
+		vlpTailInfo.vehNo = index;
 		char chPlateNO[64] = { 0 };//车牌号码
 		vlpTailInfo.vlpBackColor[0] = 0;	//颜色
 		vlpTailInfo.vlpBackColor[1] = pResult->iTailPlateColor;

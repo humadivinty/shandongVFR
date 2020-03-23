@@ -64,6 +64,7 @@
 typedef struct _vlp_front_info
 {
 	int vlpInfoSize;					//识别结构体大小
+	int vehNo;							//车辆序号
 	unsigned char vlpColor[2];			//车头车牌颜色(编码详见5.14)
 	unsigned char vlpText[16];			//车头车牌文字，GBK编码
 	char vlpTime[20];          		//车头识别时间，格式“yyyyMMddHHmmsszzz”
@@ -75,6 +76,7 @@ typedef struct _vlp_front_info
 typedef struct _vlp_back_info
 {
 	int vlpInfoSize;					//识别结构体大小
+	int vehNo;							//车辆序号
 	unsigned char vlpBackColor[2];		//车尾车牌颜色(编码详见5.14)
 	unsigned char vlpBackText[16];		//车尾车牌文字，GBK编码
 	char vlpBackTime[20];          	//车尾识别时间，格式“yyyyMMddHHmmsszzz”
