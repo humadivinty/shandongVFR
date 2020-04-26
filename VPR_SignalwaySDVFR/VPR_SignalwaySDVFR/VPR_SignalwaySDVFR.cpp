@@ -6,7 +6,6 @@
 #include "utilityTool/ToolFunction.h"
 #include "CameraModule/DeviceListManager.h"
 #include "CameraModule/Camera6467_VFR.h"
-
 #include <string>
 #include <list>
 #include<stdlib.h>
@@ -36,7 +35,7 @@ int getRandID()
 	auto it = std::end(g_lsLoginIDList);
 	do 
 	{
-		iNum = ( rand() + 1 ) % 100;
+		iNum = ( rand() + 1 ) % 100; 
 		it = std::find(std::begin(g_lsLoginIDList), std::end(g_lsLoginIDList), iNum);
 	} while (std::end(g_lsLoginIDList) != it);
 	return iNum;
@@ -326,7 +325,6 @@ VPR_SIGNALWAYSDVFR_API int D_CALLTYPE VLPR_SyncTime(int nHandle, char* sSysTime)
 			iHour,
 			iMinute,
 			iSecond);
-
 		if (pCamera->SynTime(iYear, iMonth, iDay, iHour, iMinute, iSecond, 0))
 		{
 			WRITE_LOG("syntime success.");
@@ -335,7 +333,6 @@ VPR_SIGNALWAYSDVFR_API int D_CALLTYPE VLPR_SyncTime(int nHandle, char* sSysTime)
 		{
 			WRITE_LOG("syntime failed.");
 		}
-
 		return ERROR_OK;
 	}
 	else
@@ -343,4 +340,31 @@ VPR_SIGNALWAYSDVFR_API int D_CALLTYPE VLPR_SyncTime(int nHandle, char* sSysTime)
 		WRITE_LOG("can not find the camera, do nothing.");
 		return ERROR_PARAMETERS_INVALID;
 	}
+}
+
+VPR_SIGNALWAYSDVFR_API int D_CALLTYPE VLPR_StartDisplay(int nHandle, int nWidth, int nHeight, int nFHandle)
+{
+	WRITE_LOG("DisplayStart, nHandle = %d,nWidth = %d,nHeight = %d,nFHandle = %d", nHandle, nWidth, nHeight, nFHandle);
+	if (nHandle == NULL || nFHandle == NULL){
+		return ERROR_PARAMETERS_INVALID;
+	}
+	BaseCamera* pCamera = DeviceListManager::GetInstance()->GetDeviceById(nHandle);
+	const HWND h = (const HWND)nFHandle;
+	if (pCamera)
+	{
+		((BaseCamera*)pCamera)->StartPlayVideoByChannel(3, h);
+	}
+	WRITE_LOG("StartPlayVideo end");
+	return ERROR_OK;
+}
+
+VPR_SIGNALWAYSDVFR_API int D_CALLTYPE VLPR_StopDisplay(int nHandle)
+{
+	WRITE_LOG("StopPlayVideo begin.");
+
+	BaseCamera* pCamera = DeviceListManager::GetInstance()->GetDeviceById(nHandle);
+	((BaseCamera*)pCamera)->StopPlayVideoByChannel(3);
+
+	WRITE_LOG("StopPlayVideo end.");
+	return ERROR_OK;
 }

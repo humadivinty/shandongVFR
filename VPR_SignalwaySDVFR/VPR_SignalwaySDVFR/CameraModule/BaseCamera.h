@@ -8,8 +8,6 @@
 using namespace Gdiplus;
 //#pragma  comment(lib, "gdiplus.lib")
 
-//#include <QObject>
-
 //#include "libAVI/cAviLib.h"
 #include "libVideoSaver/MyH264Saver.h"
 

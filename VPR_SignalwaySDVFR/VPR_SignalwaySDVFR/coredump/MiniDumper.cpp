@@ -9,6 +9,7 @@
 #include <dbghelp.h>
 #include "miniDumper.h"
 
+
 #ifdef UNICODE
     #define _tcssprintf wsprintf
     #define tcsplitpath _wsplitpath
@@ -24,6 +25,28 @@ const int USER_DATA_BUFFER_SIZE = 4096;
 //-----------------------------------------------------------------------------
 CMiniDumper* CMiniDumper::s_pMiniDumper = NULL;
 LPCRITICAL_SECTION CMiniDumper::s_pCriticalSection = NULL;
+
+void CMiniDumper::OnOutput(LPCSTR szText)
+{
+	FILE* pFile = fopen("dumpStackInfo.txt", "a+");
+	if (pFile)
+	{
+		SYSTEMTIME systime;
+		GetLocalTime(&systime);//本地时间
+		fprintf(pFile, "%04d-%02d-%02d %02d:%02d:%02d:%03d : %s\n",
+			systime.wYear,
+			systime.wMonth,
+			systime.wDay,
+			systime.wHour,
+			systime.wMinute,
+			systime.wSecond,
+			systime.wMilliseconds,
+			szText);
+
+		fclose(pFile);
+		pFile = NULL;
+	}
+}
 
 // Based on dbghelp.h
 typedef BOOL (WINAPI *MINIDUMPWRITEDUMP)(HANDLE hProcess,
@@ -89,6 +112,40 @@ LONG CMiniDumper::unhandledExceptionHandler( _EXCEPTION_POINTERS *pExceptionInfo
 {
 	if( !s_pMiniDumper )
 		return EXCEPTION_CONTINUE_SEARCH;
+
+#ifdef _M_IX86
+	if (pExceptionInfo->ExceptionRecord->ExceptionCode == EXCEPTION_STACK_OVERFLOW)
+	{
+		static char MyStack[1024 * 128]; // be sure that we have enough space...
+		// it assumes that DS and SS are the same!!! (this is the case for Win32)
+		// change the stack only if the selectors are the same (this is the case for Win32)
+		//__asm push offset MyStack[1024*128];
+		//__asm pop esp;
+		__asm mov eax, offset MyStack[1024 * 128];
+		__asm mov esp, eax;
+	}
+#endif
+
+
+	s_pMiniDumper->ShowCallstack(GetCurrentThread(), pExceptionInfo->ContextRecord);
+	TCHAR lString[500];
+	_stprintf_s(lString,
+		_T("*** Unhandled Exception! See console output for more infos!\n")
+		_T("   ExpCode: 0x%8.8X\n")
+		_T("   ExpFlags: %d\n")
+#if _MSC_VER >= 1900
+		_T("   ExpAddress: 0x%8.8p\n")
+#else
+		_T("   ExpAddress: 0x%8.8X\n")
+#endif
+		_T("   Please report!"),
+		pExceptionInfo->ExceptionRecord->ExceptionCode, pExceptionInfo->ExceptionRecord->ExceptionFlags,
+		pExceptionInfo->ExceptionRecord->ExceptionAddress);
+
+	printf("%s\n", lString);
+
+	//FatalAppExit(-1, lString);
+	//return EXCEPTION_CONTINUE_SEARCH;
 
 	return s_pMiniDumper->writeMiniDump( pExceptionInfo );
 }
@@ -303,6 +360,7 @@ LONG CMiniDumper::writeMiniDump( _EXCEPTION_POINTERS *pExceptionInfo )
                                                 GetCurrentProcessId(),
                                                 hFile,
                                                 MiniDumpNormal,
+												/*MiniDumpWithFullMemoryInfo,*/
                                                 &ExInfo,
                                                 NULL,
                                                 NULL );
@@ -385,10 +443,18 @@ LONG CMiniDumper::writeMiniDump( _EXCEPTION_POINTERS *pExceptionInfo )
 
 	}
 
-	if( szResult && m_bPromptUserForMiniDump )
-		::MessageBox( NULL, szResult, NULL, MB_OK );
+	//if( szResult && m_bPromptUserForMiniDump )
+	//	::MessageBox( NULL, szResult, NULL, MB_OK );
 
-	TerminateProcess( GetCurrentProcess(), 0 );
+	//TerminateProcess( GetCurrentProcess(), 0 );
+	if (NULL != szResult)
+	{
+		printf("%s \n", szResult);
+	}
+	else
+	{
+		printf("write dump file finish.\n");
+	}
 
 	return retval;
 }

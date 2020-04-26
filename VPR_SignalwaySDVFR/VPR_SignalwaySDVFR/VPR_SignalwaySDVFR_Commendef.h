@@ -61,6 +61,8 @@
 //typedef void (*CBFun_GetRegResult)(int nHandle,T_VLPINFO* pVlpResult, void *pUser);
 
 
+#pragma pack(push,1)
+#pragma pack(show)
 typedef struct _vlp_front_info
 {
 	int vlpInfoSize;					//识别结构体大小
@@ -88,7 +90,7 @@ typedef struct _vlp_back_info
 	unsigned int vlpReliability;			//可信度(采用四位表示9999表示为99.99%)
 	unsigned char imageFile[5][128];		//识别图片长度: [0]=车身图文件名，[1]=车尾场景图文件名，[2]=车尾车牌图文件名，[3]=车尾二值化图文件名，[4]=五秒视频文件名
 } T_VLPBACKINFO;
-
+#pragma pack(pop)
 
 typedef void(*CBFun_GetFrontResult)(
 	int nHandle,

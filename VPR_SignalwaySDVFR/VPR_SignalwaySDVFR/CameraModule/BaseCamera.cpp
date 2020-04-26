@@ -733,27 +733,29 @@ void BaseCamera::ReadConfig()
 
     iTemp = 5;
     Tool_ReadIntValueFromConfigFile(INI_FILE_NAME, "Video", "AdvanceTime", iTemp);
-    m_iVideoAdvanceTime = iTemp;
+	setVideoAdvanceTime(iTemp);
+
     iTemp = 2;
     Tool_ReadIntValueFromConfigFile(INI_FILE_NAME, "Video", "DelayTime", iTemp);
-    m_iVideoDelayTime = iTemp;
+	setVideoDelayTime(iTemp);
+
 }
 
 void BaseCamera::SetLogPath(const char* path)
 {
-    EnterCriticalSection(&m_csFuncCallback);
+    //EnterCriticalSection(&m_csFuncCallback);
     if (path != NULL
         && strlen(path) < sizeof(m_chLogPath))
     {
         strcpy(m_chLogPath, path);
     }
-    LeaveCriticalSection(&m_csFuncCallback);
+    //LeaveCriticalSection(&m_csFuncCallback);
 }
 
 bool BaseCamera::GetLogPath(char* buff, size_t bufLen)
 {
     bool bRet = false;
-    EnterCriticalSection(&m_csFuncCallback);
+    //EnterCriticalSection(&m_csFuncCallback);
     if (buff != NULL
         && strlen(m_chLogPath) < bufLen)
     {
@@ -761,7 +763,7 @@ bool BaseCamera::GetLogPath(char* buff, size_t bufLen)
         sprintf_s(buff, bufLen, "%s", m_chLogPath);
         bRet = true;
     }
-    LeaveCriticalSection(&m_csFuncCallback);
+    //LeaveCriticalSection(&m_csFuncCallback);
     return bRet;
 }
 
@@ -796,7 +798,7 @@ void BaseCamera::WriteFormatLog(const char* szfmt, ...)
 
 bool BaseCamera::WriteLog(const char* chlog)
 {
-    ReadConfig();
+    //ReadConfig();
     if (!m_bLogEnable || NULL == chlog)
         return false;
 
@@ -805,57 +807,15 @@ bool BaseCamera::WriteLog(const char* chlog)
     GetLocalTime(&systime);//本地时间
 
     char chLogPath[512] = { 0 };
-	char chRootPath[256] = {0};
-	GetLogPath(chRootPath, sizeof(chRootPath));
 
 	sprintf_s(chLogPath, sizeof(chLogPath), "%s\\XLWLog\\%04d-%02d-%02d\\%s\\",
-		chRootPath,
+		m_chLogPath,
 		systime.wYear,
 		systime.wMonth,
 		systime.wDay,
 		m_strIP.c_str());
 
     MakeSureDirectoryPathExists(chLogPath);
-
-    //每次只保留10天以内的日志文件
-//    CTime tmCurrentTime = CTime::GetCurrentTime();
-//    CTime tmLastMonthTime = tmCurrentTime - CTimeSpan(10, 0, 0, 0);
-//    int Last_Year = tmLastMonthTime.GetYear();
-//    int Last_Month = tmLastMonthTime.GetMonth();
-//    int Last_Day = tmLastMonthTime.GetDay();
-
-    time_t now = time(NULL);
-    //tm* ts = localtime(&now);
-    //ts->tm_mday = ts->tm_mday-10;
-    //mktime(ts); /* Normalise ts */
-    //int Last_Year = ts->tm_year +1900;
-    //int Last_Month = ts->tm_mon +1;
-    //int Last_Day = ts->tm_wday;
-
-    tm ts;
-    localtime_s(&ts, &now);
-    ts.tm_mday = ts.tm_mday - 10;
-    mktime(&ts); /* Normalise ts */
-    int Last_Year = ts.tm_year + 1900;
-    int Last_Month = ts.tm_mon + 1;
-    int Last_Day = ts.tm_wday;
-
-    char chOldLogFileName[MAX_PATH] = { 0 };
-    //sprintf_s(chOldLogFileName, "%s\\XLWLog\\%04d-%02d-%02d\\",szFileName, Last_Year, Last_Month, Last_Day);
-    sprintf_s(chOldLogFileName, sizeof(chOldLogFileName), "%s\\XLWLog\\%04d-%02d-%02d\\",
-        Tool_GetCurrentPath(),
-        Last_Year,
-        Last_Month,
-        Last_Day);
-
-    if (PathFileExists(chOldLogFileName))
-    //if(Tool_IsDirExist(chOldLogFileName))
-    {
-        char chCommand[512] = { 0 };
-        //sprintf_s(chCommand, "/c rd /s/q %s", chOldLogFileName);
-        sprintf_s(chCommand, sizeof(chCommand), "/c rd /s/q %s", chOldLogFileName);
-        Tool_ExcuteCMD(chCommand);
-    }
 
     char chLogFileName[512] = { 0 };
     //sprintf_s(chLogFileName, "%s\\CameraLog-%d-%02d_%02d.log",chLogPath, pTM->tm_year + 1900, pTM->tm_mon+1, pTM->tm_mday);

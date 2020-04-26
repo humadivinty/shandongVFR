@@ -632,6 +632,12 @@ DWORD MyH264Saver::processH264Data_mp4_new()
             }
             );
           iListSize = m_lDataStructList.size();
+		  if (0 == iListSize)
+		  {
+			  LeaveCriticalSection(&m_DataListLocker);
+			  WriteFormatLog("current lit has no frame,list count = %d ", iListSize);
+			  continue;
+		  }
 
 		  iFrameCount = (GetStopTimeFlag() - GetStartTimeFlag()) / 40;
 		  WriteFormatLog("frame count = %d ", iFrameCount);

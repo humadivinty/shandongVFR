@@ -1461,53 +1461,58 @@ void Tool_WriteLog(const char* chlog)
     SYSTEMTIME systime;
     GetLocalTime(&systime);//本地时间
 
-    char chLogPath[512] = { 0 };
+	char chLogPath[512] = { 0 };
 
-    char chLogRoot[256] = { 0 };
-    Tool_ReadKeyValueFromConfigFile(INI_FILE_NAME, "Log", "Path", chLogRoot, sizeof(chLogRoot));
-    if (strlen(chLogRoot) > 0)
-    {
-        sprintf_s(chLogPath, sizeof(chLogPath), "%s\\%04d-%02d-%02d\\",
-            chLogRoot,
-            systime.wYear,
-            systime.wMonth,
-            systime.wDay);
-    }
-    else
-    {
-        sprintf_s(chLogPath, sizeof(chLogPath), "%s\\XLWLog\\%04d-%02d-%02d\\",
-            Tool_GetCurrentPath(),
-            systime.wYear,
-            systime.wMonth,
-            systime.wDay);
-    }
-    Tool_MakeDir(chLogPath);
+	static char chLogRoot[256] = { 0 };
+	if (strlen(chLogRoot) > 0)
+	{
+		sprintf_s(chLogPath, sizeof(chLogPath), "%s\\%04d-%02d-%02d\\",
+			chLogRoot,
+			systime.wYear,
+			systime.wMonth,
+			systime.wDay);
+	}
+	else
+	{
+		Tool_ReadKeyValueFromConfigFile(INI_FILE_NAME, "Log", "Path", chLogRoot, sizeof(chLogRoot));
+		if (strlen(chLogRoot) <= 0)
+		{
+			sprintf_s(chLogRoot, sizeof(chLogRoot), "%s\\XLWLog\\", Tool_GetCurrentPath());
+		}
 
-    //每次只保留10天以内的日志文件
-    time_t now = time(NULL);
-    tm* ts = localtime(&now);
-    ts->tm_mday = ts->tm_mday-30;
-    mktime(ts); /* Normalise ts */
-    int Last_Year = ts->tm_year +1900;
-    int Last_Month = ts->tm_mon +1;
-    int Last_Day = ts->tm_wday;
+		sprintf_s(chLogPath, sizeof(chLogPath), "%s\\%04d-%02d-%02d\\",
+			chLogRoot,
+			systime.wYear,
+			systime.wMonth,
+			systime.wDay);
+	}
+	Tool_MakeDir(chLogPath);
 
-    char chOldLogFileName[MAX_PATH] = { 0 };
-    //sprintf_s(chOldLogFileName, "%s\\XLWLog\\%04d-%02d-%02d\\",szFileName, Last_Year, Last_Month, Last_Day);
-    sprintf_s(chOldLogFileName, sizeof(chOldLogFileName), "%s\\%s\\%04d-%02d-%02d\\",
-        Tool_GetCurrentPath(),
-        LOG_DIR_NAME,
-        Last_Year,
-        Last_Month,
-        Last_Day);
+    ////每次只保留10天以内的日志文件
+    //time_t now = time(NULL);
+    //tm* ts = localtime(&now);
+    //ts->tm_mday = ts->tm_mday-30;
+    //mktime(ts); /* Normalise ts */
+    //int Last_Year = ts->tm_year +1900;
+    //int Last_Month = ts->tm_mon +1;
+    //int Last_Day = ts->tm_wday;
 
-    if (Tool_IsDirExist(chOldLogFileName))
-    {
-        char chCommand[512] = { 0 };
-        //sprintf_s(chCommand, "/c rd /s/q %s", chOldLogFileName);
-        sprintf_s(chCommand, sizeof(chCommand), "/c rd /s/q %s", chOldLogFileName);
-        Tool_ExcuteCMD(chCommand);
-    }
+    //char chOldLogFileName[MAX_PATH] = { 0 };
+    ////sprintf_s(chOldLogFileName, "%s\\XLWLog\\%04d-%02d-%02d\\",szFileName, Last_Year, Last_Month, Last_Day);
+    //sprintf_s(chOldLogFileName, sizeof(chOldLogFileName), "%s\\%s\\%04d-%02d-%02d\\",
+    //    Tool_GetCurrentPath(),
+    //    LOG_DIR_NAME,
+    //    Last_Year,
+    //    Last_Month,
+    //    Last_Day);
+
+    //if (Tool_IsDirExist(chOldLogFileName))
+    //{
+    //    char chCommand[512] = { 0 };
+    //    //sprintf_s(chCommand, "/c rd /s/q %s", chOldLogFileName);
+    //    sprintf_s(chCommand, sizeof(chCommand), "/c rd /s/q %s", chOldLogFileName);
+    //    Tool_ExcuteCMD(chCommand);
+    //}
 
     char chLogFileName[512] = { 0 };
     //sprintf_s(chLogFileName, "%s\\CameraLog-%d-%02d_%02d.log",chLogPath, pTM->tm_year + 1900, pTM->tm_mon+1, pTM->tm_mday);

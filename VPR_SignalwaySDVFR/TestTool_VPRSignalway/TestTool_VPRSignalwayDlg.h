@@ -67,4 +67,7 @@ public:
 
 private:
 	int m_iHandle;
+public:
+	afx_msg void OnBnClickedButtonStart();
+	afx_msg void OnBnClickedButtonStop();
 };

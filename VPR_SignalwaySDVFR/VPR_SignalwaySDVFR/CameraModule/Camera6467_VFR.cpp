@@ -1,10 +1,12 @@
 #include "stdafx.h"
 #include "Camera6467_VFR.h"
+#include "CameraResult.h"
 #include "HvDevice/HvDeviceBaseType.h"
 #include "HvDevice/HvDeviceCommDef.h"
 #include "HvDevice/HvDeviceNew.h"
 #include "HvDevice/HvCamera.h"
 #include "utilityTool/ToolFunction.h"
+#include "libCxImage/ximage.h"
 //#include "utilityTool/log4z.h"
 #include <process.h>
 #include <exception>
@@ -16,7 +18,7 @@
 #define VEHICLE_SIDE_NODE_NAME "Image3"
 #define VEHICLE_TAIL_NODE_NAME "Image4"
 
-#define VFR_WRITE_LOG(fmt, ...) WriteFormatLog("%s:: "fmt, __FUNCTION__, ##__VA_ARGS__);
+#define VFR_WRITE_LOG(fmt, ...) WriteFormatLog("%s:: "fmt,  __FUNCTION__,##__VA_ARGS__);
 
 #define CHECK_ARG(arg)\
     if (arg == NULL) \
@@ -138,7 +140,7 @@ void Camera6467_VFR::AnalysisAppendXML(CameraResult* CamResult)
     char chTemp[BUFFERLENTH] = { 0 };
     int iLenth = BUFFERLENTH;
 
-    if (Tool_GetDataAttributFromAppenedInfo(CamResult->pcAppendInfo, VEHICLE_SIDE_NODE_NAME, "TimeHigh", chTemp, &iLenth))
+	if (Tool_GetDataAttributFromAppenedInfo(CamResult->pcAppendInfo, VEHICLE_HEAD_NODE_NAME, "TimeHigh", chTemp, &iLenth))
     {
         DWORD64 iTime = 0;
         DWORD64 iTimeHight = 0;
@@ -149,7 +151,7 @@ void Camera6467_VFR::AnalysisAppendXML(CameraResult* CamResult)
         memset(chTemp, 0, sizeof(chTemp));
         iLenth = BUFFERLENTH;
 
-        if (Tool_GetDataAttributFromAppenedInfo(CamResult->pcAppendInfo, VEHICLE_SIDE_NODE_NAME, "TimeLow", chTemp, &iLenth))
+		if (Tool_GetDataAttributFromAppenedInfo(CamResult->pcAppendInfo, VEHICLE_HEAD_NODE_NAME, "TimeLow", chTemp, &iLenth))
         {
             //DWORD64 iTimeLow = 0;
             //sscanf(chTemp, "%d", &iAxleCount);
@@ -615,6 +617,52 @@ void Camera6467_VFR::ReadConfig()
     Tool_ReadIntValueFromConfigFile(INI_FILE_NAME, "Video", "mode", iTempValue);
     m_iVideoMode = iTempValue;
 
+	iTempValue = 255;
+	//获取ini配置文件中的数值
+	Tool_ReadIntValueFromConfigFile(INI_FILE_NAME, "FontAdd", "fontsize", iTempValue);
+	//判断fontsize是否超过阈值，超过给默认值35
+	if (iTempValue<25 || iTempValue>80)
+	{
+		m_iFontSize = 35;
+	}
+	else
+	{
+		m_iFontSize = iTempValue;
+	}
+
+	Tool_ReadIntValueFromConfigFile(INI_FILE_NAME, "FontAdd", "fontcolorR", iTempValue);
+	//判断RGB是否超过阈值，超过给默认值255
+	if (iTempValue<0 || iTempValue>255)
+	{
+		m_iFontAddcolorR = 255;
+	}
+	else
+	{
+		m_iFontAddcolorR = iTempValue;
+	}
+
+
+	Tool_ReadIntValueFromConfigFile(INI_FILE_NAME, "FontAdd", "fontcolorG", iTempValue);
+	if (iTempValue<0 || iTempValue>255)
+	{
+		m_iFontAddcolorG = 255;
+	}
+	else
+	{
+		m_iFontAddcolorG = iTempValue;
+	}
+
+
+	Tool_ReadIntValueFromConfigFile(INI_FILE_NAME, "FontAdd", "fontcolorB", iTempValue);
+	if (iTempValue<0 || iTempValue>255)
+	{
+		m_iFontAddcolorB = 255;
+	}
+	else
+	{
+		m_iFontAddcolorB = iTempValue;
+	}
+
     BaseCamera::ReadConfig();
 }
 
@@ -851,11 +899,14 @@ void Camera6467_VFR::SendResultByCallback(std::shared_ptr<CameraResult> pResult)
 
 
 		//车身图
-		SaveImgStructFunc(&pResult->CIMG_BestCapture, type_SideImg, iIndex, pchImgRootPath);
+		SaveImgStructFunc(&pResult->CIMG_BestCapture, type_SideImg, iIndex, pchImgRootPath);   //保存车身图
 		pImgPath = (char*)vlpTailInfo.imageFile[0];
-		pSrcImgPath = pResult->CIMG_BestCapture.chSavePath;
-		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);
+		pSrcImgPath = pResult->CIMG_BestCapture.chSavePath;             //车身图保存最终路径
+		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);      
 		VFR_WRITE_LOG("process type_SideImg info finish.");
+
+
+
 
 		//车尾图
 		SaveImgStructFunc(&pResult->CIMG_LastCapture, type_tailImg, iIndex, pchImgRootPath);
@@ -1456,11 +1507,12 @@ int Camera6467_VFR::RecordInfoPlate(DWORD dwCarID,
 {
     try
     {
-        WriteFormatLog("RecordInfoPlate, dwCarID = %lu, plateNo = %s, dwRecordType= %x, dw64TimeMS= %I64u",
+		VFR_WRITE_LOG("RecordInfoPlate, dwCarID = %lu, plateNo = %s, dwRecordType= %x, dw64TimeMS= %I64u, xmlLength = %u",
             dwCarID,
             pcPlateNo,
             dwRecordType,
-            dw64TimeMS);
+            dw64TimeMS,
+			strlen(pcAppendInfo));
         BaseCamera::WriteLog(pcAppendInfo);
         CHECK_ARG(m_pResult);
 
@@ -1473,17 +1525,18 @@ int Camera6467_VFR::RecordInfoPlate(DWORD dwCarID,
             strcpy_s(m_pResult->chPlateNO, sizeof(m_pResult->chPlateNO), pcPlateNo);
             if (strlen(pcAppendInfo) < sizeof(m_pResult->pcAppendInfo))
             {
+				VFR_WRITE_LOG("begin to copy append info to buffer.");
                 strcpy_s(m_pResult->pcAppendInfo, sizeof(m_pResult->pcAppendInfo), pcAppendInfo);
                 AnalysisAppendXML(m_pResult);
             }
             else
             {
-                WriteFormatLog("strlen(pcAppendInfo)< sizeof(m_pResult->pcAppendInfo), can not AnalysisAppendXML.");
+				VFR_WRITE_LOG("strlen(pcAppendInfo)< sizeof(m_pResult->pcAppendInfo), can not AnalysisAppendXML.");
             }
         }
         else
         {
-            WriteFormatLog("current car ID  %lu is not same wit result carID %lu.", dwCarID, m_pResult->dwCarID);
+			VFR_WRITE_LOG("current car ID  %lu is not same wit result carID %lu.", dwCarID, m_pResult->dwCarID);
         }
 
         //generateFileName(m_pResult);
@@ -1538,7 +1591,7 @@ int Camera6467_VFR::RecordInfoPlate(DWORD dwCarID,
 
             //WriteFormatLog("current car ID  %lu , avi fileName = %s.", dwCarID, chAviPath);
             std::string strFinalString = Tool_ReplaceStringInStd(chAviPath, "\\\\", "\\");
-            WriteFormatLog("final save path = %s  .", strFinalString.c_str());
+			VFR_WRITE_LOG("final save path = %s  .", strFinalString.c_str());
             const char* pChVideoPath = strFinalString.c_str();
 			memset(m_pResult->chSaveFileName, '\0', sizeof(m_pResult->chSaveFileName));
 			memcpy(m_pResult->chSaveFileName, pChVideoPath, strlen(pChVideoPath));
@@ -1882,7 +1935,7 @@ void Camera6467_VFR::CheckStatus()
 
     while (!GetCheckThreadExit())
     {
-        Sleep(100);
+        Sleep(1000);
         iCurrentTick = GetTickCount();
         int iTimeInterval = GetTimeInterval();
         if ((iCurrentTick - iLastTick) >= (iTimeInterval * 1000)
@@ -1890,7 +1943,7 @@ void Camera6467_VFR::CheckStatus()
         {
             int iStatus = GetCamStatus();
             //if (iStatus != iLastStatus)
-            {
+            
                 if (iStatus == 0)
                 {
 					//if (iStatus != iLastStatus)
@@ -1911,7 +1964,7 @@ void Camera6467_VFR::CheckStatus()
                         //pThis->ConnectToCamera();
                     }
                 }
-            }
+            
             iLastStatus = iStatus;
 
             iLastTick = iCurrentTick;
@@ -1959,416 +2012,403 @@ void Camera6467_VFR::SetResultWaitTime(int iValue)
     LeaveCriticalSection(&m_csFuncCallback);
 }
 
-unsigned int Camera6467_VFR::SendResultThreadFunc()
-{
-    WriteFormatLog("SendResultThreadFunc begin.");
-    std::list<DWORD> lsSentCarIdList;
-	std::list<ResultSentStatus >sentStausList;
-	std::shared_ptr<CameraResult> pResult;
-    bool bNeedSendResult = false;
-	int iWaitTimeOut = getResultWaitTime();
-
-	auto FindIfInTheListFunc = [](std::list<ResultSentStatus >& sendList, unsigned long dwCarID)
-	{
-		return (std::end(sendList) != std::find_if(std::begin(sendList), std::end(sendList),
-			[dwCarID](ResultSentStatus sta)
-		{ return  (sta.dwCarID == dwCarID); }
-		));
-	};
-
-	ResultSentStatus status;
-	unsigned long dwCurrentTick = GetTickCount();
-	const int iMaxListSize = 10;
-    while (!GetCheckThreadExit())
-    {
-        Sleep(100);
-		dwCurrentTick = GetTickCount();
-		if (!m_lsStatusList.getFirstElement(status))
-		{
-			continue;
-		}
-		if (FindIfInTheListFunc(sentStausList, status.dwCarID))
-		{
-			//如果在已发送的队列中，但是没有新的内容更新，则删除该结果
-			VFR_WRITE_LOG("login id = %d , carId = %u , is send finish remove it.", GetLoginID(), status.dwCarID);
-
-			m_VfrResultList.DeleteByCarID(status.dwCarID);
-			m_lsStatusList.RemoveElement(GetLoginID(), status.dwCarID);
-
-			continue;
-		}
-		else
-		{
-			//不在已发送的队列中，则判断内容是否接收完毕，且是否超时
-			if (dwCurrentTick - status.uTimeReceive >= iWaitTimeOut
-				|| ( status.iFrontImgSendStatus == sta_receiveDone
-						&& status.iSidImgSendStatus == sta_receiveDone
-						&& status.iTailImgSendStatus == sta_receiveDone
-						&& status.iVideoSendStatus == sta_receiveDone
-					)
-				)
-			{
-				pResult = m_VfrResultList.GetOneByCarid(status.dwCarID);
-				SendResultByCallback(pResult);
-				pResult = nullptr;
-
-				m_VfrResultList.DeleteByCarID(status.dwCarID);
-				m_lsStatusList.RemoveElement(GetLoginID(), status.dwCarID);
-
-				if (sentStausList.size() > iMaxListSize)
-				{
-					VFR_WRITE_LOG("ex sent list size is  %d larger than %d, remove first one.", sentStausList.size(), iMaxListSize);
-					sentStausList.pop_front();
-				}
-				sentStausList.push_back(status);
-			}
-		}
-    }
-    WriteFormatLog("SendResultThreadFunc finish.");
-    return 0;
-}
-
-unsigned int Camera6467_VFR::SendResultThreadFunc_lastResult()
-{
-    WriteFormatLog("SendResultThreadFunc begin.");
-    std::list<DWORD> lsSentCarIdList;
-    bool bNeedSendResult = false;
-    while (!GetCheckThreadExit())
-    {
-        Sleep(100);
-
-    }
-    WriteFormatLog("SendResultThreadFunc finish.");
-    return 0;
-}
-
-unsigned int Camera6467_VFR::SendResultThreadFunc_WithNoSignal()
-{
-    VFR_WRITE_LOG("SendResultThreadFunc begin.");
-    std::list<DWORD> lsSentCarIdList;
-    bool bSendResult = false;
-    std::shared_ptr<CameraResult> pResult;
-    std::list<ResultSentStatus >sentStausList;
-    int iWaitTimeOut = getResultWaitTime();
-    unsigned long dwCurrentTick = GetTickCount();
-    unsigned long dwLastTick = GetTickCount();
-    int iSendItem = 0;
-    ResultSentStatus status;
-    const int iMaxListSize = 4;
-
-    auto FindIfInTheListFunc = [](std::list<ResultSentStatus >& sendList, unsigned long dwCarID)
-    {
-        return (std::end(sendList) != std::find_if(std::begin(sendList), std::end(sendList),
-            [dwCarID](ResultSentStatus sta) 
-        { return  (sta.dwCarID == dwCarID) ; }
-        ));
-    };
-
-    auto UpdateStatusInTheListFunc = [](std::list<ResultSentStatus >& sendList, ResultSentStatus newSta)
-    {
-        for (auto it = sendList.begin(); it != sendList.end(); it++)
-        {
-            if (it->dwCarID == newSta.dwCarID)
-            {
-                it->iFrontImgSendStatus = newSta.iFrontImgSendStatus;
-                it->iSidImgSendStatus = newSta.iSidImgSendStatus;
-                it->iTailImgSendStatus = newSta.iTailImgSendStatus;
-                it->iVideoSendStatus = newSta.iVideoSendStatus;
-            }
-        }
-    };
-
-    auto GetStatusFromListFunc = [](std::list<ResultSentStatus >& sendList, ResultSentStatus& newSta)
-    {
-        for (auto it = sendList.begin(); it != sendList.end(); it++)
-        {
-            if (it->dwCarID == newSta.dwCarID)
-            {
-                newSta = *it;
-                return true;
-            }
-        }
-        return false;
-    };    
-
-    while (!GetCheckThreadExit())
-    {
-        Sleep(50);
-        dwCurrentTick = GetTickCount();
-
-        if (GetIfSendResult()
-            && dwCurrentTick - dwLastTick < 2000)
-        {
-            continue;
-        }
-        dwLastTick = GetTickCount();
-
-        //if (sentStausList.size() > 0)
-        //{
-        //    ResultSentStatus tempStatus = sentStausList.front();
-        //    if (dwCurrentTick - tempStatus.uTimeReceive > 2 * 60 * 1000)
-        //    {
-        //        VFR_WRITE_LOG("firt status of sentList carID =  %lu, receive time %lu is time out 120s, remove it.", tempStatus.dwCarID, tempStatus.uTimeReceive);
-        //        sentStausList.pop_front();
-        //    }
-        //}
-
-        if (!m_lsStatusList.getFirstElement(status))
-        {
-            continue;
-        }
-
-        //if (dwCurrentTick - status.uTimeReceive >= iWaitTimeOut
-        //    || FindIfCarIDInTheList(status.dwCarID))
-        //{            
-        //    VFR_WRITE_LOG("login id = %d , carId = %u , is time out, remove the status.", GetLoginID(), status.dwCarID);
-        //    m_VfrResultList.DeleteByCarID(status.dwCarID);
-        //    m_lsStatusList.RemoveElement(GetLoginID(), status.dwCarID);
-
-        //    if (!FindIfCarIDInTheList(status.dwCarID))
-        //    {
-        //        InsertCarIDToTheList(status.dwCarID);
-        //    }
-        //    continue;
-        //}
+//unsigned int Camera6467_VFR::SendResultThreadFunc()
+//{
+//    WriteFormatLog("SendResultThreadFunc begin.");
+//    std::list<DWORD> lsSentCarIdList;
+//	std::list<ResultSentStatus >sentStausList;
+//	std::shared_ptr<CameraResult> pResult;
+//    bool bNeedSendResult = false;
+//	int iWaitTimeOut = getResultWaitTime();
+//
+//	auto FindIfInTheListFunc = [](std::list<ResultSentStatus >& sendList, unsigned long dwCarID)
+//	{
+//		return (std::end(sendList) != std::find_if(std::begin(sendList), std::end(sendList),
+//			[dwCarID](ResultSentStatus sta)
+//		{ return  (sta.dwCarID == dwCarID); }
+//		));
+//	};
+//
+//	ResultSentStatus status;
+//	unsigned long dwCurrentTick = GetTickCount();
+//	const int iMaxListSize = 10;
+//    while (!GetCheckThreadExit())
+//    {
+//        Sleep(100);
+//		dwCurrentTick = GetTickCount();
+//		if (!m_lsStatusList.getFirstElement(status))
+//		{
+//			continue;
+//		}
+//		if (FindIfInTheListFunc(sentStausList, status.dwCarID))
+//		{
+//			//如果在已发送的队列中，但是没有新的内容更新，则删除该结果
+//			VFR_WRITE_LOG("login id = %d , carId = %u , is send finish remove it.", GetLoginID(), status.dwCarID);
+//
+//			m_VfrResultList.DeleteByCarID(status.dwCarID);
+//			m_lsStatusList.RemoveElement(GetLoginID(), status.dwCarID);
+//
+//			continue;
+//		}
+//		else
+//		{
+//			//不在已发送的队列中，则判断内容是否接收完毕，且是否超时
+//			if (dwCurrentTick - status.uTimeReceive >= iWaitTimeOut
+//				|| ( status.iFrontImgSendStatus == sta_receiveDone
+//						&& status.iSidImgSendStatus == sta_receiveDone
+//						&& status.iTailImgSendStatus == sta_receiveDone
+//						&& status.iVideoSendStatus == sta_receiveDone
+//					)
+//				)
+//			{
+//				pResult = m_VfrResultList.GetOneByCarid(status.dwCarID);
+//				SendResultByCallback(pResult);
+//				pResult = nullptr;
+//
+//				m_VfrResultList.DeleteByCarID(status.dwCarID);
+//				m_lsStatusList.RemoveElement(GetLoginID(), status.dwCarID);
+//
+//				if (sentStausList.size() > iMaxListSize)
+//				{
+//					VFR_WRITE_LOG("ex sent list size is  %d larger than %d, remove first one.", sentStausList.size(), iMaxListSize);
+//					sentStausList.pop_front();
+//				}
+//				sentStausList.push_back(status);
+//			}
+//		}
+//    }
+//    WriteFormatLog("SendResultThreadFunc finish.");
+//    return 0;
+//}
 
 
-        if (dwCurrentTick - status.uTimeReceive >= iWaitTimeOut)
-        {
-            //当前结果在队列中保留的时间超时了
-            if (FindIfInTheListFunc(sentStausList, status.dwCarID))
-            {
-                ResultSentStatus statusSent;
-                if (GetStatusFromListFunc(sentStausList, statusSent))
-                {
-                    if (statusSent.iFrontImgSendStatus == sta_sentFinish)
-                    {
-                        status.iFrontImgSendStatus = sta_sentFinish;
-                    }
-
-                    if (statusSent.iSidImgSendStatus == sta_sentFinish)
-                    {
-                        status.iSidImgSendStatus = sta_sentFinish;
-                    }
-
-                    if (statusSent.iTailImgSendStatus == sta_sentFinish)
-                    {
-                        status.iTailImgSendStatus = sta_sentFinish;
-                    }
-
-                    if (statusSent.iVideoSendStatus == sta_sentFinish)
-                    {
-                        status.iVideoSendStatus = sta_sentFinish;
-                    }
-                }
-                //在已发送的队列中
-                if (status.iFrontImgSendStatus == sta_receiveDone
-                    || status.iSidImgSendStatus == sta_receiveDone
-                    || status.iTailImgSendStatus == sta_receiveDone
-                    || status.iVideoSendStatus == sta_receiveDone)
-                {
-                    //如果在已发送的队列中，但是有新的内容更新，则推送更新内容
-                    VFR_WRITE_LOG("login id = %d , carId = %u , is time out and send before, but some of the item , still send it.", GetLoginID(), status.dwCarID);
-                    VFR_WRITE_LOG("-------------------------------------------------------------------");
-                    VFR_WRITE_LOG("status :     int DeviceID = %d,   dwCarID = %lu, iFrontImgSendStatus = %d , iSidImgSendStatus = %d , \
-                                                                                                                                                      iTailImgSendStatus = %d ,  iVideoSendStatus = %d , iSmallImgSendStatus = %d iBinaryImgSendStatus = %d , uTimeReceive = %lu ",
-                                                                                                                                                      status.DeviceID,
-                                                                                                                                                      status.dwCarID,
-                                                                                                                                                      status.iFrontImgSendStatus,
-                                                                                                                                                      status.iSidImgSendStatus,
-                                                                                                                                                      status.iTailImgSendStatus,
-                                                                                                                                                      status.iVideoSendStatus,
-                                                                                                                                                      status.iSmallImgSendStatus,
-                                                                                                                                                      status.iBinaryImgSendStatus,
-                                                                                                                                                      status.uTimeReceive);
-                    VFR_WRITE_LOG("-------------------------------------------------------------------");
-                }
-                else
-                {
-                    //如果在已发送的队列中，但是没有新的内容更新，则删除该结果
-                    VFR_WRITE_LOG("login id = %d , carId = %u , is time out and send finish remove it.", GetLoginID(), status.dwCarID);
-
-                    m_VfrResultList.DeleteByCarID(status.dwCarID);
-                    m_lsStatusList.RemoveElement(GetLoginID(), status.dwCarID);
-
-                    continue;
-                }
-            }
-            else
-            {
-                //不在已发送的队列中
-                if (status.iFrontImgSendStatus == sta_receiveDone
-                    || status.iSidImgSendStatus == sta_receiveDone
-                    || status.iTailImgSendStatus == sta_receiveDone
-                    || status.iVideoSendStatus == sta_receiveDone)
-                {
-                    //超时，但有内容更新，发送该结果
-                    VFR_WRITE_LOG("login id = %d , carId = %u , is time out, but some status update , still send it.", GetLoginID(), status.dwCarID);
-                    VFR_WRITE_LOG("-------------------------------------------------------------------");
-                    VFR_WRITE_LOG("status :     int DeviceID = %d,   dwCarID = %lu, iFrontImgSendStatus = %d , iSidImgSendStatus = %d ,iTailImgSendStatus = %d ,  iVideoSendStatus = %d , iSmallImgSendStatus = %d iBinaryImgSendStatus = %d , uTimeReceive = %lu ",
-                                                                                                                                                                                                                          status.DeviceID,
-                                                                                                                                                                                                                          status.dwCarID,
-                                                                                                                                                                                                                          status.iFrontImgSendStatus,
-                                                                                                                                                                                                                          status.iSidImgSendStatus,
-                                                                                                                                                                                                                          status.iTailImgSendStatus,
-                                                                                                                                                                                                                          status.iVideoSendStatus,
-                                                                                                                                                                                                                          status.iSmallImgSendStatus,
-                                                                                                                                                                                                                          status.iBinaryImgSendStatus,
-                                                                                                                                                                                                                          status.uTimeReceive);
-                    VFR_WRITE_LOG("-------------------------------------------------------------------");
-                }
-                else
-                {
-                    //超时，且没有内容更新，删除队列中的这个结果
-                    VFR_WRITE_LOG("login id = %d , carId = %u , is time out, and no status update remove it.", GetLoginID(), status.dwCarID);
-                    m_VfrResultList.DeleteByCarID(status.dwCarID);
-                    m_lsStatusList.RemoveElement(GetLoginID(), status.dwCarID);
-
-                    if (sentStausList.size() > iMaxListSize)
-                    {
-                        VFR_WRITE_LOG("ex sent list size is  %d larger than 10, remove first one.", sentStausList.size());
-                        sentStausList.pop_front();
-                    }
-                    sentStausList.push_back(status);
-                    continue;
-                }
-            }
-        }
-        else
-        {
-            if (FindIfInTheListFunc(sentStausList, status.dwCarID))
-            {
-                VFR_WRITE_LOG("login id = %d, carId = %u  is sent send before, check status.", GetLoginID(), status.dwCarID);
-
-                ResultSentStatus statusSent;
-                statusSent.dwCarID = status.dwCarID;
-                if (GetStatusFromListFunc(sentStausList, statusSent))
-                {
-                    VFR_WRITE_LOG("status :     int DeviceID = %d,   dwCarID = %lu, iFrontImgSendStatus = %d , iSidImgSendStatus = %d ,iTailImgSendStatus = %d ,  iVideoSendStatus = %d , iSmallImgSendStatus = %d iBinaryImgSendStatus = %d , uTimeReceive = %lu ",
-                        status.DeviceID,
-                        status.dwCarID,
-                        status.iFrontImgSendStatus,
-                        status.iSidImgSendStatus,
-                        status.iTailImgSendStatus,
-                        status.iVideoSendStatus,
-                        status.iSmallImgSendStatus,
-                        status.iBinaryImgSendStatus,
-                        status.uTimeReceive);
-
-                    if (statusSent.iFrontImgSendStatus == sta_sentFinish)
-                    {
-                        status.iFrontImgSendStatus = sta_sentFinish;
-                        VFR_WRITE_LOG("check item iFrontImgSendStatus, staus value =sta_sentFinish , not send again .");
-                    }
-
-                    if (statusSent.iSidImgSendStatus == sta_sentFinish)
-                    {
-                        status.iSidImgSendStatus = sta_sentFinish;
-                        VFR_WRITE_LOG("check item iSidImgSendStatus, staus value =sta_sentFinish , not send again .");
-                    }
-
-                    if (statusSent.iTailImgSendStatus == sta_sentFinish)
-                    {
-                        status.iTailImgSendStatus = sta_sentFinish;
-                        VFR_WRITE_LOG("check item iTailImgSendStatus, staus value =sta_sentFinish , not send again .");
-                    }
-
-                    if (statusSent.iVideoSendStatus == sta_sentFinish)
-                    {
-                        status.iVideoSendStatus = sta_sentFinish;
-                        VFR_WRITE_LOG("check item iVideoSendStatus, staus value =sta_sentFinish , not send again .");
-                    }
-                }
-                else
-                {
-                    VFR_WRITE_LOG("login id = %d, carId = %u  is sent send before, get status from sent list failed", GetLoginID(), status.dwCarID);
-                }
-            }
-        }
-
-        if (status.iFrontImgSendStatus == sta_receiveDone)
-        {
-            iSendItem = item_frontImg;
-            if (m_hWnd != NULL)
-            {
-                VFR_WRITE_LOG("PostMessage winWnd = %p, msg = %d, MsgType = %d, carID = %lu", m_hWnd, m_iMsg, iSendItem, status.dwCarID);
-                ::PostMessage(m_hWnd, m_iMsg, iSendItem, 0);
-            }
-            UpdateSendStatus(GetLoginID(), status.dwCarID, iSendItem, sta_waitGet);
-            SetIfSendResult(true);
-            continue;
-        }
-
-        if (status.iSidImgSendStatus == sta_receiveDone)
-        {
-            iSendItem = item_sideImg;
-            if (m_hWnd != NULL)
-            {
-                VFR_WRITE_LOG("PostMessage winWnd = %p, msg = %d, MsgType = %d, carID = %lu", m_hWnd, m_iMsg, iSendItem, status.dwCarID);
-                ::PostMessage(m_hWnd, m_iMsg, iSendItem, 0);
-            }
-            UpdateSendStatus(GetLoginID(), status.dwCarID, iSendItem, sta_waitGet);
-            SetIfSendResult(true);
-            continue;
-        }
-
-        if (status.iTailImgSendStatus == sta_receiveDone)
-        {
-            iSendItem = item_tailImg;
-            if (m_hWnd != NULL)
-            {
-                VFR_WRITE_LOG("PostMessage winWnd = %p, msg = %d, MsgType = %d, carID = %lu", m_hWnd, m_iMsg, iSendItem, status.dwCarID);
-                ::PostMessage(m_hWnd, m_iMsg, iSendItem, 0);
-            }
-            UpdateSendStatus(GetLoginID(), status.dwCarID, iSendItem, sta_waitGet);
-            SetIfSendResult(true);
-            continue;
-        }
-
-        if (status.iVideoSendStatus == sta_receiveDone)
-        {
-            iSendItem = item_video;
-            if (m_hWnd != NULL)
-            {
-                VFR_WRITE_LOG("PostMessage winWnd = %p, msg = %d, MsgType = %d, carID = %lu", m_hWnd, m_iMsg, iSendItem, status.dwCarID);
-                ::PostMessage(m_hWnd, m_iMsg, iSendItem, 0);
-            }
-            UpdateSendStatus(GetLoginID(), status.dwCarID, iSendItem, sta_waitGet);
-            SetIfSendResult(true);
-            continue;
-        }
-
-        if (sta_sentFinish == status.iFrontImgSendStatus
-            && sta_sentFinish == status.iFrontImgSendStatus
-            && sta_sentFinish == status.iTailImgSendStatus)
-        {
-            VFR_WRITE_LOG("login id = %d, carId = %u  is sent finish  remove the status.", GetLoginID(), status.dwCarID);
-            m_VfrResultList.DeleteByCarID(status.dwCarID);
-            m_lsStatusList.RemoveElement(GetLoginID(), status.dwCarID);
-
-            if (FindIfInTheListFunc(sentStausList, status.dwCarID))
-            {
-                VFR_WRITE_LOG("carID %lu is in the sent list , update it.", status.dwCarID);
-                UpdateStatusInTheListFunc(sentStausList, status);
-
-            }
-            else
-            {
-                VFR_WRITE_LOG("carID %lu is not in the sent list , add it.", status.dwCarID);
-                if (sentStausList.size() > iMaxListSize)
-                {
-                    VFR_WRITE_LOG("sent list size is  %d larger than 10, remove first one.", sentStausList.size());
-                    sentStausList.pop_front();
-                }
-                sentStausList.push_back(status);
-            }
-            continue;
-        }
-
-    }
-    VFR_WRITE_LOG("SendResultThreadFunc finish.");
-    return 0;
-}
+//unsigned int Camera6467_VFR::SendResultThreadFunc_WithNoSignal()
+//{
+//    VFR_WRITE_LOG("SendResultThreadFunc begin.");
+//    std::list<DWORD> lsSentCarIdList;
+//    bool bSendResult = false;
+//    std::shared_ptr<CameraResult> pResult;
+//    std::list<ResultSentStatus >sentStausList;
+//    int iWaitTimeOut = getResultWaitTime();
+//    unsigned long dwCurrentTick = GetTickCount();
+//    unsigned long dwLastTick = GetTickCount();
+//    int iSendItem = 0;
+//    ResultSentStatus status;
+//    const int iMaxListSize = 4;
+//
+//    auto FindIfInTheListFunc = [](std::list<ResultSentStatus >& sendList, unsigned long dwCarID)
+//    {
+//        return (std::end(sendList) != std::find_if(std::begin(sendList), std::end(sendList),
+//            [dwCarID](ResultSentStatus sta) 
+//        { return  (sta.dwCarID == dwCarID) ; }
+//        ));
+//    };
+//
+//    auto UpdateStatusInTheListFunc = [](std::list<ResultSentStatus >& sendList, ResultSentStatus newSta)
+//    {
+//        for (auto it = sendList.begin(); it != sendList.end(); it++)
+//        {
+//            if (it->dwCarID == newSta.dwCarID)
+//            {
+//                it->iFrontImgSendStatus = newSta.iFrontImgSendStatus;
+//                it->iSidImgSendStatus = newSta.iSidImgSendStatus;
+//                it->iTailImgSendStatus = newSta.iTailImgSendStatus;
+//                it->iVideoSendStatus = newSta.iVideoSendStatus;
+//            }
+//        }
+//    };
+//
+//    auto GetStatusFromListFunc = [](std::list<ResultSentStatus >& sendList, ResultSentStatus& newSta)
+//    {
+//        for (auto it = sendList.begin(); it != sendList.end(); it++)
+//        {
+//            if (it->dwCarID == newSta.dwCarID)
+//            {
+//                newSta = *it;
+//                return true;
+//            }
+//        }
+//        return false;
+//    };    
+//
+//    while (!GetCheckThreadExit())
+//    {
+//        Sleep(50);
+//        dwCurrentTick = GetTickCount();
+//
+//        if (GetIfSendResult()
+//            && dwCurrentTick - dwLastTick < 2000)
+//        {
+//            continue;
+//        }
+//        dwLastTick = GetTickCount();
+//
+//        //if (sentStausList.size() > 0)
+//        //{
+//        //    ResultSentStatus tempStatus = sentStausList.front();
+//        //    if (dwCurrentTick - tempStatus.uTimeReceive > 2 * 60 * 1000)
+//        //    {
+//        //        VFR_WRITE_LOG("firt status of sentList carID =  %lu, receive time %lu is time out 120s, remove it.", tempStatus.dwCarID, tempStatus.uTimeReceive);
+//        //        sentStausList.pop_front();
+//        //    }
+//        //}
+//
+//        if (!m_lsStatusList.getFirstElement(status))
+//        {
+//            continue;
+//        }
+//
+//        //if (dwCurrentTick - status.uTimeReceive >= iWaitTimeOut
+//        //    || FindIfCarIDInTheList(status.dwCarID))
+//        //{            
+//        //    VFR_WRITE_LOG("login id = %d , carId = %u , is time out, remove the status.", GetLoginID(), status.dwCarID);
+//        //    m_VfrResultList.DeleteByCarID(status.dwCarID);
+//        //    m_lsStatusList.RemoveElement(GetLoginID(), status.dwCarID);
+//
+//        //    if (!FindIfCarIDInTheList(status.dwCarID))
+//        //    {
+//        //        InsertCarIDToTheList(status.dwCarID);
+//        //    }
+//        //    continue;
+//        //}
+//
+//
+//        if (dwCurrentTick - status.uTimeReceive >= iWaitTimeOut)
+//        {
+//            //当前结果在队列中保留的时间超时了
+//            if (FindIfInTheListFunc(sentStausList, status.dwCarID))
+//            {
+//                ResultSentStatus statusSent;
+//                if (GetStatusFromListFunc(sentStausList, statusSent))
+//                {
+//                    if (statusSent.iFrontImgSendStatus == sta_sentFinish)
+//                    {
+//                        status.iFrontImgSendStatus = sta_sentFinish;
+//                    }
+//
+//                    if (statusSent.iSidImgSendStatus == sta_sentFinish)
+//                    {
+//                        status.iSidImgSendStatus = sta_sentFinish;
+//                    }
+//
+//                    if (statusSent.iTailImgSendStatus == sta_sentFinish)
+//                    {
+//                        status.iTailImgSendStatus = sta_sentFinish;
+//                    }
+//
+//                    if (statusSent.iVideoSendStatus == sta_sentFinish)
+//                    {
+//                        status.iVideoSendStatus = sta_sentFinish;
+//                    }
+//                }
+//                //在已发送的队列中
+//                if (status.iFrontImgSendStatus == sta_receiveDone
+//                    || status.iSidImgSendStatus == sta_receiveDone
+//                    || status.iTailImgSendStatus == sta_receiveDone
+//                    || status.iVideoSendStatus == sta_receiveDone)
+//                {
+//                    //如果在已发送的队列中，但是有新的内容更新，则推送更新内容
+//                    VFR_WRITE_LOG("login id = %d , carId = %u , is time out and send before, but some of the item , still send it.", GetLoginID(), status.dwCarID);
+//                    VFR_WRITE_LOG("-------------------------------------------------------------------");
+//                    VFR_WRITE_LOG("status :     int DeviceID = %d,   dwCarID = %lu, iFrontImgSendStatus = %d , iSidImgSendStatus = %d , \
+//                                                                                                                                                      iTailImgSendStatus = %d ,  iVideoSendStatus = %d , iSmallImgSendStatus = %d iBinaryImgSendStatus = %d , uTimeReceive = %lu ",
+//                                                                                                                                                      status.DeviceID,
+//                                                                                                                                                      status.dwCarID,
+//                                                                                                                                                      status.iFrontImgSendStatus,
+//                                                                                                                                                      status.iSidImgSendStatus,
+//                                                                                                                                                      status.iTailImgSendStatus,
+//                                                                                                                                                      status.iVideoSendStatus,
+//                                                                                                                                                      status.iSmallImgSendStatus,
+//                                                                                                                                                      status.iBinaryImgSendStatus,
+//                                                                                                                                                      status.uTimeReceive);
+//                    VFR_WRITE_LOG("-------------------------------------------------------------------");
+//                }
+//                else
+//                {
+//                    //如果在已发送的队列中，但是没有新的内容更新，则删除该结果
+//                    VFR_WRITE_LOG("login id = %d , carId = %u , is time out and send finish remove it.", GetLoginID(), status.dwCarID);
+//
+//                    m_VfrResultList.DeleteByCarID(status.dwCarID);
+//                    m_lsStatusList.RemoveElement(GetLoginID(), status.dwCarID);
+//
+//                    continue;
+//                }
+//            }
+//            else
+//            {
+//                //不在已发送的队列中
+//                if (status.iFrontImgSendStatus == sta_receiveDone
+//                    || status.iSidImgSendStatus == sta_receiveDone
+//                    || status.iTailImgSendStatus == sta_receiveDone
+//                    || status.iVideoSendStatus == sta_receiveDone)
+//                {
+//                    //超时，但有内容更新，发送该结果
+//                    VFR_WRITE_LOG("login id = %d , carId = %u , is time out, but some status update , still send it.", GetLoginID(), status.dwCarID);
+//                    VFR_WRITE_LOG("-------------------------------------------------------------------");
+//                    VFR_WRITE_LOG("status :     int DeviceID = %d,   dwCarID = %lu, iFrontImgSendStatus = %d , iSidImgSendStatus = %d ,iTailImgSendStatus = %d ,  iVideoSendStatus = %d , iSmallImgSendStatus = %d iBinaryImgSendStatus = %d , uTimeReceive = %lu ",
+//                                                                                                                                                                                                                          status.DeviceID,
+//                                                                                                                                                                                                                          status.dwCarID,
+//                                                                                                                                                                                                                          status.iFrontImgSendStatus,
+//                                                                                                                                                                                                                          status.iSidImgSendStatus,
+//                                                                                                                                                                                                                          status.iTailImgSendStatus,
+//                                                                                                                                                                                                                          status.iVideoSendStatus,
+//                                                                                                                                                                                                                          status.iSmallImgSendStatus,
+//                                                                                                                                                                                                                          status.iBinaryImgSendStatus,
+//                                                                                                                                                                                                                          status.uTimeReceive);
+//                    VFR_WRITE_LOG("-------------------------------------------------------------------");
+//                }
+//                else
+//                {
+//                    //超时，且没有内容更新，删除队列中的这个结果
+//                    VFR_WRITE_LOG("login id = %d , carId = %u , is time out, and no status update remove it.", GetLoginID(), status.dwCarID);
+//                    m_VfrResultList.DeleteByCarID(status.dwCarID);
+//                    m_lsStatusList.RemoveElement(GetLoginID(), status.dwCarID);
+//
+//                    if (sentStausList.size() > iMaxListSize)
+//                    {
+//                        VFR_WRITE_LOG("ex sent list size is  %d larger than 10, remove first one.", sentStausList.size());
+//                        sentStausList.pop_front();
+//                    }
+//                    sentStausList.push_back(status);
+//                    continue;
+//                }
+//            }
+//        }
+//        else
+//        {
+//            if (FindIfInTheListFunc(sentStausList, status.dwCarID))
+//            {
+//                VFR_WRITE_LOG("login id = %d, carId = %u  is sent send before, check status.", GetLoginID(), status.dwCarID);
+//
+//                ResultSentStatus statusSent;
+//                statusSent.dwCarID = status.dwCarID;
+//                if (GetStatusFromListFunc(sentStausList, statusSent))
+//                {
+//                    VFR_WRITE_LOG("status :     int DeviceID = %d,   dwCarID = %lu, iFrontImgSendStatus = %d , iSidImgSendStatus = %d ,iTailImgSendStatus = %d ,  iVideoSendStatus = %d , iSmallImgSendStatus = %d iBinaryImgSendStatus = %d , uTimeReceive = %lu ",
+//                        status.DeviceID,
+//                        status.dwCarID,
+//                        status.iFrontImgSendStatus,
+//                        status.iSidImgSendStatus,
+//                        status.iTailImgSendStatus,
+//                        status.iVideoSendStatus,
+//                        status.iSmallImgSendStatus,
+//                        status.iBinaryImgSendStatus,
+//                        status.uTimeReceive);
+//
+//                    if (statusSent.iFrontImgSendStatus == sta_sentFinish)
+//                    {
+//                        status.iFrontImgSendStatus = sta_sentFinish;
+//                        VFR_WRITE_LOG("check item iFrontImgSendStatus, staus value =sta_sentFinish , not send again .");
+//                    }
+//
+//                    if (statusSent.iSidImgSendStatus == sta_sentFinish)
+//                    {
+//                        status.iSidImgSendStatus = sta_sentFinish;
+//                        VFR_WRITE_LOG("check item iSidImgSendStatus, staus value =sta_sentFinish , not send again .");
+//                    }
+//
+//                    if (statusSent.iTailImgSendStatus == sta_sentFinish)
+//                    {
+//                        status.iTailImgSendStatus = sta_sentFinish;
+//                        VFR_WRITE_LOG("check item iTailImgSendStatus, staus value =sta_sentFinish , not send again .");
+//                    }
+//
+//                    if (statusSent.iVideoSendStatus == sta_sentFinish)
+//                    {
+//                        status.iVideoSendStatus = sta_sentFinish;
+//                        VFR_WRITE_LOG("check item iVideoSendStatus, staus value =sta_sentFinish , not send again .");
+//                    }
+//                }
+//                else
+//                {
+//                    VFR_WRITE_LOG("login id = %d, carId = %u  is sent send before, get status from sent list failed", GetLoginID(), status.dwCarID);
+//                }
+//            }
+//        }
+//
+//        if (status.iFrontImgSendStatus == sta_receiveDone)
+//        {
+//            iSendItem = item_frontImg;
+//            if (m_hWnd != NULL)
+//            {
+//                VFR_WRITE_LOG("PostMessage winWnd = %p, msg = %d, MsgType = %d, carID = %lu", m_hWnd, m_iMsg, iSendItem, status.dwCarID);
+//                ::PostMessage(m_hWnd, m_iMsg, iSendItem, 0);
+//            }
+//            UpdateSendStatus(GetLoginID(), status.dwCarID, iSendItem, sta_waitGet);
+//            SetIfSendResult(true);
+//            continue;
+//        }
+//
+//        if (status.iSidImgSendStatus == sta_receiveDone)
+//        {
+//            iSendItem = item_sideImg;
+//            if (m_hWnd != NULL)
+//            {
+//                VFR_WRITE_LOG("PostMessage winWnd = %p, msg = %d, MsgType = %d, carID = %lu", m_hWnd, m_iMsg, iSendItem, status.dwCarID);
+//                ::PostMessage(m_hWnd, m_iMsg, iSendItem, 0);
+//            }
+//            UpdateSendStatus(GetLoginID(), status.dwCarID, iSendItem, sta_waitGet);
+//            SetIfSendResult(true);
+//            continue;
+//        }
+//
+//        if (status.iTailImgSendStatus == sta_receiveDone)
+//        {
+//            iSendItem = item_tailImg;
+//            if (m_hWnd != NULL)
+//            {
+//                VFR_WRITE_LOG("PostMessage winWnd = %p, msg = %d, MsgType = %d, carID = %lu", m_hWnd, m_iMsg, iSendItem, status.dwCarID);
+//                ::PostMessage(m_hWnd, m_iMsg, iSendItem, 0);
+//            }
+//            UpdateSendStatus(GetLoginID(), status.dwCarID, iSendItem, sta_waitGet);
+//            SetIfSendResult(true);
+//            continue;
+//        }
+//
+//        if (status.iVideoSendStatus == sta_receiveDone)
+//        {
+//            iSendItem = item_video;
+//            if (m_hWnd != NULL)
+//            {
+//                VFR_WRITE_LOG("PostMessage winWnd = %p, msg = %d, MsgType = %d, carID = %lu", m_hWnd, m_iMsg, iSendItem, status.dwCarID);
+//                ::PostMessage(m_hWnd, m_iMsg, iSendItem, 0);
+//            }
+//            UpdateSendStatus(GetLoginID(), status.dwCarID, iSendItem, sta_waitGet);
+//            SetIfSendResult(true);
+//            continue;
+//        }
+//
+//        if (sta_sentFinish == status.iFrontImgSendStatus
+//            && sta_sentFinish == status.iFrontImgSendStatus
+//            && sta_sentFinish == status.iTailImgSendStatus)
+//        {
+//            VFR_WRITE_LOG("login id = %d, carId = %u  is sent finish  remove the status.", GetLoginID(), status.dwCarID);
+//            m_VfrResultList.DeleteByCarID(status.dwCarID);
+//            m_lsStatusList.RemoveElement(GetLoginID(), status.dwCarID);
+//
+//            if (FindIfInTheListFunc(sentStausList, status.dwCarID))
+//            {
+//                VFR_WRITE_LOG("carID %lu is in the sent list , update it.", status.dwCarID);
+//                UpdateStatusInTheListFunc(sentStausList, status);
+//
+//            }
+//            else
+//            {
+//                VFR_WRITE_LOG("carID %lu is not in the sent list , add it.", status.dwCarID);
+//                if (sentStausList.size() > iMaxListSize)
+//                {
+//                    VFR_WRITE_LOG("sent list size is  %d larger than 10, remove first one.", sentStausList.size());
+//                    sentStausList.pop_front();
+//                }
+//                sentStausList.push_back(status);
+//            }
+//            continue;
+//        }
+//
+//    }
+//    VFR_WRITE_LOG("SendResultThreadFunc finish.");
+//    return 0;
+//}
 
 unsigned int Camera6467_VFR::SendResultThreadFunc_Separate()
 {
@@ -2387,7 +2427,6 @@ unsigned int Camera6467_VFR::SendResultThreadFunc_Separate()
 		{
 			index = 0;
 			dwCarID = 0;
-
 			bSendFront = false;
 			bSendSide = false;
 			bSendTail = false;
@@ -2681,8 +2720,10 @@ void Camera6467_VFR::SendTailResultByCallback(std::shared_ptr<CameraResult> pRes
 		pImgPath = (char*)vlpTailInfo.imageFile[0];
 		pSrcImgPath = pResult->CIMG_BestCapture.chSavePath;
 		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);
-		VFR_WRITE_LOG("process type_SideImg info finish.");
 
+		FontAdd(pResult, index, pSrcImgPath);
+		VFR_WRITE_LOG("process type_SideImg info finish.");
+		
 		//车尾图
 		SaveImgStructFunc(&pResult->CIMG_LastCapture, type_tailImg, index, pchImgRootPath);
 		pImgPath = (char*)vlpTailInfo.imageFile[1];
@@ -2709,6 +2750,8 @@ void Camera6467_VFR::SendTailResultByCallback(std::shared_ptr<CameraResult> pRes
 		{
 			char chVideoName[256] = { 0 };
 			sprintf_s(chVideoName, sizeof(chVideoName), ".\\%s\\vlp_7_%02d.mp4", pchImgRootPath, index);
+
+			VFR_WRITE_LOG("copy and remove video file %s.", pResult->chSaveFileName);
 			if (CopyFile(pResult->chSaveFileName, chVideoName, FALSE))
 			{
 				remove(pResult->chSaveFileName);
@@ -2739,6 +2782,60 @@ void Camera6467_VFR::SendTailResultByCallback(std::shared_ptr<CameraResult> pRes
 	else
 	{
 		VFR_WRITE_LOG("tail callback func == NULL.");
+	}
+}
+
+void Camera6467_VFR::FontAdd(std::shared_ptr<CameraResult> pResult, int index, const char* imgPath)  //字符叠加功能函数
+{
+	
+	CxImage imageMix(pResult->CIMG_BestCapture.pbImgData, pResult->CIMG_BestCapture.dwImgSize, CXIMAGE_FORMAT_JPG);
+	CxImage::CXTEXTINFO Plate, Time;//图片叠加文字
+
+	if (imageMix.IsEnabled())
+	{
+		//imageMix.Save("before.jpg", CXIMAGE_FORMAT_JPG);   //用于test
+
+		//初始化叠加文字结构体
+		imageMix.InitTextInfo(&Plate);
+		imageMix.InitTextInfo(&Time);
+
+		//设置文字的属性
+		_stprintf(Plate.lfont.lfFaceName, _T("微软雅黑"));//字体
+		Plate.lfont.lfCharSet = GB2312_CHARSET;//字符集
+		Plate.lfont.lfHeight = m_iFontSize;//根据ini配置字体高度大小
+		Plate.fcolor = RGB(m_iFontAddcolorR, m_iFontAddcolorG, m_iFontAddcolorB);  //根据ini配置颜色
+		Plate.opaque = 0;  //背景
+
+		_stprintf(Time.lfont.lfFaceName, _T("微软雅黑"));
+		Time.lfont.lfCharSet = GB2312_CHARSET;
+		Time.lfont.lfHeight = m_iFontSize;
+		Time.fcolor = RGB(m_iFontAddcolorR, m_iFontAddcolorG, m_iFontAddcolorB);
+		Time.opaque = 0; 
+
+		std::string strPlate = pResult->chPlateNO;
+		std::string strTime = pResult->chPlateTime;
+
+		sprintf_s(Plate.text, "%s", strPlate.c_str());
+		sprintf_s(Time.text, "%s", strTime.c_str());
+
+		//开始将文字叠加到图片
+		imageMix.DrawStringEx(0, 10, 80, &Plate);
+		imageMix.DrawStringEx(0, 10, 135, &Time);
+
+		long size = 0;
+		BYTE* buffer = 0;
+		imageMix.Encode(buffer, size, CXIMAGE_FORMAT_JPG);
+
+		CameraIMG img;
+		img.pbImgData = new unsigned char[size];
+		memcpy(img.pbImgData, buffer, size);
+		img.dwImgSize = size;
+
+		const char* pchImgRootPath = imgPath;   //保存结果的指定路径
+		imageMix.FreeMemory(buffer);
+		CameraIMG *p;
+		p = &img;
+		SaveImgStructFunc(p, type_SideImg, index, pchImgRootPath);    //保存车身图
 	}
 }
 
@@ -2963,7 +3060,7 @@ void Camera6467_VFR::SetIfSendResult(bool bValue)
     LeaveCriticalSection(&m_csFuncCallback);
 }
 
-bool Camera6467_VFR::GetFrontSendStatus(ResultSentStatus& status)
+bool Camera6467_VFR::GetFrontSendStatus(ResultSentStatus& status) //获取状态
 {
     if (m_lsStatusList.size() > 0)
     {

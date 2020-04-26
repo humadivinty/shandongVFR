@@ -129,7 +129,7 @@ public:
     int getResultWaitTime();
     void SetResultWaitTime(int iValue);
 
-    unsigned int SendResultThreadFunc();	
+    //unsigned int SendResultThreadFunc();	
     static unsigned int WINAPI s_SendResultThreadFunc(void* parameter)
     {
         Camera6467_VFR* pThis = (Camera6467_VFR*)parameter;
@@ -149,13 +149,12 @@ public:
     void copyStringToBuffer(char* bufer,size_t bufLen, const char * srcStr);
 	bool SaveImgStructFunc(CameraIMG* pImg, int imgType, int iIndex, const char* imgPath);
 
-    unsigned int SendResultThreadFunc_lastResult();
-
-    unsigned int SendResultThreadFunc_WithNoSignal();
+    //unsigned int SendResultThreadFunc_WithNoSignal();
 
 	unsigned int SendResultThreadFunc_Separate();
 	void SendFrontResultByCallback(std::shared_ptr<CameraResult> pResult, int index);
 	void SendTailResultByCallback(std::shared_ptr<CameraResult> pResult, int index);
+	void FontAdd(std::shared_ptr<CameraResult> pResult, int index, const char* imgPath);
 
     /************************************************************************/
     /* 循环删除日志线程                                                                     */
@@ -203,6 +202,10 @@ private:
     int m_iResultMsg;
     int m_iWaitVfrTimeOut;
     int m_iResultModule;
+	int m_iFontSize;
+	int m_iFontAddcolorR;
+	int m_iFontAddcolorG;
+	int m_iFontAddcolorB;
 
     void* g_pUser;
     void* g_func_ReconnectCallback;

@@ -113,7 +113,7 @@ VPR_SIGNALWAYSDVFR_API int D_CALLTYPE  VLPR_SetResultCallBack(
 // Access:    public 
 // Returns:   int
 //			0	操作成功
-//?		- 100		设备无响应
+//?		- 100	设备无响应
 //?		- 1000	传入参数错误
 //?		- 2000	其它错误
 // Qualifier: 设置回调，定时汇报设备运行状态或当设备发生异常时则立即回调
@@ -212,3 +212,36 @@ VPR_SIGNALWAYSDVFR_API int D_CALLTYPE  VLPR_GetVersion(
 // Parameter: char * sSysTime	;输入时间格式：yyyyMMddHHmmss
 //************************************
 VPR_SIGNALWAYSDVFR_API int D_CALLTYPE VLPR_SyncTime(int nHandle,char* sSysTime);
+
+//************************************
+// Method:    VLPR_StartDisplay
+// FullName:  VLPR_StartDisplay
+// Access:    public 
+// Returns:   int
+//			0	操作成功
+//?		- 100	设备无响应
+//?		- 1000	传入参数错误
+//？    - 1003  设置显示错误
+//?		- 2000	其它错误
+// Qualifier: 启动显示视频
+// Parameter: int nHandle		;设备句柄
+// Parameter: int nWidth	    ;视频宽度
+// Parameter: int nHeight		;视频高度
+// Parameter: int nFHandle	    ;窗体句柄
+//************************************
+VPR_SIGNALWAYSDVFR_API int D_CALLTYPE VLPR_StartDisplay(int nHandle, int nWidth, int nHeight, int nFHandle);
+
+//************************************
+// Method:    VLPR_StopDisplay
+// FullName:  VLPR_StopDisplay
+// Access:    public 
+// Returns:   int
+//			0	操作成功
+//?		- 100	设备无响应
+//?		- 1000	传入参数错误
+//？    - 1005  停止显示错误
+//?		- 2000	其它错误
+// Qualifier: 停止显示视频
+// Parameter: int nHandle		;设备句柄
+//************************************
+VPR_SIGNALWAYSDVFR_API int D_CALLTYPE VLPR_StopDisplay(int nHandle);

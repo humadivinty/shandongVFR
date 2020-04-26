@@ -88,6 +88,8 @@ BEGIN_MESSAGE_MAP(CTestTool_VPRSignalwayDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON_VLPR_GetDevInfo, &CTestTool_VPRSignalwayDlg::OnBnClickedButtonVlprGetdevinfo)
 	ON_BN_CLICKED(IDC_BUTTON_VLPR_GetVersion, &CTestTool_VPRSignalwayDlg::OnBnClickedButtonVlprGetversion)
 	ON_BN_CLICKED(IDC_BUTTON_VLPR_SyncTime, &CTestTool_VPRSignalwayDlg::OnBnClickedButtonVlprSynctime)
+	ON_BN_CLICKED(IDC_BUTTON_Start, &CTestTool_VPRSignalwayDlg::OnBnClickedButtonStart)
+	ON_BN_CLICKED(IDC_BUTTON_Stop, &CTestTool_VPRSignalwayDlg::OnBnClickedButtonStop)
 END_MESSAGE_MAP()
 
 
@@ -494,4 +496,26 @@ void CTestTool_VPRSignalwayDlg::s_CBFun_GetDevStatus(int nHandle, int nStatus, v
 	{
 		pDlg->ShowMessage(chLog);
 	}
+}
+
+
+void CTestTool_VPRSignalwayDlg::OnBnClickedButtonStart()
+{
+	int nFHandle = (int)GetDlgItem(IDC_VEDIO)->GetSafeHwnd();
+
+	VLPR_StartDisplay(m_iHandle, 0, 0, nFHandle);
+
+    char chLog[256] = { 0 };
+    sprintf(chLog, "VLPR_StartDisplay(%d,0,0, %d) = %d ", m_iHandle, nFHandle);
+    ShowMessage(chLog);
+}
+
+
+void CTestTool_VPRSignalwayDlg::OnBnClickedButtonStop()
+{
+	VLPR_StopDisplay(m_iHandle);
+
+    char chLog[256] = { 0 };
+    sprintf(chLog, "VLPR_StopDisplay(%d) = %d ", m_iHandle);
+    ShowMessage(chLog);
 }

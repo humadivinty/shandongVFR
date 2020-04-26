@@ -107,7 +107,7 @@ public:
 
     UINT64 dw64TimeMS;
     DWORD dwReceiveTime;
-	UINT32 dwCarID;
+	ULONG32 dwCarID;
     INT32 iDeviceID;
     INT32 iPlateColor;
 	INT32 iTailPlateColor;

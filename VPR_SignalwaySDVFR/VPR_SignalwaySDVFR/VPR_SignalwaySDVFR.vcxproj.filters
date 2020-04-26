@@ -96,6 +96,9 @@
     <ClInclude Include="resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="coredump\StackWalker.h">
+      <Filter>coredump</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -154,6 +157,9 @@
     </ClCompile>
     <ClCompile Include="ResultSentStatusManager.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="coredump\StackWalker.cpp">
+      <Filter>coredump</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

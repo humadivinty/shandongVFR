@@ -2,8 +2,9 @@
 #define MINIDUMPER_H
 
 #include <windows.h>
+#include "StackWalker.h"
 
-class CMiniDumper
+class CMiniDumper : public StackWalker
 {
 public:
 
@@ -30,6 +31,10 @@ private:
 
     static CMiniDumper* s_pMiniDumper;
     static LPCRITICAL_SECTION s_pCriticalSection;
+
+protected:
+	//virtual void OnOutput(LPCSTR szText) { printf("hahahahahahahaha ::::::%s", szText); }
+	virtual void OnOutput(LPCSTR szText);
 };
 
 #endif // MINIDUMPER_H
