@@ -2629,8 +2629,13 @@ void Camera6467_VFR::SendFrontResultByCallback(std::shared_ptr<CameraResult> pRe
 
 		//车头车牌信息
 		vlpFrontInfo.vehNo = index;
-		vlpFrontInfo.vlpColor[0] = 0;	//颜色
-		vlpFrontInfo.vlpColor[1] = pResult->iPlateColor;
+
+		char chPlateColor[3] = { 0 };
+		sprintf(chPlateColor, "%02d", pResult->iPlateColor);
+		//vlpFrontInfo.vlpColor[0] = 0;	//颜色
+		//vlpFrontInfo.vlpColor[1] = pResult->iPlateColor;
+		memcpy(vlpFrontInfo.vlpColor, chPlateColor, 2);
+
 		char chPlateNO[64] = { 0 };//车牌号码
 		Tool_ProcessPlateNo(pResult->chPlateNO, chPlateNO, sizeof(chPlateNO));
 		memcpy(vlpFrontInfo.vlpText, chPlateNO, strlen(chPlateNO));
@@ -2699,8 +2704,14 @@ void Camera6467_VFR::SendTailResultByCallback(std::shared_ptr<CameraResult> pRes
 		//车尾车牌信息
 		vlpTailInfo.vehNo = index;
 		char chPlateNO[64] = { 0 };//车牌号码
-		vlpTailInfo.vlpBackColor[0] = 0;	//颜色
-		vlpTailInfo.vlpBackColor[1] = pResult->iTailPlateColor;
+
+		//vlpTailInfo.vlpBackColor[0] = 0;	//颜色
+		//vlpTailInfo.vlpBackColor[1] = pResult->iTailPlateColor;
+
+		char chPlateColor[3] = { 0 };
+		sprintf(chPlateColor, "%02d", pResult->iTailPlateColor);
+		memcpy(vlpTailInfo.vlpBackColor, chPlateColor, 2);
+
 		memset(chPlateNO, '\0', sizeof(chPlateNO));
 		Tool_ProcessPlateNo(pResult->chTailPlateNO, chPlateNO, sizeof(chPlateNO));
 		memcpy(vlpTailInfo.vlpBackText, chPlateNO, strlen(chPlateNO));
