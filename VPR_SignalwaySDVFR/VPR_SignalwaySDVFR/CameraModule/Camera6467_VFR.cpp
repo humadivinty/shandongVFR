@@ -2732,7 +2732,7 @@ void Camera6467_VFR::SendTailResultByCallback(std::shared_ptr<CameraResult> pRes
 		pSrcImgPath = pResult->CIMG_BestCapture.chSavePath;
 		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);
 
-		FontAdd(pResult, index, pSrcImgPath);
+		FontAdd(pResult, index, pchImgRootPath);
 		VFR_WRITE_LOG("process type_SideImg info finish.");
 		
 		//³µÎ²Í¼
