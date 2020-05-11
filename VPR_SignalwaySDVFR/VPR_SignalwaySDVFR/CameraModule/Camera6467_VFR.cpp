@@ -617,13 +617,22 @@ void Camera6467_VFR::ReadConfig()
     Tool_ReadIntValueFromConfigFile(INI_FILE_NAME, "Video", "mode", iTempValue);
     m_iVideoMode = iTempValue;
 
+	iTempValue = 1;
+	Tool_ReadIntValueFromConfigFile(INI_FILE_NAME, "Enable", "addplate", iTempValue);
+	m_addplate = iTempValue;
+	//1为开，其他为关
+	iTempValue = 1;
+	Tool_ReadIntValueFromConfigFile(INI_FILE_NAME, "Enable", "addtime", iTempValue);
+	m_addtime = iTempValue;
+
+
 	iTempValue = 255;
 	//获取ini配置文件中的数值
 	Tool_ReadIntValueFromConfigFile(INI_FILE_NAME, "FontAdd", "fontsize", iTempValue);
-	//判断fontsize是否超过阈值，超过给默认值35
-	if (iTempValue<25 || iTempValue>80)
+	//判断fontsize是否超过阈值，超过给默认值60
+	if (iTempValue<24 || iTempValue>128)
 	{
-		m_iFontSize = 35;
+		m_iFontSize = 60;
 	}
 	else
 	{
@@ -904,8 +913,6 @@ void Camera6467_VFR::SendResultByCallback(std::shared_ptr<CameraResult> pResult)
 		pSrcImgPath = pResult->CIMG_BestCapture.chSavePath;             //车身图保存最终路径
 		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);      
 		VFR_WRITE_LOG("process type_SideImg info finish.");
-
-
 
 
 		//车尾图
@@ -2653,7 +2660,9 @@ void Camera6467_VFR::SendFrontResultByCallback(std::shared_ptr<CameraResult> pRe
 		pSrcImgPath = pResult->CIMG_BeginCapture.chSavePath;
 		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);
 		VFR_WRITE_LOG("process type_frontImg info finish.");
-
+		
+		BeginFontAdd(pResult, index, pchImgRootPath);     //车头图片字符叠加
+		
 		//车头车牌图
 		SaveImgStructFunc(&pResult->CIMG_PlateImage, type_frontPlate, index, pchImgRootPath);
 		pImgPath = (char*)vlpFrontInfo.imageFile[1];
@@ -2732,7 +2741,8 @@ void Camera6467_VFR::SendTailResultByCallback(std::shared_ptr<CameraResult> pRes
 		pSrcImgPath = pResult->CIMG_BestCapture.chSavePath;
 		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);
 
-		FontAdd(pResult, index, pchImgRootPath);
+		FontAdd(pResult, index, pchImgRootPath);//路径问题
+		
 		VFR_WRITE_LOG("process type_SideImg info finish.");
 		
 		//车尾图
@@ -2741,7 +2751,9 @@ void Camera6467_VFR::SendTailResultByCallback(std::shared_ptr<CameraResult> pRes
 		pSrcImgPath = pResult->CIMG_LastCapture.chSavePath;
 		Tool_CopyStringToBuffer(pImgPath, iPathLen, pSrcImgPath);
 		VFR_WRITE_LOG("process type_tailImg info finish.");
-
+	
+		LastFontAdd(pResult, index, pchImgRootPath);
+		
 		//车尾车牌图
 		SaveImgStructFunc(&pResult->CIMG_BestSnapshot, type_tailPlate, index, pchImgRootPath);
 		pImgPath = (char*)vlpTailInfo.imageFile[2];
@@ -2761,7 +2773,6 @@ void Camera6467_VFR::SendTailResultByCallback(std::shared_ptr<CameraResult> pRes
 		{
 			char chVideoName[256] = { 0 };
 			sprintf_s(chVideoName, sizeof(chVideoName), ".\\%s\\vlp_7_%02d.mp4", pchImgRootPath, index);
-
 			VFR_WRITE_LOG("copy and remove video file %s.", pResult->chSaveFileName);
 			if (CopyFile(pResult->chSaveFileName, chVideoName, FALSE))
 			{
@@ -2795,60 +2806,177 @@ void Camera6467_VFR::SendTailResultByCallback(std::shared_ptr<CameraResult> pRes
 		VFR_WRITE_LOG("tail callback func == NULL.");
 	}
 }
-
-void Camera6467_VFR::FontAdd(std::shared_ptr<CameraResult> pResult, int index, const char* imgPath)  //字符叠加功能函数
+void Camera6467_VFR::BeginFontAdd(std::shared_ptr<CameraResult> pResult, int index, const char* imgPath)  //车头字符叠加功能函数
 {
-	
+	CxImage imageMix(pResult->CIMG_BeginCapture.pbImgData, pResult->CIMG_BeginCapture.dwImgSize, CXIMAGE_FORMAT_JPG);
+	CxImage::CXTEXTINFO Plate, Time;//图片叠加文字
+		if (imageMix.IsEnabled())
+		{
+			//imageMix.Save("before.jpg", CXIMAGE_FORMAT_JPG);   //用于test
+
+			//初始化叠加文字结构体
+			imageMix.InitTextInfo(&Plate);
+			imageMix.InitTextInfo(&Time);
+
+			//设置文字的属性
+			_stprintf(Plate.lfont.lfFaceName, _T("微软雅黑"));//字体
+			Plate.lfont.lfCharSet = GB2312_CHARSET;//字符集
+			Plate.lfont.lfHeight = m_iFontSize;//根据ini配置字体高度大小
+			Plate.fcolor = RGB(m_iFontAddcolorR, m_iFontAddcolorG, m_iFontAddcolorB);  //根据ini配置颜色
+			Plate.opaque = 0;  //背景
+
+			_stprintf(Time.lfont.lfFaceName, _T("微软雅黑"));
+			Time.lfont.lfCharSet = GB2312_CHARSET;
+			Time.lfont.lfHeight = m_iFontSize;
+			Time.fcolor = RGB(m_iFontAddcolorR, m_iFontAddcolorG, m_iFontAddcolorB);
+			Time.opaque = 0;
+
+			std::string strPlate = pResult->chPlateNO;
+			std::string strTime = pResult->chPlateTime;
+
+			sprintf_s(Plate.text, "%s", strPlate.c_str());
+			sprintf_s(Time.text, "%s", strTime.c_str());
+
+			//开始将文字叠加到图片
+			//判断叠加车牌信息
+			if (m_addplate == 1){
+				imageMix.DrawStringEx(0, 10, 100, &Plate);
+			}
+			//判断叠加时间信息
+			if (m_addtime == 1){
+				imageMix.DrawStringEx(0, 10, 200, &Time);
+			}
+			
+			long size = 0;
+			BYTE* buffer = 0;
+			imageMix.Encode(buffer, size, CXIMAGE_FORMAT_JPG);
+
+			CameraIMG img;
+			img.pbImgData = new unsigned char[size];
+			memcpy(img.pbImgData, buffer, size);
+			img.dwImgSize = size;
+
+			const char* pchImgRootPath = imgPath;   //保存结果的指定路径
+			imageMix.FreeMemory(buffer);
+			CameraIMG *p;
+			p = &img;
+			SaveImgStructFunc(p, type_frontImg, index, pchImgRootPath);    //保存车头图
+		}
+}
+void Camera6467_VFR::FontAdd(std::shared_ptr<CameraResult> pResult, int index, const char* imgPath)  //车身字符叠加功能函数
+{
 	CxImage imageMix(pResult->CIMG_BestCapture.pbImgData, pResult->CIMG_BestCapture.dwImgSize, CXIMAGE_FORMAT_JPG);
 	CxImage::CXTEXTINFO Plate, Time;//图片叠加文字
+		if (imageMix.IsEnabled())
+		{
+			//imageMix.Save("before.jpg", CXIMAGE_FORMAT_JPG);   //用于test
 
-	if (imageMix.IsEnabled())
-	{
-		//imageMix.Save("before.jpg", CXIMAGE_FORMAT_JPG);   //用于test
+			//初始化叠加文字结构体
+			imageMix.InitTextInfo(&Plate);
+			imageMix.InitTextInfo(&Time);
 
-		//初始化叠加文字结构体
-		imageMix.InitTextInfo(&Plate);
-		imageMix.InitTextInfo(&Time);
+			//设置文字的属性
+			_stprintf(Plate.lfont.lfFaceName, _T("微软雅黑"));//字体
+			Plate.lfont.lfCharSet = GB2312_CHARSET;//字符集
+			Plate.lfont.lfHeight = m_iFontSize;//根据ini配置字体高度大小
+			Plate.fcolor = RGB(m_iFontAddcolorR, m_iFontAddcolorG, m_iFontAddcolorB);  //根据ini配置颜色
+			Plate.opaque = 0;  //背景
 
-		//设置文字的属性
-		_stprintf(Plate.lfont.lfFaceName, _T("微软雅黑"));//字体
-		Plate.lfont.lfCharSet = GB2312_CHARSET;//字符集
-		Plate.lfont.lfHeight = m_iFontSize;//根据ini配置字体高度大小
-		Plate.fcolor = RGB(m_iFontAddcolorR, m_iFontAddcolorG, m_iFontAddcolorB);  //根据ini配置颜色
-		Plate.opaque = 0;  //背景
+			_stprintf(Time.lfont.lfFaceName, _T("微软雅黑"));
+			Time.lfont.lfCharSet = GB2312_CHARSET;
+			Time.lfont.lfHeight = m_iFontSize;
+			Time.fcolor = RGB(m_iFontAddcolorR, m_iFontAddcolorG, m_iFontAddcolorB);
+			Time.opaque = 0;
 
-		_stprintf(Time.lfont.lfFaceName, _T("微软雅黑"));
-		Time.lfont.lfCharSet = GB2312_CHARSET;
-		Time.lfont.lfHeight = m_iFontSize;
-		Time.fcolor = RGB(m_iFontAddcolorR, m_iFontAddcolorG, m_iFontAddcolorB);
-		Time.opaque = 0; 
+			std::string strPlate = pResult->chPlateNO;
+			std::string strTime = pResult->chPlateTime;
 
-		std::string strPlate = pResult->chPlateNO;
-		std::string strTime = pResult->chPlateTime;
+			sprintf_s(Plate.text, "%s", strPlate.c_str());
+			sprintf_s(Time.text, "%s", strTime.c_str());
+			//判断叠加车牌信息
+			if (m_addplate == 1){
+				imageMix.DrawStringEx(0, 10, 100, &Plate);
+			}
+			//判断叠加时间信息
+			if (m_addtime == 1){
+				imageMix.DrawStringEx(0, 10, 200, &Time);
+			}
 
-		sprintf_s(Plate.text, "%s", strPlate.c_str());
-		sprintf_s(Time.text, "%s", strTime.c_str());
+			long size = 0;
+			BYTE* buffer = 0;
+			imageMix.Encode(buffer, size, CXIMAGE_FORMAT_JPG);
 
-		//开始将文字叠加到图片
-		imageMix.DrawStringEx(0, 10, 80, &Plate);
-		imageMix.DrawStringEx(0, 10, 135, &Time);
+			CameraIMG img;
+			img.pbImgData = new unsigned char[size];
+			memcpy(img.pbImgData, buffer, size);
+			img.dwImgSize = size;
 
-		long size = 0;
-		BYTE* buffer = 0;
-		imageMix.Encode(buffer, size, CXIMAGE_FORMAT_JPG);
-
-		CameraIMG img;
-		img.pbImgData = new unsigned char[size];
-		memcpy(img.pbImgData, buffer, size);
-		img.dwImgSize = size;
-
-		const char* pchImgRootPath = imgPath;   //保存结果的指定路径
-		imageMix.FreeMemory(buffer);
-		CameraIMG *p;
-		p = &img;
-		SaveImgStructFunc(p, type_SideImg, index, pchImgRootPath);    //保存车身图
-	}
+			const char* pchImgRootPath = imgPath;   //保存结果的指定路径
+			imageMix.FreeMemory(buffer);
+			CameraIMG *p;
+			p = &img;
+			SaveImgStructFunc(p, type_SideImg, index, pchImgRootPath);    //保存车身图
+		}
+	
 }
+void Camera6467_VFR::LastFontAdd(std::shared_ptr<CameraResult> pResult, int index, const char* imgPath)  //车尾字符叠加功能函数
+{
+
+	CxImage imageMix(pResult->CIMG_LastCapture.pbImgData, pResult->CIMG_LastCapture.dwImgSize, CXIMAGE_FORMAT_JPG);
+	CxImage::CXTEXTINFO Plate, Time;//图片叠加文字
+		if (imageMix.IsEnabled())
+		{
+			//imageMix.Save("before.jpg", CXIMAGE_FORMAT_JPG);   //用于test
+
+			//初始化叠加文字结构体
+			imageMix.InitTextInfo(&Plate);
+			imageMix.InitTextInfo(&Time);
+
+			//设置文字的属性
+			_stprintf(Plate.lfont.lfFaceName, _T("微软雅黑"));//字体
+			Plate.lfont.lfCharSet = GB2312_CHARSET;//字符集
+			Plate.lfont.lfHeight = m_iFontSize;//根据ini配置字体高度大小
+			Plate.fcolor = RGB(m_iFontAddcolorR, m_iFontAddcolorG, m_iFontAddcolorB);  //根据ini配置颜色
+			Plate.opaque = 0;  //背景
+
+			_stprintf(Time.lfont.lfFaceName, _T("微软雅黑"));
+			Time.lfont.lfCharSet = GB2312_CHARSET;
+			Time.lfont.lfHeight = m_iFontSize;
+			Time.fcolor = RGB(m_iFontAddcolorR, m_iFontAddcolorG, m_iFontAddcolorB);
+			Time.opaque = 0;
+
+			std::string strPlate = pResult->chPlateNO;
+			std::string strTime = pResult->chPlateTime;
+
+			sprintf_s(Plate.text, "%s", strPlate.c_str());
+			sprintf_s(Time.text, "%s", strTime.c_str());
+
+			//开始将文字叠加到图片
+			//判断叠加车牌信息
+			if (m_addplate == 1){
+				imageMix.DrawStringEx(0, 10, 100, &Plate);
+			}
+			//判断叠加时间信息
+			if (m_addtime == 1){
+				imageMix.DrawStringEx(0, 10, 200, &Time);
+			}
+			long size = 0;
+			BYTE* buffer = 0;
+			imageMix.Encode(buffer, size, CXIMAGE_FORMAT_JPG);
+
+			CameraIMG img;
+			img.pbImgData = new unsigned char[size];
+			memcpy(img.pbImgData, buffer, size);
+			img.dwImgSize = size;
+
+			const char* pchImgRootPath = imgPath;   //保存结果的指定路径
+			imageMix.FreeMemory(buffer);
+			CameraIMG *p;
+			p = &img;
+			SaveImgStructFunc(p, type_tailImg, index, pchImgRootPath);    //保存车尾图
+		}
+}
+
 
 void Camera6467_VFR::copyStringToBuffer(char* bufer, size_t bufLen, const char * srcStr)
 {

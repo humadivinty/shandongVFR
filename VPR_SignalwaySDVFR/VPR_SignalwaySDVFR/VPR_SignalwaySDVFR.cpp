@@ -214,6 +214,9 @@ VPR_SIGNALWAYSDVFR_API int D_CALLTYPE VLPR_GetStatusMsg(int nStatusCode, char* s
 	case ERROR_OCCUPIED:
 		sprintf(chStatus, "Device is occupied.");
 		break;
+	case ERROR_OPENFAILED:
+		sprintf(chStatus, "Open failed.");
+		break;
 	case ERROR_OTHER:
 	default:
 		sprintf(chStatus, "error unknown.");

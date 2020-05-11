@@ -155,6 +155,9 @@ public:
 	void SendFrontResultByCallback(std::shared_ptr<CameraResult> pResult, int index);
 	void SendTailResultByCallback(std::shared_ptr<CameraResult> pResult, int index);
 	void FontAdd(std::shared_ptr<CameraResult> pResult, int index, const char* imgPath);
+	void BeginFontAdd(std::shared_ptr<CameraResult> pResult, int index, const char* imgPath);
+	void LastFontAdd(std::shared_ptr<CameraResult> pResult, int index, const char* imgPath);
+
 
     /************************************************************************/
     /* 循环删除日志线程                                                                     */
@@ -202,6 +205,8 @@ private:
     int m_iResultMsg;
     int m_iWaitVfrTimeOut;
     int m_iResultModule;
+	int m_addplate;
+	int m_addtime;
 	int m_iFontSize;
 	int m_iFontAddcolorR;
 	int m_iFontAddcolorG;
