@@ -739,6 +739,9 @@ void BaseCamera::ReadConfig()
     Tool_ReadIntValueFromConfigFile(INI_FILE_NAME, "Video", "DelayTime", iTemp);
 	setVideoDelayTime(iTemp);
 
+	iTemp = 2;
+	Tool_ReadIntValueFromConfigFile(INI_FILE_NAME, "Video", "videocontrol", iTemp);
+	m_iVideoPlayChannel = iTemp;
 }
 
 void BaseCamera::SetLogPath(const char* path)
@@ -2343,6 +2346,11 @@ void BaseCamera::recordChannelWinHandle(int channelID, void* handle)
     {
         m_hSecondWinHandle = handle;
     }
+}
+
+int BaseCamera::GetVideoPlayChannel()
+{
+	return m_iVideoPlayChannel;
 }
 
 #endif

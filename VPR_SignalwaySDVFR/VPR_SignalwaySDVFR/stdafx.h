@@ -24,7 +24,7 @@
 #include<ctime>
 #include<atltime.h>
 
-#define DLL_VERSION "2019121101"
+#define DLL_VERSION "2020072201"
 #define INI_FILE_NAME "\\VPR_SignalwaySDVFR.ini"
 #define DLL_LOG_NAME "WJSWDLL"
 #define  LOG_DIR_NAME "XLWLog"

@@ -25,6 +25,8 @@
 #define	ERROR_PARAMETERS_INVALID (-1000)
 #define	ERROR_OCCUPIED	(-1001)
 #define	ERROR_OPENFAILED (-1002)
+#define	ERROR_PLAY_ERROR (-1003)
+#define	ERROR_STOP_PLAY_ERROR (-1005)
 #define	ERROR_OTHER (-2000)
 
 std::list<int> g_lsLoginIDList;
@@ -217,6 +219,12 @@ VPR_SIGNALWAYSDVFR_API int D_CALLTYPE VLPR_GetStatusMsg(int nStatusCode, char* s
 	case ERROR_OPENFAILED:
 		sprintf(chStatus, "Open failed.");
 		break;
+	case ERROR_PLAY_ERROR:
+		sprintf(chStatus, "play failed.");
+		break;
+	case ERROR_STOP_PLAY_ERROR:
+		sprintf(chStatus, "stop play failed.");
+		break;
 	case ERROR_OTHER:
 	default:
 		sprintf(chStatus, "error unknown.");
@@ -355,7 +363,8 @@ VPR_SIGNALWAYSDVFR_API int D_CALLTYPE VLPR_StartDisplay(int nHandle, int nWidth,
 	const HWND h = (const HWND)nFHandle;
 	if (pCamera)
 	{
-		((BaseCamera*)pCamera)->StartPlayVideoByChannel(3, h);
+		int iPlayChannel = pCamera->GetVideoPlayChannel();
+		((BaseCamera*)pCamera)->StartPlayVideoByChannel(iPlayChannel, h);
 	}
 	WRITE_LOG("StartPlayVideo end");
 	return ERROR_OK;

@@ -226,6 +226,8 @@ public :
 
     int StartPlayVideo(int iChannelID, HANDLE& playHandle, const HWND winHandle);
     void StopPlayVideo(HANDLE& playHandle);
+
+	int GetVideoPlayChannel();
 #endif
 
     void setVideoAdvanceTime(int iTime);
@@ -259,6 +261,7 @@ protected:
     int m_iVideoAdvanceTime;
     int m_iVideoDelayTime;
     int m_iVideoMode;
+	int m_iVideoPlayChannel;
 
     int m_iLogHoldDay;
     int m_iResultHoldDay;
